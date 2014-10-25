@@ -10,12 +10,6 @@
  */
 
 module.exports.http = {
-
-    customMiddleware: function (app) {
-        console.log(__dirname);
-        var express = require('../node_modules/sails/node_modules/express');
-        app.use('/',express.static(__dirname+"/../app"));
-    }
   /****************************************************************************
   *                                                                           *
   * Express middleware to use for every Sails request. To add custom          *
