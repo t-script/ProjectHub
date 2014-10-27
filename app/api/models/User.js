@@ -53,9 +53,6 @@ module.exports = {
   		required: true,
       defaultsTo: false,
   	},
-
-    autoCreatedAt: true,
-    autoUpdatedAt: true
   },
 
   // Before saving to db hash password
