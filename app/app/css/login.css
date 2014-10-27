@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+body {
+    background-color: #f2f2f2;
+    color: #424242;
+}
+
+/* Design */
+div.wrapper {
+    position: relative;
+    top: 50px;
+    margin: 0 auto;
+    width: 400px;
+    height: 500px;
+    background-color: #ffffff;
+}
+
+header {
+    padding: 10px;
+    background-color: #5677fC;
+    font-size: 20px;
+    color: #D0D9FF;
+}
+
+nav {
+    padding: 10px;
+    background-color: #5677fC;
+    color: #D0D9FF;
+}
+
+nav ul {
+
+}
+
+nav li {
+    display: inline;
+    margin-right: 25px;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #D0D9FF;
+}
+
+nav li a:hover {
+    color: #FFFFFF;
+}
+/* ------------------ */
+
+/* Form Design */

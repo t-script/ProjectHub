@@ -48,4 +48,27 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+
+ /***************************************************************************
+  *                                                                         *
+  * MODEL POLICIES                                                          *
+  *                                                                         *
+  ***************************************************************************/
+
+  'user': {
+    '*': false,
+    'create': 'isLoggedOut',
+    'update': 'isLoggedIn'
+  },
+
+  /***************************************************************************
+  *                                                                          *
+  * CONTROLLER POLICIES                                                      *
+  *                                                                          *
+  ***************************************************************************/
+
+  LoginController: {
+    'login': 'isLoggedOut',
+    'logout': 'isLoggedIn'
+  }
 };
