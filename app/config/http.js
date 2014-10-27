@@ -10,8 +10,7 @@
  */
 
 module.exports.http = {
-
-    customMiddleware: function (app) {
+customMiddleware: function (app) {
         console.log(__dirname);
         var express = require('../node_modules/sails/node_modules/express');
         app.use('/',express.static(__dirname+"/../app"));
