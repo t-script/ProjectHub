@@ -12,7 +12,8 @@ angular.module('phStart', ['ui.router'])
 
             .state('signup', {
                 url: '/signup',
-                templateUrl: 'templates/signin/signUp.html'
+                templateUrl: 'templates/signin/signUp.html',
+                controller: 'SingupCtrl'
             })
 
             .state('forgotPassword', {
