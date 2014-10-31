@@ -18,7 +18,8 @@ angular.module('phStart', ['ui.router'])
 
             .state('forgotPassword', {
                 url: '/forgotPassword',
-                templateUrl: 'templates/signin/forgotPassword.html'
+                templateUrl: 'templates/signin/forgotPassword.html',
+                controller: 'ForgotPasswordCtrl'
             })
 
             .state('menu', {
