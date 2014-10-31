@@ -6,7 +6,8 @@ angular.module('phStart', ['ui.router'])
         $stateProvider
             .state('signin', {
                 url: '/signin',
-                templateUrl: 'templates/signin/signIn.html'
+                templateUrl: 'templates/signin/signIn.html',
+                controller: 'SinginCtrl'
             })
 
             .state('signup', {

@@ -1,9 +1,22 @@
 <h1>Sign in</h1>
 <hr />
-<form method="post" action="">
-    <p><input id="username" type="text" placeholder="Usernanme"></p>
-    <p><input id="password" type="password" placeholder="Password"></p>
-    <button type="submit">SIGN IN</button>
+<form method="post" action="" name="frmSignIn" ng-submit="signin(frmSignIn.$valid)" novalidate>
+    <div class="inputmsg">
+        <input id="username" name="username" type="text" placeholder="Username" ng-model="user.username" ng-minlength="3" ng-maxlength="32" required>
+        <br />
+        <span ng-show="frmSignIn.username.$error.minlength"><i class="info icon"></i> Username is too short.</span>
+        <span ng-show="frmSignIn.username.$error.maxlength"><i class="info icon"></i> Username is too long.</span>
+        <span ng-show="frmSignIn.username.$error.required && frmSignIn.username.$dirty"><i class="info icon"></i> Username is required.</span>
+    </div>
+
+    <div class="inputmsg">
+        <input id="password" name="password" type="password" placeholder="Password" ng-model="user.password" ng-minlength="5" required>
+        <br />
+        <span ng-show="frmSignIn.password.$error.minlength"><i class="info icon"></i> Password is too short.</span>
+        <span ng-show="frmSignIn.password.$error.required && frmSignIn.password.$dirty""><i class="info icon"></i> Password is required.</span>
+    </div>
+    <button type="submit" ng-disabled="frmSignIn.$invalid">SIGN IN</button>
+
 </form>
 <p><a href="#/forgotPassword">Forgot password?</a></p>
 <p><a href="#/signup">Not a member yet? Get an ProjectHub ID</a></p>
