@@ -9,12 +9,21 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.http.html
  */
 
+
 module.exports.http = {
+/*
 customMiddleware: function (app) {
-        console.log(__dirname);
-        var express = require('../node_modules/sails/node_modules/express');
-        app.use('/',express.static(__dirname+"/../app"));
-    }
+    console.log(__dirname);
+    var express = require('../node_modules/sails/node_modules/express');
+    app.use('/', express.static(__dirname + "/../app/"));
+
+    app.get('/signin', function (req, res) {
+        res.status(200).sendfile('./app/signin.html');
+    });
+
+}
+*/
+
   /****************************************************************************
   *                                                                           *
   * Express middleware to use for every Sails request. To add custom          *
