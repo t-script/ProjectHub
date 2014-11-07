@@ -32,9 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-      view: 'index'
-  },
+  '/': 'IndexController.index',
 
   '/start': {
       view: 'signin'

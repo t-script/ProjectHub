@@ -26,7 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  //'index': 'isLoggedIn',
 
   /***************************************************************************
   *                                                                          *
@@ -66,6 +66,9 @@ module.exports.policies = {
   * CONTROLLER POLICIES                                                      *
   *                                                                          *
   ***************************************************************************/
+  IndexController: {
+     'index': 'isLoggedIn'
+  },
 
   LoginController: {
     'login': 'isLoggedOut',
