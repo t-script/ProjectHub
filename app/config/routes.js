@@ -33,8 +33,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-      view: 'index',
-      title: 'Dashboard'
+      view: 'index'
   },
 
   '/start': {
