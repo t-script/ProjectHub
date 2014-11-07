@@ -1,4 +1,5 @@
 module.exports = function (grunt) {
+
 	grunt.registerTask('compileAssets', [
 		'clean:dev',
 		'jst:dev',
@@ -6,4 +7,5 @@ module.exports = function (grunt) {
 		'copy:dev',
 		'coffee:dev'
 	]);
+
 };

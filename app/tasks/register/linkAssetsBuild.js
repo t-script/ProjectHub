@@ -1,4 +1,5 @@
 module.exports = function (grunt) {
+
 	grunt.registerTask('linkAssetsBuild', [
 		'sails-linker:devJsRelative',
 		'sails-linker:devStylesRelative',
@@ -7,4 +8,5 @@ module.exports = function (grunt) {
 		'sails-linker:devStylesRelativeJade',
 		'sails-linker:devTplJade'
 	]);
+
 };
