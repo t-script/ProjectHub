@@ -1,6 +1,7 @@
 $(document).ready(function () {
     sizeContent();
     $(window).resize(sizeContent);
+    $('.tooltip').popup();
 });
 
 function sizeContent() {
