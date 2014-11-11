@@ -7,11 +7,6 @@
     font-weight: 300;
 }
 
-body {
-    background-color: #424242;
-    color: #424242;
-}
-
 b {
     font-weight: 400;
 }
@@ -115,6 +110,10 @@ div.jumboH1 {
 /* ---------------------------------------------------------- */
 
 /* Wrapper Design */
+div.background {
+    background-color: #424242;
+}
+
 div.wrapper {
     position: relative;
     margin: 0 auto;

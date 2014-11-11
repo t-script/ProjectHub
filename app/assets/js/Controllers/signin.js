@@ -4,9 +4,8 @@ angular.module('phStart').controller('SinginCtrl', function($scope){
     $scope.signin = function() {
         if ($scope.frmSignIn.$valid) {
             var data = {};
-            data.username = user.username;
-            data.password = user.password;
-            console.log(user.username);
+            data.username = $scope.user.username;
+            data.password = $scope.user.password;
             $.ajax({
                 type: "POST",
                 url: '/login',
@@ -14,9 +13,10 @@ angular.module('phStart').controller('SinginCtrl', function($scope){
                 contentType: 'application/json',
                 success: function(data)
                 {
-                    console.log("Sign --> Okay");
+                    console.log("Sign in --> Okay");
                 }
             });
+            window.location.replace('/');
         }
     };
 });
