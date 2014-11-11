@@ -30,15 +30,21 @@ var jsFilesToInject = [
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',
 
+   'js/jquery/**/*.js',
+
+    //AngularJS
+    'lib/angular/*.js',
+    'lib/**/*.js',
+
+    'js/appSignin.js',
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/**/*.js',
 
   //Semantic files
-  'semantic/**/*.js',
+  'semantic/**/*.js'
 
-  //AngularJS
-  'lib/**/*.js'
+
 ];
 
 
