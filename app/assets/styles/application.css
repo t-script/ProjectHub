@@ -1,0 +1,272 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #9e9e9e;
+  margin-bottom: 1.0em;
+}
+
+body {
+  background-color: #f2f2f2;
+  color: #424242;
+  min-width: 800px;
+}
+
+/* Blue Sidebar */
+aside.sidenav {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 2.75em;
+  height: 100%;
+  background-color: #5677fC;
+  color: #D0D9FF;
+  z-index: 9999;
+}
+
+aside.sidenav section {
+  font-size: 1.25em;
+  margin-top: 5px;
+  padding: 0.4em;
+  cursor:pointer;
+}
+
+aside.sidenav section:hover {
+  background: #738ffe;
+  color: #fff;
+}
+
+.logo {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  position: fixed;
+  left: -43px;
+  bottom: 70px;
+  font-size: 1.2em;
+  color: #FFFFFF;
+  z-index: 9999;
+
+}
+
+.logo b {
+  font-weight: 400;
+}
+/*###############################################*/
+
+
+/*Sidemenu like Project */
+aside.sidemenu {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 2.75em;
+  width: 16em;
+  height: 100%;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  color: #424242;
+  z-index: 900;
+}
+
+aside.sidemenu header {
+  padding: 1.0em;
+  background-color: #f9f9f9;
+  color: #666666;
+  font-size: 1.5em;
+}
+
+aside.sidemenu fieldset {
+  margin: 0.4em;
+  margin-top: 0.6em;
+  padding: 0.2em;
+  border: 0px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #666666;
+}
+
+aside.sidemenu fieldset input {
+  margin: 0.2em 0.5em;
+  border: 0px;
+  color: #666666;
+  font-size: 1.0em;
+}
+
+aside.sidemenu ul {
+}
+
+aside.sidemenu li {
+  list-style: none;
+  padding: 0.5em 0.8em;
+  cursor: pointer;
+}
+
+aside.sidemenu li:hover {
+  color: #000000;
+  background-color: #f9f9f9;
+}
+
+.remove {
+  position: fixed;
+  left: 17.2em;
+  top: 0.2em;
+  color: #666666;
+  cursor: pointer;
+}
+/*###############################################*/
+
+/* White header */
+div.head {
+  position: fixed;
+  top: 0;
+  left: 2.75em;
+  height: 3.0em;
+  width: 100%;
+  background-color: #ffffff;
+  color: #666666;
+  z-index: 500;
+
+}
+
+div.head_h1 {
+  position: absolute;
+  left: 4.75em;
+  z-index: 800;
+  color: #666666;
+}
+
+div.head_h1 h1 {
+  padding-top: 0.5em;
+  font-size: 1.1em;
+}
+
+div.head ul {
+  padding-top: 0.75em;
+  text-align: right;
+}
+
+div.head li {
+  display: inline;
+  list-style: none;
+  margin-right: 1.2em;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+div.head li i {
+  font-size: 1.5em;
+}
+/*###############################################*/
+
+/* Chat Window */
+div.privatchat {
+  display: none;
+  position: absolute;
+  top:0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: rgba(2, 2, 2, 0.4);
+  z-index: 100;
+}
+
+div.privatchat ul {
+  padding-top: 4.0em;
+}
+
+div.privatchat li {
+  margin-bottom: 1.0em;
+  padding-left: 1.0em;
+  list-style: none;
+  color: #fafafa;
+}
+/*###############################################*/
+
+/* Project Heeader */
+div.subhead {
+  position: fixed;
+  top: 3.0em;
+  left: 2.75em;
+  width: 100%;
+  height: 2.0em;
+  background-color: #f9f9f9;
+}
+
+div.subhead ul {
+  display: block;
+  padding-left: 2.0em;
+  padding-top: 0.2em;
+}
+
+div.subhead li {
+  margin-right: 1.5em;
+  display: inline;
+  list-style: none;
+  font-size: 0.9em;
+  font-weight: 400;
+  color: #666666;
+  cursor: pointer;
+}
+
+div.subhead li:hover {
+  color: #5677fC;
+}
+
+div.groupchat_header{
+  position: fixed;
+  left: 65%;
+  top: 3.69em;
+  font-size: 0.9em;
+  font-weight: 400;
+  color: #666666;
+}
+
+div.groupchat {
+  position: fixed;
+  top: 5.0em;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+div.groupchat li {
+  padding: 0.5em 1.5em;
+  list-style: none;
+  font-size: 0.8em;
+  color: #666666;
+}
+
+div.container {
+  position: absolute;
+  top: 6.0em;
+  left: 4.75em;
+  width: 800px;
+}
+/*###############################################*/
+
+/* Members */
+table.members {
+  border: 0;
+}
+
+
+td.icon {
+  background-color: #5677fC;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5em;
+  text-align: center;
+  color: #f2f2f2;
+}
+
+td.name {
+  padding-left: 2.0em;
+}
+/*###############################################*/

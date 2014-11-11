@@ -38,6 +38,8 @@ module.exports.routes = {
       view: 'signin'
   },
 
+  '/app/kanban': 'KanbanController.loadBoard',
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
