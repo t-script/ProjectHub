@@ -8,6 +8,10 @@
 module.exports = {
 	index: function (req, res){
 		res.view('index');
-	}
+	},
+
+  singin: function (req, res){
+    res.view('signin');
+  }
 };
 

@@ -67,11 +67,13 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
   IndexController: {
-     'index': 'isLoggedIn'
+     'index': 'isLoggedIn',
+     'singin': 'isLoggedOut'
   },
 
   LoginController: {
     'login': 'isLoggedOut',
-    'logout': 'isLoggedIn'
+    'logout': 'isLoggedIn',
+    'resetPassword': true
   }
 };
