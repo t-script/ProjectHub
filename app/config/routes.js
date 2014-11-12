@@ -25,6 +25,8 @@ module.exports.routes = {
 
   '/start': 'IndexController.singin',
 
+  '/app/kanban': 'KanbanController.loadBoard',
+
   'POST /login'  : 'LoginController.login',
   'POST /logout' : 'LoginController.logout',
   'POST /forgot' : 'LoginController.forgotPassword',
