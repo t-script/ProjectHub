@@ -6,6 +6,8 @@
  */
 
 module.exports = {
-	
+	/* DO NOT DELETE
+	 * Datei wird von Sails benötigt, sonst können keine Rest-Operationen auf das Usermodel durchgeführt werden!
+	 */
 };
 

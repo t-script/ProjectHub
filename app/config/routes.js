@@ -22,10 +22,7 @@
 
 module.exports.routes = {
   '/': 'IndexController.index',
-
   '/start': 'IndexController.singin',
-
-  '/app/kanban': 'KanbanController.loadBoard',
 
   'POST /login'  : 'LoginController.login',
   'POST /logout' : 'LoginController.logout',

@@ -13,10 +13,11 @@ angular.module('phStart').controller('SinginCtrl', function($scope){
                 contentType: 'application/json',
                 success: function(data)
                 {
-                    console.log("Sign in --> Okay");
+                  console.log("Sign in --> Okay");
+                  window.location.replace('/');
+                  window.location.reload();
                 }
             });
-            window.location.replace('/');
         }
     };
 });
