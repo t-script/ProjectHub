@@ -11,18 +11,20 @@
 
 
 module.exports.http = {
-/*
+
 customMiddleware: function (app) {
     console.log(__dirname);
     var express = require('../node_modules/sails/node_modules/express');
-    app.use('/', express.static(__dirname + "/../app/"));
+    app.use('/', express.static(__dirname + "/../frontend"));
 
-    app.get('/signin', function (req, res) {
-        res.status(200).sendfile('./app/signin.html');
+    app.get('/start', function (req, res) {
+        sails.log.info(req.session.authenticated);
+        res.status(200).sendfile('./frontend/signin.html');
     });
 
 }
-*/
+
+
 
   /****************************************************************************
   *                                                                           *

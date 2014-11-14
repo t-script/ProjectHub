@@ -21,11 +21,10 @@
  */
 
 module.exports.routes = {
-  '/': 'IndexController.index',
-  '/start': 'IndexController.singin',
-
-  'POST /login'  : 'LoginController.login',
-  'POST /logout' : 'LoginController.logout',
-  'POST /forgot' : 'LoginController.forgotPassword',
-  'POST /reset'  : 'LoginController.resetPassword',
+    '/': 'IndexController.index',
+    '/start': 'IndexController.singin',
+    'POST /login' : 'LoginController.login',
+    'POST /logout' : 'LoginController.logout',
+    'POST /forgot' : 'LoginController.forgotPassword',
+    'POST /reset' : 'LoginController.resetPassword',
 };
