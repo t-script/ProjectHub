@@ -7,11 +7,11 @@
 
 module.exports = {
 	index: function (req, res){
-		res.view('index');
+    res.sendfile(sails.config.paths.views + '\\index.html');
 	},
 
   singin: function (req, res){
-    res.view('signin');
+    res.sendfile(sails.config.paths.views + '\\signin.html');
   }
 };
 

@@ -41,7 +41,7 @@ module.exports = {
 				if (match){
 					sails.log.info('User "'+req.body.username+'" logged in!');
 					req.session.authenticated = true;
-					return res.view('index');
+          return res.json('Success', 200);
 				}else{
 					sails.log.info('Invalid password');
 					req.session.authenticated = false;

@@ -13,16 +13,10 @@
 module.exports.http = {
 
 customMiddleware: function (app) {
-    console.log(__dirname);
+    sails.config.paths.views = sails.config.rootPath + '\\frontend';
     var express = require('../node_modules/sails/node_modules/express');
     app.use('/', express.static(__dirname + "/../frontend"));
-
-    app.get('/start', function (req, res) {
-        sails.log.info(req.session.authenticated);
-        res.status(200).sendfile('./frontend/signin.html');
-    });
-
-}
+},
 
 
 
@@ -36,7 +30,7 @@ customMiddleware: function (app) {
   *                                                                           *
   ****************************************************************************/
 
-  // middleware: {
+   middleware: {
 
   /***************************************************************************
   *                                                                          *
@@ -45,23 +39,23 @@ customMiddleware: function (app) {
   *                                                                          *
   ***************************************************************************/
 
-    // order: [
-    //   'startRequestTimer',
-    //   'cookieParser',
-    //   'session',
-    //   'myRequestLogger',
-    //   'bodyParser',
-    //   'handleBodyParserError',
-    //   'compress',
-    //   'methodOverride',
-    //   'poweredBy',
-    //   '$custom',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    //   '404',
-    //   '500'
-    // ],
+     order: [
+       'startRequestTimer',
+       'cookieParser',
+       'session',
+       'myRequestLogger',
+       'bodyParser',
+       'handleBodyParserError',
+       'compress',
+       'methodOverride',
+       'poweredBy',
+       'router',
+       '$custom',
+       'www',
+       'favicon',
+       '404',
+       '500'
+     ],
 
   /****************************************************************************
   *                                                                           *
@@ -86,7 +80,7 @@ customMiddleware: function (app) {
 
     // bodyParser: require('skipper')
 
-  // },
+   },
 
   /***************************************************************************
   *                                                                          *
