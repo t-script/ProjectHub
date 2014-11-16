@@ -1,0 +1,90 @@
+/* general */
+
+.float-right {
+  float: right;
+}
+
+#board { margin: 0; padding: 0 10px 0 10px;}
+
+#board {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: rgba(0,0,0,0);
+}
+
+div.story,
+div.task {
+  position: relative;
+  padding: 5px 0;
+  margin: 4px 4px 4px 0;
+  text-align: center;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+div.story {
+  margin: 0 5px 0 0;
+}
+
+div.story h3,
+div.task h3 {
+  font-size: 13px;
+  line-height: 13px;
+  padding: 0;
+  margin: 5px;
+  text-align: center;
+  text-shadow: none;
+  font-weight: normal;
+  transform-style: preserve-3d;
+  -webkit-backface-vivbility: hidden;
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform-style: preserve-3d;
+}
+
+.card-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-height: 50px;
+}
+
+.default {
+  box-shadow: inset rgba(0, 0, 0, 0.0980392) 0 1px 10px 0;
+}
+.default-color { background-color: #ffffff; }
+
+.card {
+  padding: 10px;
+}
+
+.card-title {
+  color: #7c9eb2;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 1.5em;
+  padding: 2px 1px;
+  display: block;
+}
+
+.addNewCard {
+  float: right;
+  padding-right: 30px;
+  color:  green;
+}
+
+.removeCard {
+  padding: 12px;
+  color: #444;
+}
+
+#kanban-menus {
+  padding: 1em 2.2em 0;
+}
