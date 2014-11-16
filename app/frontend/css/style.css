@@ -34,6 +34,10 @@ aside.sidenav section:hover {
     color: #fff;
 }
 
+aside.sidenav a {
+    color: #D0D9FF;
+}
+
 .logo {
     -webkit-transform: rotate(270deg);
     -moz-transform: rotate(270deg);
@@ -51,3 +55,57 @@ aside.sidenav section:hover {
     font-weight: 400;
 }
 /*###############################################*/
+
+/* Header */
+div.head {
+    position: fixed;
+    top: 0;
+    left: 2.75em;
+    height: 3.0em;
+    width: 100%;
+    background-color: #ffffff;
+    color: #666666;
+    z-index: 500;
+
+}
+
+div.head_h1 {
+    position: absolute;
+    left: 4.75em;
+    z-index: 800;
+    color: #666666;
+}
+
+div.head_h1 h1 {
+    padding-top: 0.5em;
+    font-size: 1.1em;
+}
+
+div.head ul {
+    padding-top: 0.75em;
+    text-align: right;
+}
+
+div.head li {
+    display: inline;
+    list-style: none;
+    margin-right: 1.2em;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+div.head li.last {
+    margin-right: 5.0em;
+}
+
+div.head li i {
+    font-size: 1.5em;
+}
+/*###############################################*/
+
+div.container {
+    position: absolute;
+    top: 3.0em;
+    left: 2.75em;
+    width: calc(100% - 2.75em);
+}
