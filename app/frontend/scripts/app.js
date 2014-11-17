@@ -53,7 +53,7 @@ angular.module('phApp', [
                 },
                 controller: 'SettingsCtrl'
             })
-            
+
             /* ---- JUST FOR TESTING ---- */
             .state('kanban', {
                 url: '/project/kanban',
