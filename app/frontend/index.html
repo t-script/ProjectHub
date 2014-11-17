@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <title>ProjectHub</title>
     <link href="/semantic/css/semantic.min.css" rel="stylesheet" type="text/css" />
-
-  <!-- all the stupid kanban stylesheets -->
-  <link rel="stylesheet" type="text/css" href="lib/angular-ng-sortable/ng-sortable.css">
-  <link rel="stylesheet" type="text/css" href="lib/angular-ng-sortable/ng-sortable.style.css">
-  <link rel="stylesheet" type="text/css" href="css/kanban.css">
-  <link rel="stylesheet" type="text/css" href="css/scrollableContainer.css">
-  <link rel="stylesheet" type="text/css" href="css/containerPositioning.css">
-
-
+    <!-- all the stupid kanban stylesheets -->
+    <link rel="stylesheet" type="text/css" href="lib/angular-ng-sortable/ng-sortable.css">
+    <link rel="stylesheet" type="text/css" href="lib/angular-ng-sortable/ng-sortable.style.css">
+    <link rel="stylesheet" type="text/css" href="css/kanban.css">
+    <link rel="stylesheet" type="text/css" href="css/scrollableContainer.css">
+    <link rel="stylesheet" type="text/css" href="css/containerPositioning.css">
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
 </head>
@@ -26,9 +23,8 @@
         <a href="#/settings"><section class="tooltip" title="Settings"><i class="setting icon"></i></section></a>
     </aside>
     <a href="#/"><div class="logo"><i class="bolt icon"></i><b>Project</b>Hub</div></a>
-
     <!-- Header -->
-    <div  class="head_h1"><h1 ng-bind="$root.title"></h1></div>
+    <div class="head_h1"><h1 ng-bind="$root.title"></h1></div>
     <div class="head">
         <ul>
             <li><i class="bell outline icon"></i></li>
@@ -38,13 +34,10 @@
     </div>
     <div class="container" ui-view="mainView">
     </div>
-
-
     <!-- Scripts -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="/semantic/javascript/semantic.min.js"></script>
     <script src="/scripts/script.js"></script>
-
     <script src="/lib/angular/angular.js"></script>
     <script src="/lib/angular-ui-router/angular-ui-router.js"></script>
     <script src="/scripts/app.js"></script>
@@ -54,19 +47,16 @@
     <script src="/scripts/Controllers/calendar.js"></script>
     <script src="/scripts/Controllers/files.js"></script>
     <script src="/scripts/Controllers/settings.js"></script>
-
     <!-- Kanban Scripts -->
     <script src="/scripts/Controllers/project/kanban.js"></script>
     <script src="/scripts/Controllers/project/newCard.js"></script>
     <script src="/scripts/services/BoardDataFactory.js"></script>
     <script src="/scripts/services/BoardManipulator.js"></script>
     <script src="/scripts/services/BoardService.js"></script>
-
     <script type="text/javascript" src="/scripts/kanban/plunker.js"></script>
     <script type="text/javascript" src="/scripts/kanban/model.js"></script>
     <script type="text/javascript" src="/scripts/kanban/containerPositioning.js"></script>
     <script type="text/javascript" src="/scripts/kanban/scrollableContainer.js"></script>
-
     <script type="text/javascript" src="/lib/angular-ng-sortable/ng-sortable.js"></script>
     <script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
 </body>
