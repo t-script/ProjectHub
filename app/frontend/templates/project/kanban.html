@@ -1,26 +1,25 @@
-<div id="kanban-menus">
-  <div class="ui button">
-    Backlog
+<div id="kanban" ng-controller="KanbanCtrl">
+  <div id="kanban-menus">
+    <div class="ui button">
+      Backlog
+    </div>
+    <div class="ui buttons float-right">
+      <div class="ui button">Customize</div>
+      <div class="ui button" ng-click="addNewTicket()">Add Ticket</div>
+    </div>
   </div>
-  <div class="ui buttons float-right">
-    <div class="ui button">Customize</div>
-    <div class="ui button">Add Ticket</div>
-  </div>
-</div>
 
-<div id="board" class="ui four column grid" ng-model="kanbanBoard" ng-controller="KanbanCtrl">
+  <div id="board" class="ui four column grid" ng-model="kanbanBoard">
 
     <div ng-repeat="column in kanbanBoard.columns" data-columnindex="{{$index}}" id="column{{$index}}" class="column">
 
-        <h4 class="ui top attached header">
-          <a title="Add card to column" ng-click="addNewCard(column)"><i class="plus icon"></i></a>
-          {{column.name}} ({{column.cards.length}})
-        </h4>
-        <div class="ui raised segment attached">
-          <ul class="cards card-list" as-sortable="kanbanSortOptions" ng-model="column.cards">
-            <li class="card" ng-repeat="card in column.cards" as-sortable-item ng-include="'/templates/project/partials/card.html'"></li>
-          </ul>
-        </div>
+      <h4 class="ui top attached header"> {{column.name}} ({{column.cards.length}}) </h4>
+      <div class="ui raised segment attached">
+        <ul class="cards card-list" as-sortable="kanbanSortOptions" ng-model="column.cards">
+          <li class="card" ng-repeat="card in column.cards" as-sortable-item ng-include="'/templates/project/partials/card.html'"></li>
+        </ul>
+      </div>
 
+    </div>
   </div>
 </div>

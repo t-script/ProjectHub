@@ -4,24 +4,26 @@
 
 'use strict';
 
-angular.module('phApp').controller('newCardCtrl', ['$scope', '$modalInstance', 'column', function ($scope, $modalInstance, column) {
+var app = angular.module('phApp');
+
+app.controller('newCardCtrl', ['$scope', 'ngDialog', function ($scope, ngDialog) {
 
   function initScope(scope) {
-    scope.columnName = column.name;
-    scope.column = column;
-    scope.title = '';
-    scope.details = '';
+    scope.ticket = '';
+    scope.name = '';
+    scope.columnName = '';
+    scope.description = '';
   }
 
   $scope.addNewCard = function () {
-    if (!this.newCardForm.$valid) {
+    if (!this.newTicketForm.$valid) {
       return false;
     }
-    $modalInstance.close({title: this.title, column: column, details: this.details});
-  };
 
-  $scope.close = function () {
-    $modalInstance.close();
+    //add new ticket here
+
+    //$modalInstance.close({title: this.title, column: column, details: this.details});
+    $scope.closeThisDialog('');
   };
 
   initScope($scope);

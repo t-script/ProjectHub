@@ -1,14 +1,14 @@
 
 .as-sortable-item,
 .as-sortable-placeholder {
-    width: 124px;
+    width: 70%;
     margin: 2px;
     border: 1px solid #ff0000;
     border-radius: 5px;
 }
 
 .as-sortable-placeholder {
-  border: 1px dotted #0000ff !important;
+  border: none !important;
 }
 
 #sortable-container {

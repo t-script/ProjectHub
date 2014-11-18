@@ -1,32 +1,24 @@
 <!-- New Card template -->
 
-<div class="ui modal">
-  <i class="close icon"></i>
-  <div class="header">
-    Header
-  </div>
-  <div class="content">
+  <h2>Add new ticket</h2>
+<form name="newTicketForm" novalidate class="simple-form" ng-submit="addNewCard()">
+  Name: <input type="text" ng-model="ticket.title" maxlength="35"/><br />
 
-    <form ng-submit="addNewCard()" name="newCardForm">
+  Column: <select ng-init="ticket.column = kanbanBoard.columns[0]" ng-model="ticket.column" ng-options="column.name for column in kanbanBoard.columns" ></select><br>
 
-      </form>
+  Description: <textarea ng-model="ticket.description" class="cardInputs form-control" maxlength="150"></textarea><br>
 
-    <div class="left">
-      Some content to the left, usually an image or icon
-    </div>
-    <div class="right">
-      Some content to the right
-    </div>
-  </div>
-  <div class="actions">
-    <div class="ui button">
-      Cancel
-    </div>
-    <div class="ui button">
-      Okay
-    </div>
-  </div>
-</div>
+  Type: <select ng-init="ticket.type = kanbanBoard.columns[0]" ng-model="ticket.type" ng-options="column.name for column in kanbanBoard.columns" ></select><br>
+
+  Category: <select ng-init="ticket.category = kanbanBoard.columns[0]" ng-model="ticket.category" ng-options="column.name for column in kanbanBoard.columns" ></select><br>
+
+  <button ng-click="reset()">RESET</button>
+  <button ng-click="update(user)">SAVE</button>
+  <button type="button" class="btn btn-default" ng-click="closeThisDialog('')">Close</button>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+<!-- <pre>ticket = {{ticket | json}}</pre>
+<pre>master = {{master | json}}</pre>
 
   <!--
 <form ng-submit="addNewCard()" name="newCardForm">
@@ -58,6 +50,4 @@
         <button type="button" class="btn btn-default" ng-click="close()">Close</button>
         <button type="submit" class="btn btn-primary">Add</button>
     </div>
-</form>
-
--->
+</form> -->

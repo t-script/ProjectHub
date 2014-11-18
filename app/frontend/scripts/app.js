@@ -1,10 +1,26 @@
-angular.module('phApp', [
+var app = angular.module('phApp', [
         'ui.router',
         'ui.sortable',
-        'ui.bootstrap'
-    ])
+        'ui.bootstrap',
+        'ngDialog'
+    ]);
 
-    .config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
+    app.config(['ngDialogProvider', function (ngDialogProvider) {
+      ngDialogProvider.setDefaults({
+        className: 'ngdialog-theme-default',
+        plain: false,
+        showClose: true,
+        closeByDocument: true,
+        closeByEscape: true,
+        appendTo: false,
+        preCloseCallback: function () {
+          console.log('default pre-close callback');
+        }
+      });
+    }]);
+
+    app.config(
+      ['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
@@ -65,3 +81,5 @@ angular.module('phApp', [
             controller: 'KanbanCtrl'
           })
     }]);
+
+

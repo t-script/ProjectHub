@@ -3,7 +3,9 @@
 
 'use strict';
 
-angular.module('phApp').service('BoardService', ['$modal', 'BoardManipulator', function ($modal, BoardManipulator) {
+var app = angular.module('phApp');
+
+app.service('BoardService', ['$modal', 'BoardManipulator', function ($modal, BoardManipulator) {
 
   return {
       /**/
@@ -14,22 +16,15 @@ angular.module('phApp').service('BoardService', ['$modal', 'BoardManipulator', f
       },
 
       /**/
-      addNewCard: function (board, column) {
-        var modalInstance = $modal.open({
-          templateUrl: '/templates/project/partials/newCard.html',
-          controller: 'newCardCtrl',
-          backdrop: 'static',
-          resolve: {
-            column: function () {
-              return column;
-            }
-          }
-        });
-        modalInstance.result.then(function (cardDetails) {
-          if (cardDetails) {
-            BoardManipulator.addCardToColumn(board, cardDetails.column, cardDetails.title, cardDetails.details);
-          }
-        });
+      addNewCard: function (scope, ngDialog) {
+          scope.value = true;
+
+          ngDialog.open({
+            template: '/templates/project/partials/newCard.html',
+            controller: 'newCardCtrl',
+            className: 'ngdialog-theme-plain',
+            scope: scope
+          });
       },
 
 

@@ -8,8 +8,12 @@
   <!-- all the stupid kanban stylesheets -->
   <link rel="stylesheet" type="text/css" href="lib/angular-ng-sortable/ng-sortable.css">
   <link rel="stylesheet" type="text/css" href="lib/angular-ng-sortable/ng-sortable.style.css">
+  <link rel="stylesheet" href="lib/angular-ng-dialog/ngDialog.css">
+  <link rel="stylesheet" href="lib/angular-ng-dialog/ngDialog-theme-default.css">
+  <link rel="stylesheet" href="lib/angular-ng-dialog/ngDialog-theme-plain.css">
+
+
   <link rel="stylesheet" type="text/css" href="css/kanban.css">
-  <link rel="stylesheet" type="text/css" href="css/scrollableContainer.css">
   <link rel="stylesheet" type="text/css" href="css/containerPositioning.css">
 
 
@@ -40,13 +44,18 @@
     </div>
 
 
-    <!-- Scripts -->
+    <!---------- Scripts ----------->
+    <!-- Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular-ui-router/angular-ui-router.js"></script>
+    <script src="/lib/angular-ng-dialog/ngDialog.js"></script>
+    <script type="text/javascript" src="/lib/angular-ng-sortable/ng-sortable.js"></script>
+    <script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="/semantic/javascript/semantic.min.js"></script>
     <script src="/scripts/script.js"></script>
 
-    <script src="/lib/angular/angular.js"></script>
-    <script src="/lib/angular-ui-router/angular-ui-router.js"></script>
+    <!-- Controller -->
     <script src="/scripts/app.js"></script>
     <script src="/scripts/Controllers/dashboard.js"></script>
     <script src="/scripts/Controllers/projects.js"></script>
@@ -54,20 +63,16 @@
     <script src="/scripts/Controllers/calendar.js"></script>
     <script src="/scripts/Controllers/files.js"></script>
     <script src="/scripts/Controllers/settings.js"></script>
-
-    <!-- Kanban Scripts -->
     <script src="/scripts/Controllers/project/kanban.js"></script>
     <script src="/scripts/Controllers/project/newCard.js"></script>
-    <script src="/scripts/services/BoardDataFactory.js"></script>
-    <script src="/scripts/services/BoardManipulator.js"></script>
-    <script src="/scripts/services/BoardService.js"></script>
 
-    <script type="text/javascript" src="/scripts/kanban/plunker.js"></script>
+    <!-- Other Scripts -->
+    <script src="/scripts/kanban/BoardDataFactory.js"></script>
+    <script src="/scripts/kanban/BoardManipulator.js"></script>
+    <script src="/scripts/kanban/BoardService.js"></script>
+
     <script type="text/javascript" src="/scripts/kanban/model.js"></script>
-    <script type="text/javascript" src="/scripts/kanban/containerPositioning.js"></script>
-    <script type="text/javascript" src="/scripts/kanban/scrollableContainer.js"></script>
 
-    <script type="text/javascript" src="/lib/angular-ng-sortable/ng-sortable.js"></script>
-    <script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+
 </body>
 </html>
