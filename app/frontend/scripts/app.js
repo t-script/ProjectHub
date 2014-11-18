@@ -22,7 +22,6 @@ var app = angular.module('phApp', [
     app.config(
       ['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
         $urlRouterProvider.otherwise('/');
-
         $stateProvider
             .state('dashboard', {
                 url: '/',
@@ -72,14 +71,14 @@ var app = angular.module('phApp', [
                 controller: 'SettingsCtrl'
             })
 
-          /* ---- JUST FOR TESTING ---- */
-          .state('kanban', {
-            url: '/project/kanban',
-            views: {
-              "mainView": {templateUrl: '/templates/project/kanban.html'}
-            },
-            controller: 'KanbanCtrl'
-          })
+            /* ---- JUST FOR TESTING ---- */
+            .state('kanban', {
+                url: '/project/kanban',
+                views: {
+                    "mainView": {templateUrl: '/templates/project/kanban.html'}
+                },
+                controller: 'KanbanCtrl'
+            })
     }]);
 
 
