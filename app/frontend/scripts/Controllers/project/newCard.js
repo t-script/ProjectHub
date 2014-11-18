@@ -6,7 +6,7 @@
 
 var app = angular.module('phApp');
 
-app.controller('newCardCtrl', ['$scope', 'ngDialog', function ($scope, ngDialog) {
+app.controller('newCardCtrl', ['$scope', 'BoardManipulator', function ($scope, BoardManipulator) {
 
   function initScope(scope) {
     scope.ticket = '';
@@ -21,7 +21,7 @@ app.controller('newCardCtrl', ['$scope', 'ngDialog', function ($scope, ngDialog)
     }
 
     //add new ticket here
-
+    BoardManipulator.addCardToColumn($scope.kanbanBoard, $scope.ticket.column, $scope.ticket.title, $scope.ticket.description)
     //$modalInstance.close({title: this.title, column: column, details: this.details});
     $scope.closeThisDialog('');
   };

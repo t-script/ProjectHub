@@ -10,7 +10,7 @@ var app = angular.module('phApp', [
         className: 'ngdialog-theme-default',
         plain: false,
         showClose: true,
-        closeByDocument: true,
+        closeByDocument: false,
         closeByEscape: true,
         appendTo: false,
         preCloseCallback: function () {
