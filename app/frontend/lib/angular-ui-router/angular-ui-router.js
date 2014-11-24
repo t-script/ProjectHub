@@ -2058,7 +2058,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
    *
    *   angular.forEach(views, function (config, name) {
    *     var autoName = (state.name + '.' + name).replace('.', '/');
-   *     config.templateUrl = config.templateUrl || '/partials/' + autoName + '.html';
+   *     config.templateUrl = config.templateUrl || '/kanban/' + autoName + '.html';
    *     result[name] = config;
    *   });
    *   return result;
@@ -2074,8 +2074,8 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
          * // ...
          *
          * $state.go('home');
-         * // Auto-populates list and item views with /partials/home/contact/list.html,
-         * // and /partials/home/contact/item.html, respectively.
+         * // Auto-populates list and item views with /kanban/home/contact/list.html,
+         * // and /kanban/home/contact/item.html, respectively.
          * </pre>
          *
          * @param {string} name The name of the builder function to decorate.
@@ -2375,8 +2375,8 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
              *
              * `reload()` is just an alias for:
              * <pre>
-             * $state.transitionTo($state.current, $stateParams, { 
-     *   reload: true, inherit: false, notify: false 
+             * $state.transitionTo($state.current, $stateParams, {
+     *   reload: true, inherit: false, notify: false
      * });
              * </pre>
              */
@@ -3115,7 +3115,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
  *     "": {
  *       template: "<h1>HELLO!</h1>"
  *     }
- *   }    
+ *   }
  * })
      * </pre>
      *
@@ -3131,7 +3131,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
  *     "main": {
  *       template: "<h1>HELLO!</h1>"
  *     }
- *   }    
+ *   }
  * })
      * </pre>
      *
@@ -3154,7 +3154,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
  *     "data": {
  *       template: "<data_thing/>"
  *     }
- *   }    
+ *   }
  * })
      * </pre>
      *

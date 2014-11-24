@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>ProjectHub</title>
-    <link href="/semantic/css/semantic.min.css" rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
 
   <!-- all the stupid kanban stylesheets -->
   <link rel="stylesheet" type="text/css" href="lib/angular-ng-sortable/ng-sortable.css">
@@ -12,77 +10,104 @@
   <link rel="stylesheet" href="lib/angular-ng-dialog/ngDialog.css">
   <link rel="stylesheet" href="lib/angular-ng-dialog/ngDialog-theme-default.css">
   <link rel="stylesheet" href="lib/angular-ng-dialog/ngDialog-theme-plain.css">
+  <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
 
 
   <link rel="stylesheet" type="text/css" href="css/kanban.css">
+  <link rel="stylesheet" type="text/css" href="css/general.css">
   <link rel="stylesheet" type="text/css" href="css/containerPositioning.css">
 
 
-=======
-    <!-- all the stupid kanban stylesheets -->
-    <link rel="stylesheet" type="text/css" href="lib/angular-ng-sortable/ng-sortable.css">
-    <link rel="stylesheet" type="text/css" href="lib/angular-ng-sortable/ng-sortable.style.css">
-    <link rel="stylesheet" type="text/css" href="css/kanban.css">
-    <link rel="stylesheet" type="text/css" href="css/scrollableContainer.css">
-    <link rel="stylesheet" type="text/css" href="css/containerPositioning.css">
->>>>>>> origin/dev
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <!--Sidebar -->
-    <aside class="sidenav">
-        <a href="#/projects"><section class="tooltip" title="Projects"><i class="reorder icon"></i></section></a>
-        <a href="#/tickets"><section class="tooltip" title="Tickets"><i class="checkmark icon"></i></section></a>
-        <a href="#/calendar"><section class="tooltip" title="Calendar"><i class="calendar icon"></i></section></a>
-        <a href="#/files"><section class="tooltip" title="Files"><i class="open folder icon"></i></section></a>
-        <a href="#/settings"><section class="tooltip" title="Settings"><i class="setting icon"></i></section></a>
-    </aside>
-    <a href="#/"><div class="logo"><i class="bolt icon"></i><b>Project</b>Hub</div></a>
-    <!-- Header -->
-    <div class="head_h1"><h1></h1></div>
-    <div class="head">
-        <ul>
-            <li><i class="bell outline icon"></i></li>
-            <li>Tom Schalbar <i class="angle down icon"></i></li>
-            <li class="last"><i class="chat outline icon"></i></li>
-        </ul>
+    <div id="wrapper">
+      <nav id="left-bar">
+        <div class="menu-item">
+          <a href="#" class="tooltip-test" data-toggle="tooltip" title="Projects" data-placement="right"><span class="glyphicon glyphicon-th-list"></span></a>
+        </div>
+        <div class="menu-item">
+          <a href="#" class="tooltip-test" data-toggle="tooltip" title="Tickets" data-placement="right"><span class="glyphicon glyphicon-ok"></span></a>
+        </div>
+        <div class="menu-item">
+          <a href="#" class="tooltip-test" data-toggle="tooltip" title="Calendar" data-placement="right"><span class="glyphicon glyphicon-calendar"></span></a>
+        </div>
+        <div class="menu-item">
+          <a href="#" class="tooltip-test" data-toggle="tooltip" title="Files" data-placement="right"><span class="glyphicon glyphicon-folder-open"></span></a>
+        </div>
+        <div class="menu-item">
+          <a href="#" class="tooltip-test" data-toggle="tooltip" title="Settings" data-placement="right"><span class="glyphicon glyphicon-wrench"></span></a>
+        </div>
+      </nav>
+
+      <!-- Topmenu -->
+      <nav id="top-bar" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><div class="head_h1"><h1></h1></div></a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-bell"></span></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Tom Schalbar<span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Settings</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><span class="glyphicon glyphicon-comment"></span></a>
+            </li>
+          </ul>
+        </div><!-- /.container-fluid -->
+      </nav>
     </div>
-    <div class="container" ui-view="mainView">
-    </div>
+
+
+
+
+
+    <main id="main-content" ui-view="mainView"></main>
+
 
 
     <!---------- Scripts ----------->
     <!-- Libraries -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/lib/angular/angular.js"></script>
-    <script src="/lib/angular-ui-router/angular-ui-router.js"></script>
-    <script src="/lib/angular-ng-dialog/ngDialog.js"></script>
-    <script type="text/javascript" src="/lib/angular-ng-sortable/ng-sortable.js"></script>
-    <script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
-    <script src="/semantic/javascript/semantic.min.js"></script>
-    <script src="/scripts/script.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="lib/angular-ui-router/angular-ui-router.js"></script>
+    <script type="text/javascript" src="lib/angular-ng-dialog/ngDialog.js"></script>
+    <script type="text/javascript" src="lib/angular-ng-sortable/ng-sortable.js"></script>
 
     <!-- Controller -->
-    <script src="/lib/angular/angular.js"></script>
-    <script src="/lib/angular-ui-router/angular-ui-router.js"></script>
-    <script src="/scripts/app.js"></script>
-    <script src="/scripts/Controllers/dashboard.js"></script>
-    <script src="/scripts/Controllers/projects.js"></script>
-    <script src="/scripts/Controllers/tickets.js"></script>
-    <script src="/scripts/Controllers/calendar.js"></script>
-    <script src="/scripts/Controllers/files.js"></script>
-    <script src="/scripts/Controllers/settings.js"></script>
-    <script src="/scripts/Controllers/project/kanban.js"></script>
-    <script src="/scripts/Controllers/project/newCard.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/Controllers/dashboard.js"></script>
+    <script src="scripts/Controllers/projects.js"></script>
+    <script src="scripts/Controllers/tickets.js"></script>
+    <script src="scripts/Controllers/calendar.js"></script>
+    <script src="scripts/Controllers/files.js"></script>
+    <script src="scripts/Controllers/settings.js"></script>
+
+    <!-- Kanban -->
+    <script src="scripts/kanban/KanbanController.js"></script>
+    <script src="scripts/kanban/NewTicketController.js"></script>
 
     <!-- Other Scripts -->
-    <script src="/scripts/kanban/BoardDataFactory.js"></script>
-    <script src="/scripts/kanban/BoardManipulator.js"></script>
-    <script src="/scripts/kanban/BoardService.js"></script>
+    <script src="scripts/kanban/BoardDataFactory.js"></script>
+    <script src="scripts/kanban/BoardManipulator.js"></script>
+    <script src="scripts/kanban/BoardService.js"></script>
 
-    <script type="text/javascript" src="/scripts/kanban/model.js"></script>
-
+    <script type="text/javascript" src="scripts/kanban/model.js"></script>
+    <script type="text/javascript" src="scripts/script.js"></script>
 
 </body>
 </html>

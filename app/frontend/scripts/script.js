@@ -1,3 +1,1 @@
-$('document').ready(function() {
-    $('.tooltip').popup();
-});
+$(function () { $("[data-toggle='tooltip']").tooltip(); });

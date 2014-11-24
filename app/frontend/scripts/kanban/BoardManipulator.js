@@ -7,6 +7,10 @@
 angular.module('phApp').factory('BoardManipulator', function () {
   return {
 
+    createBacklog: function (board, backlogName) {
+      board.backlogs.push(new Backlog(backlogName));
+    },
+
     addColumn: function (board, columnName) {
       board.columns.push(new Column(columnName));
     },
@@ -22,29 +26,6 @@ angular.module('phApp').factory('BoardManipulator', function () {
       angular.forEach(board.columns, function (col) {
         if (col.name === column.name) {
           col.cards.splice(col.cards.indexOf(card), 1);
-        }
-      });
-    },
-    addBacklog: function (board, backlogName) {
-      board.backlogs.push(new Backlog(backlogName));
-    },
-
-    addPhaseToBacklog: function (board, backlogName, phase) {
-      angular.forEach(board.backlogs, function (backlog) {
-        if (backlog.name === backlogName) {
-          backlog.phases.push(new Phase(phase.name));
-        }
-      });
-    },
-
-    addCardToBacklog: function (board, backlogName, phaseName, task) {
-      angular.forEach(board.backlogs, function (backlog) {
-        if (backlog.name === backlogName) {
-          angular.forEach(backlog.phases, function (phase) {
-            if (phase.name === phaseName) {
-              phase.cards.push(new Card(task.title, task.status, task.details));
-            }
-          });
         }
       });
     }

@@ -15,17 +15,23 @@ app.service('BoardService', ['$modal', 'BoardManipulator', function ($modal, Boa
         }
       },
 
-      /**/
-      addNewCard: function (scope, ngDialog) {
-          scope.value = true;
-
-          ngDialog.open({
-            template: '/templates/project/partials/newCard.html',
-            controller: 'newCardCtrl',
-            className: 'ngdialog-theme-plain',
-            scope: scope
-          });
-      },
+    addNewCard: function (board, column) {
+      var modalInstance = $modal.open({
+        templateUrl: '/templates/project/kanban/newTicket.html',
+        controller: 'NewTicketCtrl',
+        backdrop: 'static',
+        resolve: {
+          column: function () {
+            return column;
+          }
+        }
+      });
+      modalInstance.result.then(function (cardDetails) {
+        if (cardDetails) {
+          BoardManipulator.addCardToColumn(board, cardDetails.column, cardDetails.title, cardDetails.details);
+        }
+      });
+    },
 
 
       kanbanBoard: function (board) {

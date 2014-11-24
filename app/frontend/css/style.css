@@ -3,10 +3,11 @@
     padding: 0px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+  font-size: 14px;
 }
 
 body {
-    background-color: #f2f2f2;
+    background-color: #f7f7f7;
     color: #424242;
 }
 
@@ -103,9 +104,3 @@ div.head li i {
 }
 /*###############################################*/
 
-div.container {
-    position: absolute;
-    top: 3.0em;
-    left: 2.75em;
-    width: calc(100% - 2.75em);
-}
