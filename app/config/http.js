@@ -13,7 +13,7 @@
 module.exports.http = {
 
 customMiddleware: function (app) {
-    sails.config.paths.views = sails.config.rootPath + '\\frontend';
+    sails.config.paths.views = sails.config.rootPath + '/frontend';
     var express = require('../node_modules/sails/node_modules/express');
     app.use('/', express.static(__dirname + "/../frontend"));
 },
