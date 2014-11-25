@@ -281,12 +281,14 @@ div.popupContent a.space {
 div.message {
   position: fixed;
   top: 0;
-  margin: 0 auto;
   width: 100%;
-  height: 40px;
-  background-color: #ef9a9a;
-  padding-top: 5px;
+  margin: 0 auto;
+  padding: 6px 0px;
   text-align: center;
+  background-color: #e57373;
+  border-bottom: 4px solid #c62828;
+  color: #c62828;
   visibility: hidden;
   z-index: 9999;
 }
+

@@ -13,13 +13,11 @@ angular.module('phStart').controller('SinginCtrl', function($scope){
                 contentType: 'application/json',
                 success: function(data)
                 {
-                    console.log(data);
                     console.log("Sign in --> Okay");
                     window.location.replace('/');
                     window.location.reload();
                 },
                 error: function (data) {
-                  console.log(JSON.stringify(data.responseJSON.error));
                   $('.message').html(JSON.stringify(data.responseJSON.error));
                   $('.message').css('visibility', 'visible');
                   setTimeout(function() {
