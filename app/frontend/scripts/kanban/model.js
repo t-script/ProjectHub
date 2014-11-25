@@ -32,9 +32,11 @@ function Phase(name) {
   };
 }
 
-function Card(title, status, details) {
+function Card(title, column, type, category, description) {
   this.title = title;
-  this.status = status;
-  this.details = details;
+  this.column = column;
+  this.type = type;
+  this.category = category;
+  this.description = description;
   return this;
 }

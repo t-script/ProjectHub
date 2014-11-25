@@ -1,21 +1,22 @@
 'use strict';
 
-/**
- *
- */
-
 var app = angular.module('phApp');
 
 app.controller('KanbanCtrl', ['$scope', 'BoardService', 'BoardDataFactory', function ($scope, BoardService, BoardDataFactory) {
 
-  $scope.kanbanBoard = BoardService.kanbanBoard(BoardDataFactory.kanban);
+  function initScope() {
+    $scope.kanbanBoard = BoardService.kanbanBoard(BoardDataFactory.kanban); //get data
+    $scope.kanbanBoard.numberOfColumns = $scope.kanbanBoard.columns.length; //column count
+
+    /* so five columns work */
+    var styleClass = "col-md-" + 12/$scope.kanbanBoard.numberOfColumns.toString();
+    styleClass = styleClass.replace(/\./g, '_');
+    $scope.columnStyleClass = styleClass;
+  }
+
 
   $scope.kanbanSortOptions = {
 
-    //restrict move across columns. move only within column.
-    /*accept: function (sourceItemHandleScope, destSortableScope) {
-     return sourceItemHandleScope.itemScope.sortableScope.$id !== destSortableScope.$id;
-     },*/
     itemMoved: function (event) {
       event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
     },
@@ -24,11 +25,18 @@ app.controller('KanbanCtrl', ['$scope', 'BoardService', 'BoardDataFactory', func
     containment: '#board'
   };
 
+
+
+
+  /* kanban functions */
   $scope.removeCard = function (column, card) {
     BoardService.removeCard($scope.kanbanBoard, column, card);
   }
 
-  $scope.addNewCard = function (column) {
-    BoardService.addNewCard($scope.kanbanBoard, column);
+  $scope.addNewCard = function () {
+    BoardService.addNewCard($scope.kanbanBoard);
   }
+
+  initScope();
+
 }]);

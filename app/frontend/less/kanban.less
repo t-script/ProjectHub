@@ -1,20 +1,24 @@
+@basic-border-radius: 10px;
+
 /* general */
 
-.float-right {
-  float: right;
+/* ---------- board styling --------- */
+
+#kanban-menus {
+  padding: 16px 35px;
+  position:relative;
+  clear: both;
 }
 
-.float-left {
-  float: left;
-}
-
-.clearfix {
-  display: inline-block;
+.row {
+  margin-left:0;
+  margin-rightt:0;
   width: 100%;
 }
 
 #board {
-  margin: 0; padding: 0 10px 0 10px;
+  margin: 0;
+  padding: 0 20px;
   width: 100%;
 }
 
@@ -28,37 +32,10 @@
   background-color: rgba(0,0,0,0);
 }
 
-div.story,
-div.task {
-  position: relative;
-  padding: 5px 0;
-  margin: 4px 4px 4px 0;
-  text-align: center;
-  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: pointer;
-}
-
-div.story {
-  margin: 0 5px 0 0;
-}
-
-div.story h3,
-div.task h3 {
-  font-size: 13px;
-  line-height: 13px;
-  padding: 0;
-  margin: 5px;
-  text-align: center;
-  text-shadow: none;
-  font-weight: normal;
-  transform-style: preserve-3d;
-  -webkit-backface-vivbility: hidden;
-  -webkit-transform: translate3d(0,0,0);
-  -webkit-transform-style: preserve-3d;
+.columnHeader {
+  background-color: #f0f0f0;
+  border-top-left-radius: @basic-border-radius;
+  border-top-right-radius: @basic-border-radius;
 }
 
 .card-list {
@@ -66,12 +43,18 @@ div.task h3 {
   padding: 0;
   list-style: none;
   min-height: 50px;
+  border-bottom-left-radius: @basic-border-radius;
+  border-bottom-right-radius: @basic-border-radius;
+  background: white;
 }
 
-.default {
-  box-shadow: inset rgba(0, 0, 0, 0.0980392) 0 1px 10px 0;
+.col-md-2_4 {
+  width: 20%;
+  float: left;
+  padding: 0 15px;
 }
-.default-color { background-color: #ffffff; }
+
+/* ---------- card styling --------- */
 
 .card {
   padding: 10px;
@@ -86,25 +69,14 @@ div.task h3 {
   display: block;
 }
 
-.addNewCard {
-  float: right;
-  padding-right: 30px;
-  color:  green;
-}
-
 .removeCard {
   padding: 12px;
   color: #444;
 }
 
-#kanban-menus {
-  padding: 1em 2.2em;
-  position:relative;
-  clear: both;
-}
+/* ---------- general styling --------- */
 
-.row {
-  margin-left:0;
-  margin-rightt:0;
+.clearfix {
+  display: inline-block;
   width: 100%;
 }

@@ -6,20 +6,22 @@
 
 var app = angular.module('phApp');
 
-app.controller('NewTicketCtrl', ['$scope', '$modalInstance', 'column', function ($scope, $modalInstance, column) {
+app.controller('NewCardCtrl', ['$scope', '$modalInstance', 'kanbanBoard', function ($scope, $modalInstance, kanbanBoard) {
 
   function initScope(scope) {
-    scope.columnName = column.name;
-    scope.column = column;
+    scope.kanbanBoard = kanbanBoard;
     scope.title = '';
-    scope.details = '';
+    scope.column = scope.kanbanBoard.columns[0];
+    scope.type = '';
+    scope.category = '';
+    scope.description = '';
   }
 
   $scope.addNewCard = function () {
     if (!this.newCardForm.$valid) {
       return false;
     }
-    $modalInstance.close({title: this.title, column: column, details: this.details});
+    $modalInstance.close({title: this.title, column: this.column, details: this.description});
   };
 
   $scope.close = function () {

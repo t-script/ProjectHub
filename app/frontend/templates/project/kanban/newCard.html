@@ -1,0 +1,77 @@
+<!-- New Card template -->
+
+<form id="new-ticket-form" ng-submit="addNewCard()" class="noMargin" name="newCardForm">
+
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="close()">&times;</button>
+    <h4 class="modal-title">Add New Ticket</h4>
+  </div>
+
+  <div class="modal-body">
+    <div class="form-group">
+      <label class="control-label" for="newCardTitle">Title</label>
+      <div>
+        <input type="text" id="newCardTitle" placeholder="Title on a card" ng-model="title" required
+               focus-me class="cardInputs form-control"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label class="control-label" for="newCardTitle">Column</label>
+          <div>
+            <select class="form-control" ng-model="column" ng-options="column.name for column in kanbanBoard.columns">
+
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label class="control-label">Type</label>
+          <div>
+            <select class="form-control" ng-model="type">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label class="control-label">Category</label>
+          <div>
+            <select class="form-control" ng-model="category">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <label class="control-label" for="newCardDetails">Description
+        <small>(optional)</small>
+      </label>
+
+      <div>
+        <textarea id="newCardDetails" ng-model="description" class="cardInputs form-control" rows="7">
+        </textarea>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="close()">Close</button>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </div>
+</form>

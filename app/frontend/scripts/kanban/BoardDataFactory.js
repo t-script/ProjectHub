@@ -8,9 +8,9 @@ angular.module('phApp').service('BoardDataFactory', function () {
   return {
     kanban: {
       "name": "Kanban Board",
-      "numberOfColumns": 4,
+      //"numberOfColumns": 5,
       "columns": [
-        {"name": "Ready", "cards": [
+        {"name": "Very Ready", "cards": [
           {"title": "Come up with a POC for new Project"},
           {"title": "Design new framework for reporting module"}
         ]},

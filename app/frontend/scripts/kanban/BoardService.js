@@ -15,20 +15,20 @@ app.service('BoardService', ['$modal', 'BoardManipulator', function ($modal, Boa
         }
       },
 
-    addNewCard: function (board, column) {
+    addNewCard: function (kanbanBoard) {
       var modalInstance = $modal.open({
-        templateUrl: '/templates/project/kanban/newTicket.html',
-        controller: 'NewTicketCtrl',
+        templateUrl: '/templates/project/kanban/newCard.html',
+        controller: 'NewCardCtrl',
         backdrop: 'static',
         resolve: {
-          column: function () {
-            return column;
+          kanbanBoard: function () {
+            return kanbanBoard;
           }
         }
       });
       modalInstance.result.then(function (cardDetails) {
         if (cardDetails) {
-          BoardManipulator.addCardToColumn(board, cardDetails.column, cardDetails.title, cardDetails.details);
+          BoardManipulator.addCardToColumn(kanbanBoard, cardDetails.column, cardDetails.title, cardDetails.details);
         }
       });
     },
