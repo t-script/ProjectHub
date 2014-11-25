@@ -16,6 +16,14 @@ angular.module('phStart').controller('SinginCtrl', function($scope){
                     console.log("Sign in --> Okay");
                     window.location.replace('/');
                     window.location.reload();
+                },
+                error: function (data) {
+                  $('.message').html(JSON.stringify(data.responseJSON.error));
+                  $('.message').css('visibility', 'visible');
+                  setTimeout(function() {
+                    $('.message').css('visibility', 'hidden');
+                  }, 3000);
+                  console.log("Error");
                 }
             });
         }

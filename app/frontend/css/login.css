@@ -155,7 +155,7 @@ div.popup {
     min-height: 500px;
     background-color: rgba(0, 0, 0, 0.9);
     display: none;
-    z-index: 9999;
+    z-index: 9998;
 }
 
 div.popupWrapper {
@@ -277,3 +277,18 @@ div.popupContent a.space {
     margin-right: 60px;
     margin-bottom: 5px;
 }
+
+div.message {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 6px 0px;
+  text-align: center;
+  background-color: #e57373;
+  border-bottom: 4px solid #c62828;
+  color: #c62828;
+  visibility: hidden;
+  z-index: 9999;
+}
+

@@ -1,106 +1,89 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   font-size: 14px;
 }
-
 body {
-    background-color: #f7f7f7;
-    color: #424242;
+  background-color: #f7f7f7;
+  color: #424242;
 }
-
 /* Sidebar */
 aside.sidenav {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 2.75em;
-    height: 100%;
-    background-color: #5677fC;
-    color: #D0D9FF;
-    z-index: 9999;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 2.75em;
+  height: 100%;
+  background-color: #5677fC;
+  color: #D0D9FF;
+  z-index: 9999;
 }
-
 aside.sidenav section {
-    font-size: 1.25em;
-    margin-top: 5px;
-    padding: 0.4em;
-    cursor:pointer;
+  font-size: 1.25em;
+  margin-top: 5px;
+  padding: 0.4em;
+  cursor:pointer;
 }
-
 aside.sidenav section:hover {
-    background: #738ffe;
-    color: #fff;
+  background: #738ffe;
+  color: #fff;
 }
-
 aside.sidenav a {
-    color: #D0D9FF;
+  color: #D0D9FF;
 }
-
 .logo {
-    -webkit-transform: rotate(270deg);
-    -moz-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    position: fixed;
-    left: -43px;
-    bottom: 70px;
-    font-size: 1.2em;
-    color: #FFFFFF;
-    z-index: 9999;
-
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  position: fixed;
+  left: -43px;
+  bottom: 70px;
+  font-size: 1.2em;
+  color: #FFFFFF;
+  z-index: 9999;
 }
-
 .logo b {
-    font-weight: 400;
+  font-weight: 400;
 }
 /*###############################################*/
-
 /* Header */
 div.head {
-    position: fixed;
-    top: 0;
-    left: 2.75em;
-    height: 3.0em;
-    width: 100%;
-    background-color: #ffffff;
-    color: #666666;
-    z-index: 500;
-
+  position: fixed;
+  top: 0;
+  left: 2.75em;
+  height: 3.0em;
+  width: 100%;
+  background-color: #ffffff;
+  color: #666666;
+  z-index: 500;
 }
-
 div.head_h1 {
-    position: absolute;
-    left: 4.75em;
-    z-index: 800;
-    color: #666666;
+  position: absolute;
+  left: 4.75em;
+  z-index: 800;
+  color: #666666;
 }
-
 div.head_h1 h1 {
-    padding-top: 0.5em;
-    font-size: 1.1em;
+  padding-top: 0.5em;
+  font-size: 1.1em;
 }
-
 div.head ul {
-    padding-top: 0.75em;
-    text-align: right;
+  padding-top: 0.75em;
+  text-align: right;
 }
-
 div.head li {
-    display: inline;
-    list-style: none;
-    margin-right: 1.2em;
-    font-size: 0.8em;
-    cursor: pointer;
+  display: inline;
+  list-style: none;
+  margin-right: 1.2em;
+  font-size: 0.8em;
+  cursor: pointer;
 }
-
 div.head li.last {
-    margin-right: 5.0em;
+  margin-right: 5.0em;
 }
-
 div.head li i {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 /*###############################################*/
-
