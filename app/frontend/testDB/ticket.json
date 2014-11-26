@@ -1,0 +1,87 @@
+[
+  {
+    "_id": 1,
+    "userid": 1,
+    "ticketid": 1,
+    "columnid": 1,
+    "categoryid": 1,
+    "serviceclassid": 1,
+    "title": "Get some food",
+    "description": "Well, I'm hungry, that's why I need to get some food. FAST.",
+    "approximatedTime": 1500,
+    "currentTime": 0,
+    "fixedDate": "30-12-2014",
+    "position": 1
+  },
+  {
+    "_id": 2,
+    "userid": 1,
+    "ticketid": 1,
+    "columnid": 2,
+    "categoryid": 1,
+    "serviceclassid": 1,
+    "title": "Take a shower",
+    "description": "Take care of basic hygine, so people won't sit far away from me in the bus.",
+    "approximatedTime": 3200,
+    "currentTime": 2000,
+    "fixedDate": "27-12-2014",
+    "position": 1
+  },
+  {
+    "_id": 3,
+    "userid": 1,
+    "ticketid": 1,
+    "columnid": 3,
+    "categoryid": 1,
+    "serviceclassid": 1,
+    "title": "Work out",
+    "description": "Get some muscels going. If ur not pretty u gotta make it up somehow, right?",
+    "approximatedTime": 2000,
+    "currentTime": 2000,
+    "fixedDate": "23-12-2014",
+    "position": 1
+  },
+  {
+    "_id": 4,
+    "userid": 1,
+    "ticketid": 1,
+    "columnid": 2,
+    "categoryid": 1,
+    "serviceclassid": 1,
+    "title": "Find a unicorn",
+    "description": "It can't be that hard...",
+    "approximatedTime": 1700,
+    "currentTime": 2000,
+    "fixedDate": "10-01-2015",
+    "position": 2
+  },
+  {
+    "_id": 5,
+    "userid": 1,
+    "ticketid": 1,
+    "columnid": 4,
+    "categoryid": 1,
+    "serviceclassid": 1,
+    "title": "Send complaint",
+    "description": "Never got the letter to Hogwarts... WTF Dumbledore?!",
+    "approximatedTime": 2000,
+    "currentTime": 2000,
+    "fixedDate": "30-10-2014",
+    "position": 1
+  },
+  {
+    "_id": 6,
+    "userid": 1,
+    "ticketid": 1,
+    "columnid": 4,
+    "categoryid": 1,
+    "serviceclassid": 1,
+    "title": "Get up",
+    "description": "You gotta start somewhere.",
+    "approximatedTime": 5000,
+    "currentTime": 2000,
+    "fixedDate": "30-11-2014",
+    "position": 2
+  }
+]
+
