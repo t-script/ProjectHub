@@ -73,9 +73,9 @@ var app = angular.module('phApp', [
 
             /* ---- JUST FOR TESTING ---- */
             .state('kanban', {
-                url: '/project/services',
+                url: '/project/kanban',
                 views: {
-                    "mainView": {templateUrl: '/templates/project/services/services.html'}
+                    "mainView": {templateUrl: '/templates/project/kanban/kanban.html'}
                 },
                 controller: 'KanbanCtrl'
             })
