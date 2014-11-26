@@ -6,12 +6,6 @@ app.controller('KanbanCtrl', ['$scope', 'BoardService', 'BoardDataFactory', func
 
   function initScope() {
     $scope.kanbanBoard = BoardService.kanbanBoard(BoardDataFactory.kanban); //get data
-    $scope.kanbanBoard.numberOfColumns = $scope.kanbanBoard.columns.length; //column count
-
-    /* so five columns work */
-    var styleClass = "col-md-" + 12/$scope.kanbanBoard.numberOfColumns.toString();
-    styleClass = styleClass.replace(/\./g, '_');
-    $scope.columnStyleClass = styleClass;
   }
 
 
@@ -25,16 +19,27 @@ app.controller('KanbanCtrl', ['$scope', 'BoardService', 'BoardDataFactory', func
     containment: '#board'
   };
 
-
-
-
-  /* kanban functions */
+  /* services functions */
   $scope.removeCard = function (column, card) {
     BoardService.removeCard($scope.kanbanBoard, column, card);
   }
 
   $scope.addNewCard = function () {
     BoardService.addNewCard($scope.kanbanBoard);
+  }
+
+  $scope.customizeBoard = function () {
+    BoardService.customizeBoard($scope.kanbanBoard);
+  }
+
+  /**
+   * especially so 5 column grid will work
+   * @returns {string}
+   */
+  $scope.getColumnClass = function() {
+    var styleClass = "col-md-" + 12/$scope.kanbanBoard.columns.length.toString();
+    styleClass = styleClass.replace(/\./g, '_');
+    return styleClass;
   }
 
   initScope();

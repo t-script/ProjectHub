@@ -11,14 +11,14 @@ angular.module('phApp').factory('BoardManipulator', function () {
       board.backlogs.push(new Backlog(backlogName));
     },
 
-    addColumn: function (board, columnName) {
-      board.columns.push(new Column(columnName));
+    addColumn: function (board, index, columnName, columnDescription, columnLimit) {
+      board.columns.splice(index, 0, new Column(columnName, columnDescription, columnLimit));
     },
 
     addCardToColumn: function (board, column, cardTitle, details) {
       angular.forEach(board.columns, function (col) {
-        if (col.name === column.name) {
-          col.cards.push(new Card(cardTitle, column.name, details));
+        if (col.title === column.title) {
+          col.cards.push(new Card(cardTitle, column.title, details));
         }
       });
     },

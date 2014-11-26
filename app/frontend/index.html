@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>ProjectHub</title>
 
-  <!-- all the stupid kanban stylesheets -->
+  <!-- all the stupid services stylesheets -->
   <link rel="stylesheet" type="text/css" href="lib/angular-ng-sortable/ng-sortable.css">
   <link rel="stylesheet" type="text/css" href="lib/angular-ng-sortable/ng-sortable.style.css">
   <link rel="stylesheet" href="lib/angular-ng-dialog/ngDialog.css">
@@ -90,23 +90,24 @@
 
     <!-- Controller -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/Controllers/dashboard.js"></script>
-    <script src="scripts/Controllers/projects.js"></script>
-    <script src="scripts/Controllers/tickets.js"></script>
-    <script src="scripts/Controllers/calendar.js"></script>
-    <script src="scripts/Controllers/files.js"></script>
-    <script src="scripts/Controllers/settings.js"></script>
+    <script src="scripts/controllers/dashboard.js"></script>
+    <script src="scripts/controllers/projects.js"></script>
+    <script src="scripts/controllers/tickets.js"></script>
+    <script src="scripts/controllers/calendar.js"></script>
+    <script src="scripts/controllers/files.js"></script>
+    <script src="scripts/controllers/settings.js"></script>
 
     <!-- Kanban -->
-    <script src="scripts/kanban/KanbanController.js"></script>
-    <script src="scripts/kanban/NewCardController.js"></script>
+    <script src="scripts/controllers/kanban/kanban.js"></script>
+    <script src="scripts/controllers/kanban/newCard.js"></script>
+    <script src="scripts/controllers/kanban/customize.js"></script>
 
     <!-- Other Scripts -->
-    <script src="scripts/kanban/BoardDataFactory.js"></script>
-    <script src="scripts/kanban/BoardManipulator.js"></script>
-    <script src="scripts/kanban/BoardService.js"></script>
+    <script src="scripts/services/BoardDataFactory.js"></script>
+    <script src="scripts/services/BoardManipulatorFactory.js"></script>
+    <script src="scripts/services/BoardService.js"></script>
 
-    <script type="text/javascript" src="scripts/kanban/model.js"></script>
+    <script type="text/javascript" src="scripts/models/kanbanModels.js"></script>
     <script type="text/javascript" src="scripts/script.js"></script>
 
 </body>

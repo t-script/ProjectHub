@@ -45,7 +45,7 @@ module.exports.views = {
   *                                                                           *
   * NOTE: Layout support is only implemented for the `ejs` view engine!       *
   *       For most other engines, it is not necessary, since they implement   *
-  *       kanban/layouts themselves. In those cases, this config will be    *
+  *       services/layouts themselves. In those cases, this config will be    *
   *       silently ignored.                                                   *
   *                                                                           *
   * The `layout` setting may be set to one of the following:                  *

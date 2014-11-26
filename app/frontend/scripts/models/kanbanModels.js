@@ -2,18 +2,19 @@
 /*global angular: false */
 
 'use strict';
-function Board(name, numberOfColumns) {
+function Board(name) {
   return {
     name: name,
-    numberOfColumns: numberOfColumns,
     columns: [],
     backlogs: []
   };
 }
 
-function Column(name) {
+function Column(title, description, limit) {
   return {
-    name: name,
+    title: title,
+    description: description,
+    limit: limit,
     cards: []
   };
 }
@@ -22,13 +23,6 @@ function Backlog(name) {
   return {
     name: name,
     phases: []
-  };
-}
-
-function Phase(name) {
-  return {
-    name: name,
-    cards: []
   };
 }
 

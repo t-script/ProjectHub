@@ -1,5 +1,3 @@
-@basic-border-radius: 10px;
-
 /* general */
 
 /* ---------- board styling --------- */
@@ -32,10 +30,14 @@
   background-color: rgba(0,0,0,0);
 }
 
+.column {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
 .columnHeader {
   background-color: #f0f0f0;
-  border-top-left-radius: @basic-border-radius;
-  border-top-right-radius: @basic-border-radius;
 }
 
 .card-list {
@@ -43,9 +45,6 @@
   padding: 0;
   list-style: none;
   min-height: 50px;
-  border-bottom-left-radius: @basic-border-radius;
-  border-bottom-right-radius: @basic-border-radius;
-  background: white;
 }
 
 .col-md-2_4 {
@@ -73,6 +72,10 @@
   padding: 12px;
   color: #444;
 }
+
+/* ---------- ticket modal styling --------- */
+
+
 
 /* ---------- general styling --------- */
 

@@ -24,19 +24,19 @@
   user-select: none;
   background-color: rgba(0, 0, 0, 0);
 }
+.column {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
 .columnHeader {
   background-color: #f0f0f0;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 .card-list {
   margin: 0;
   padding: 0;
   list-style: none;
   min-height: 50px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background: white;
 }
 .col-md-2_4 {
   width: 20%;
@@ -59,6 +59,7 @@
   padding: 12px;
   color: #444;
 }
+/* ---------- ticket modal styling --------- */
 /* ---------- general styling --------- */
 .clearfix {
   display: inline-block;

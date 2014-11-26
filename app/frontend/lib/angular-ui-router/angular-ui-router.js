@@ -2058,7 +2058,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
    *
    *   angular.forEach(views, function (config, name) {
    *     var autoName = (state.name + '.' + name).replace('.', '/');
-   *     config.templateUrl = config.templateUrl || '/kanban/' + autoName + '.html';
+   *     config.templateUrl = config.templateUrl || '/services/' + autoName + '.html';
    *     result[name] = config;
    *   });
    *   return result;
@@ -2074,8 +2074,8 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
          * // ...
          *
          * $state.go('home');
-         * // Auto-populates list and item views with /kanban/home/contact/list.html,
-         * // and /kanban/home/contact/item.html, respectively.
+         * // Auto-populates list and item views with /services/home/contact/list.html,
+         * // and /services/home/contact/item.html, respectively.
          * </pre>
          *
          * @param {string} name The name of the builder function to decorate.
