@@ -5,20 +5,19 @@
 'use strict';
 
 angular.module('phApp').factory('BoardManipulator', function () {
+
   return {
 
-    createBacklog: function (board, backlogName) {
-      board.backlogs.push(new Backlog(backlogName));
-    },
-
-    addColumn: function (board, index, columnName, columnDescription, columnLimit) {
-      board.columns.splice(index, 0, new Column(columnName, columnDescription, columnLimit));
+    addColumn: function (board, columnId, position, columnName, columnLimit) {
+      board.columns.splice(position, 0, new Column(columnId, columnName, columnLimit));
+      return board;
     },
 
     addCardToColumn: function (board, column, cardTitle, details) {
+      column.cards.push(new Card(cardTitle, column.title, details));
       angular.forEach(board.columns, function (col) {
         if (col.title === column.title) {
-          col.cards.push(new Card(cardTitle, column.title, details));
+          //col.cards.push(new Card(cardTitle, column.title, details));
         }
       });
     },

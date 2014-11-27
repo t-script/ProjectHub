@@ -2,27 +2,20 @@
 /*global angular: false */
 
 'use strict';
-function Board(name) {
+function Board(id) {
   return {
-    name: name,
-    columns: [],
-    backlogs: []
+    _id: id,
+    projectid: 1,
+    columns: []
   };
 }
 
-function Column(title, description, limit) {
+function Column(id, name, limit) {
   return {
-    title: title,
-    description: description,
+    _id: id,
+    name: name,
     limit: limit,
     cards: []
-  };
-}
-
-function Backlog(name) {
-  return {
-    name: name,
-    phases: []
   };
 }
 

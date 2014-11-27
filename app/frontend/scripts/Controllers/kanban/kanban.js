@@ -5,7 +5,7 @@ var app = angular.module('phApp');
 app.controller('KanbanCtrl', ['$scope', 'BoardService', 'BoardDataFactory', function ($scope, BoardService, BoardDataFactory) {
 
   function initScope() {
-    $scope.kanbanBoard = BoardService.kanbanBoard(BoardDataFactory.kanban); //get data
+    $scope.kanbanBoard = BoardService.kanbanBoard(1); //get data
   }
 
 
