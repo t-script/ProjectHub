@@ -2,123 +2,39 @@
 <html lang="en" ng-app="phApp">
 <head>
     <meta charset="UTF-8">
+    <base href="/">
     <title>ProjectHub</title>
-
-  <!-- all the stupid services stylesheets -->
-  <link rel="stylesheet" type="text/css" href="lib/angular-ng-sortable/ng-sortable.css">
-  <link rel="stylesheet" type="text/css" href="lib/angular-ng-sortable/ng-sortable.style.css">
-  <link rel="stylesheet" href="lib/angular-ng-dialog/ngDialog.css">
-  <link rel="stylesheet" href="lib/angular-ng-dialog/ngDialog-theme-default.css">
-  <link rel="stylesheet" href="lib/angular-ng-dialog/ngDialog-theme-plain.css">
-  <link rel="stylesheet" href="lib/bootstrap/bootstrap2.min.css">
-
-
-  <link rel="stylesheet" type="text/css" href="css/kanban.css">
-  <link rel="stylesheet" type="text/css" href="css/general.css">
-  <link rel="stylesheet" type="text/css" href="css/containerPositioning.css">
-
-
+    <link href="/semantic/css/semantic.css" rel="stylesheet" type="text/css" />
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <!--Sidebar -->
-    <div id="wrapper">
-      <nav id="left-bar">
-        <a href="#" class="tooltip-test" data-toggle="tooltip" title="Projects" data-placement="right">
-          <div class="menu-item">
-            <span class="glyphicon glyphicon-th-list"></span>
-          </div>
-        </a>
-        <a href="#" class="tooltip-test" data-toggle="tooltip" title="Tickets" data-placement="right">
-          <div class="menu-item">
-            <span class="glyphicon glyphicon-ok"></span>
-          </div>
-        </a>
-        <a href="#" class="tooltip-test" data-toggle="tooltip" title="Calendar" data-placement="right">
-          <div class="menu-item">
-           <span class="glyphicon glyphicon-calendar"></span>
-          </div>
-        </a>
-        <a href="#" class="tooltip-test" data-toggle="tooltip" title="Files" data-placement="right">
-          <div class="menu-item">
-            <span class="glyphicon glyphicon-folder-open"></span>
-          </div>
-        </a>
-        <a href="#" class="tooltip-test" data-toggle="tooltip" title="Settings" data-placement="right">
-          <div class="menu-item">
-            <span class="glyphicon glyphicon-wrench"></span>
-          </div>
-        </a>
-      </nav>
-
-      <!-- Topmenu -->
-      <nav id="top-bar" class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#"><div class="head_h1"><h1></h1></div></a>
-          </div>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-bell"></span></a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                Tom Schalbar<span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Settings</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Logout</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#"><span class="glyphicon glyphicon-comment"></span></a>
-            </li>
-          </ul>
-        </div><!-- /.container-fluid -->
-      </nav>
-    </div>
-
-
-
+    <aside class="sidenav">
+      <a href="#/projects"><section class="tooltip" title="Projects"><i class="reorder icon"></i></section></a>
+      <a href="#/tickets"><section class="tooltip" title="Tickets"><i class="checkmark icon"></i></section></a>
+      <a href="#/calendar"><section class="tooltip" title="Calendar"><i class="calendar icon"></i></section></a>
+      <a href="#/files"><section class="tooltip" title="Files"><i class="open folder icon"></i></section></a>
+      <a href="#/settings"><section class="tooltip" title="Settings"><i class="setting icon"></i></section></a>
+    </aside>
+    <a href="#/dashboard"><div class="logo"><i class="bolt icon"></i><b>Project</b>Hub</div></a>
 
 
     <main id="main-content" ui-view="mainView"></main>
-
-
-
     <!---------- Scripts ----------->
     <!-- Libraries -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="lib/angular/angular.js"></script>
-    <script type="text/javascript" src="lib/bootstrap/bootstrap.min.js"></script>
-    <script type="text/javascript" src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script type="text/javascript" src="lib/angular-ui-router/angular-ui-router.js"></script>
-    <script type="text/javascript" src="lib/angular-ng-dialog/ngDialog.js"></script>
-    <script type="text/javascript" src="lib/angular-ng-sortable/ng-sortable.js"></script>
-
+    <script src="/lib/jquery/jquery-1.11.1.min.js"></script>
+    <script src="/lib/jquery/jquery-ui.min.js"></script>
+    <script src="semantic/javascript/semantic.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular-ui-router/angular-ui-router.js"></script>
     <!-- Controller -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/dashboard.js"></script>
-    <script src="scripts/controllers/projects.js"></script>
-    <script src="scripts/controllers/tickets.js"></script>
-    <script src="scripts/controllers/calendar.js"></script>
-    <script src="scripts/controllers/files.js"></script>
-    <script src="scripts/controllers/settings.js"></script>
-
-    <!-- Kanban -->
-    <script src="scripts/controllers/kanban/kanban.js"></script>
-    <script src="scripts/controllers/kanban/newCard.js"></script>
-    <script src="scripts/controllers/kanban/customize.js"></script>
-
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/controllers/dashboard.js"></script>
+    <script src="/scripts/controllers/projects.js"></script>
+    <script src="/scripts/controllers/tickets.js"></script>
+    <script src="/scripts/controllers/calendar.js"></script>
+    <script src="/scripts/controllers/files.js"></script>
+    <script src="/scripts/controllers/settings.js"></script>
     <!-- Other Scripts -->
-    <script src="scripts/services/BoardDataFactory.js"></script>
-    <script src="scripts/services/BoardManipulatorFactory.js"></script>
-    <script src="scripts/services/BoardService.js"></script>
-
-    <script type="text/javascript" src="scripts/models/kanbanModels.js"></script>
-    <script type="text/javascript" src="scripts/script.js"></script>
-
+    <script src="/scripts/script.js"></script>
 </body>
 </html>
