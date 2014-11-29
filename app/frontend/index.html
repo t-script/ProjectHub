@@ -8,6 +8,8 @@
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+    <!-- Sidebar -->
+    <div>
     <aside class="sidenav">
       <a href="#/projects"><section class="tooltip" title="Projects"><i class="reorder icon"></i></section></a>
       <a href="#/tickets"><section class="tooltip" title="Tickets"><i class="checkmark icon"></i></section></a>
@@ -17,8 +19,19 @@
     </aside>
     <a href="#/dashboard"><div class="logo"><i class="bolt icon"></i><b>Project</b>Hub</div></a>
 
+    <!-- Header -->
+    <div class="head_h1"><h1>Dashboard</h1></div>
+    <header class="head">
+      <ul>
+        <li><i class="bell outline icon"></i></li>
+        <li>Tom Schalbar <i class="angle down icon"></i></li>
+        <li class="last"><i class="chat outline icon"></i></li>
+      </ul>
+    </header>
 
-    <main id="main-content" ui-view="mainView"></main>
+    <!-- View -->
+    <main class="view" ui-view="mainView"></main>
+    </div>
     <!---------- Scripts ----------->
     <!-- Libraries -->
     <script src="/lib/jquery/jquery-1.11.1.min.js"></script>
