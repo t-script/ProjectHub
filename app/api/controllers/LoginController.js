@@ -6,12 +6,12 @@
 
 module.exports = {
 	login: function (req, res) {
-		sails.log.info('Login Controller with action "login" called.');
+    sails.log.verbose("[LoginCtrl] Action 'login' called");
 		var bcrypt = require('bcryptjs');
 
 		//Check if username or password were entered
 		if (!req.body.username || !req.body.password){
-			sails.log.info('No username or password provided');
+			sails.log.info('[LoginCtrl.login] No username or password provided');
 			return res.json({ error: 'You need to enter username and password' }, 500);
 		}
 
@@ -25,7 +25,7 @@ module.exports = {
 
 			// Return if no user was found
 			if (!user) {
-				sails.log.info('Username "'+req.body.username+'" not found.');
+				sails.log.info('[LoginCtrl.login] Username "'+req.body.username+'" not found.');
 				return res.json({ error: 'User not found' }, 404);
 			}
 
@@ -39,12 +39,14 @@ module.exports = {
 
 				// If passwords match log user in, else return an error
 				if (match){
-					sails.log.info('User "'+req.body.username+'" logged in!');
+					sails.log.info('[LoginCtrl.login] User "'+req.body.username+'" logged in!');
 					req.session.authenticated = true;
+          req.session.user = user;
           return res.json('Success', 200);
 				}else{
-					sails.log.info('Invalid password');
+					sails.log.info('[LoginCtrl.login] Invalid password');
 					req.session.authenticated = false;
+          req.session.user = null;
 					return res.json({ error: 'Invalid password' }, 400);
 				}
 			});
@@ -52,17 +54,17 @@ module.exports = {
 	},
 
 	logout: function(req, res){
-		sails.log.info('Login Controller with action "logout" called.');
-		sails.log.info('User "'+ '' +'" logged out!');
+    sails.log.verbose("[LoginCtrl] Action 'logout' called");
+		sails.log.info('[LoginCtrl.logout] User "'+ '' +'" logged out!');
 		req.session.authenticated = false;
 		return res.json('logged out!', 200);
 	},
 
   forgotPassword: function(req, res){
-    sails.log.info('Login Controller with action "forgotPassword" called.');
+    sails.log.verbose("[LoginCtrl] Action 'forgotPassword' called");
 
     if (!req.body.email){
-      sails.log.info('No email given');
+      sails.log.info('[LoginCtrl.forgotPassword] No email given');
       return res.json({ error: 'You have to enter an email' }, 500);
     }
 
@@ -76,16 +78,16 @@ module.exports = {
 
       // Return if no user was found
       if (!user) {
-        sails.log.info('Email "'+req.body.email+'" not in use.');
+        sails.log.info('[LoginCtrl.forgotPassword] Email "'+req.body.email+'" not in use.');
         return res.json({ error: 'Email "'+req.body.email+'" not in use.' }, 500);
       }
 
-      sails.log.info('User "'+ user.username +'" found!');
+      sails.log.info('[LoginCtrl.forgotPassword] User "'+ user.username +'" found!');
 
       var bcrypt = require('bcryptjs');
       var mailer = require('nodemailer');
 
-      sails.log.info('Create nodemailer transport!');
+      sails.log.info('[LoginCtrl.forgotPassword] Create nodemailer transport!');
       var transport = mailer.createTransport({
         service: 'gmail',
         auth: {
@@ -94,7 +96,7 @@ module.exports = {
         }
       });
 
-      sails.log.info('Send reset mail');
+      sails.log.info('[LoginCtrl.forgotPassword] Send reset mail');
       var mailText = 'Follow the link to reset your password: ' +
                     req.protocol + '://' + req.host + ':' + sails.config.port + // Create link to projecthub website dynamically depending on current configuration.
                     '/start/#/reset/'+
@@ -114,17 +116,18 @@ module.exports = {
   },
 
   resetPassword: function(req, res){
-    sails.log.info('User wants to reset his password!');
+    sails.log.verbose("[LoginCtrl] Action 'resetPassword' called");
+    sails.log.info('[LoginCtrl.resetPassword] User wants to reset his password!');
 
     // Check if username was provided!
     if (!req.body.username){
-      sails.log.info('Link not valid: Username missing!');
+      sails.log.info('[LoginCtrl.resetPassword] Link not valid: Username missing!');
       return res.json({ error: 'Link not valid: Username is missing!' }, 500);
     }
 
     // Check if security key was provided!
     if (!req.body.key){
-      sails.log.info('Link not valid: Key is missing!');
+      sails.log.info('[LoginCtrl.resetPassword] Link not valid: Key is missing!');
       return res.json({ error: 'Link not valid: Key is missing!' }, 500);
     }
 
@@ -138,7 +141,7 @@ module.exports = {
 
       // Return if no user was found
       if (!user) {
-        sails.log.info('Username "'+req.body.username+'" not found.');
+        sails.log.info('[LoginCtrl.resetPassword] Username "'+req.body.username+'" not found.');
         return res.json({ error: 'User not found' }, 404);
       }
 
@@ -147,7 +150,7 @@ module.exports = {
 
       // Return if key isn't correct
       if (hash != req.body.key){
-          sails.log.info('Key not valid!');
+          sails.log.info('[LoginCtrl.resetPassword] Key not valid!');
           return res.json({ error: 'Key not valid!' }, 500);
       }
 
@@ -159,7 +162,7 @@ module.exports = {
           return res.json({ error: 'Server error' }, 500);
         }
 
-        sails.log.info('User password sucessfully updated!');
+        sails.log.info('[LoginCtrl.resetPassword] User password sucessfully updated!');
         return res.json('Sucess', 200);
       });
     });
