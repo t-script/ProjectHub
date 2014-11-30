@@ -1,11 +1,10 @@
 /*
- *
- * Projecthub - ITP 5
- *
- */
-
+*
+* Projecthub - ITP 5
+*
+*/
 /*******************************
-           Standard
+          Standard
 *******************************/
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,300italic,400italic,600italic,700italic);
 
@@ -31,7 +30,49 @@ body {
 }
 
 /*******************************
-           Sidebar
+          Buttons
+*******************************/
+a.btnBlue {
+  padding: 5px 10px;
+  background-color: #5677fC;
+  border: 1px solid #5677fC;
+  border-radius: 2px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+a.btnBlue:hover {
+  background-color: #6785fc;
+}
+
+/*******************************
+          Input
+*******************************/
+input.standard {
+  padding: 5px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+input.standard:focus {
+  outline: none;
+}
+
+input.white {
+  margin: 2px 10px;
+  border: 1px solid #ffffff;
+  font-size: 16px;
+  width: 300px;
+}
+
+input.white:focus {
+  outline: none;
+}
+/*******************************
+          Sidebar
 *******************************/
 aside.sidenav {
   position: fixed;
@@ -70,7 +111,6 @@ aside.sidenav section:hover {
   font-size: 1.2em;
   color: #FFFFFF;
   z-index: 9999;
-
 }
 
 .logo b {
@@ -78,25 +118,22 @@ aside.sidenav section:hover {
 }
 
 /*******************************
-           Header
+          Header
 *******************************/
 header.head {
   position: absolute;
   top: 0;
   height: 3.0em;
   width: 100%;
-  min-width: 1024px;
   background-color: #ffffff;
   color: #666666;
   z-index: 500;
-
 }
 
 header.head ul {
   padding-top: 0.75em;
   text-align: right;
 }
-
 header.head li {
   display: inline;
   list-style: none;
@@ -126,7 +163,7 @@ div.head_h1 h1 {
 }
 
 /*******************************
-           View
+          View
 *******************************/
 main.view {
   position: fixed;
@@ -136,7 +173,61 @@ main.view {
 }
 
 /*******************************
-           Chat Window
+           Templates
+*******************************/
+div.container {
+  position: absolute;
+  top: 1.2em;
+  left: 1.5em;
+  width: calc(100% - 5.75em);
+  min-width: 640px;
+}
+
+div.containerContent {
+  padding: 0px 5px;
+  margin-bottom: 8px;
+}
+
+div.wrapper {
+  position: relative;
+  top: 5px;
+  border-radius: 2px;
+  background-color: #fff;
+  margin-bottom: 20px;
+
+}
+
+div.wrapper_inner {
+  padding: 10px 20px;
+}
+
+/*******************************
+           Table
+*******************************/
+table.list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.list td {
+  border-bottom: 1px solid #eeeeee;
+  padding: 14px 20px;
+}
+
+table.list td.btn {
+  text-align: right;
+  width: 200px;
+}
+
+/*******************************
+           Text
+*******************************/
+span.textRight {
+  float: right;
+}
+
+/*******************************
+          Chat Window
 *******************************/
 div.privatchat {
   display: none;

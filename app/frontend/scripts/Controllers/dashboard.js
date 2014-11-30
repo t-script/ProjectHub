@@ -1,5 +1,5 @@
 'use strict';
 
-angular.module('phApp').controller('DashboardCtrl', function($scope){
+angular.module('phApp').controller('DashboardCtrl', ['$scope', function ($scope) {
 
-});
+}]);
