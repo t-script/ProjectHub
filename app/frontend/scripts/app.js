@@ -12,60 +12,80 @@ angular.module('phApp', [
       .state('dashboard', {
         url: '/',
         views: {
-          "mainView": {templateUrl: '/templates/dashboard.html'}
-        },
-        controller: 'DashboardCtrl'
+          "mainView": {
+            templateUrl: '/templates/dashboard.html',
+            controller: 'DashboardCtrl'
+          },
+          "pageTitle": {template: 'Dashboard'}
+        }
       })
 
       .state('projects', {
         url: '/projects',
         views: {
-          "mainView": {templateUrl: '/templates/projects.html'}
-        },
-        controller: 'ProjectsCtrl'
+          "mainView": {
+            templateUrl: '/templates/projects.html',
+            controller: 'ProjectsCtrl'
+          },
+          "pageTitle": {template: 'Projects'}
+        }
       })
 
       .state('kanban', {
         url: '/projects/kanban',
         views: {
-          "mainView": {templateUrl: '/templates/kanban.html'}
-        },
-        controller: 'KanbanCtrl'
+          "mainView": {
+            templateUrl: '/templates/kanban.html',
+            controller: 'KanbanCtrl'
+          },
+          "pageTitle": {template: 'Project/Kanban'}
+        }
       })
 
       .state('tickets', {
         url: '/tickets',
         views: {
-          "mainView": {templateUrl: '/templates/tickets.html'}
-        },
-        controller: 'TicketsCtrl'
+          "mainView": {
+            templateUrl: '/templates/tickets.html',
+            controller: 'TicketsCtrl'
+          },
+          "pageTitle": {template: 'Tickets'}
+        }
       })
 
       .state('calendar', {
         url: '/calendar',
         views: {
-          "mainView": {templateUrl: '/templates/calendar.html'}
-        },
-        controller: 'CalendarCtrl'
+          "mainView": {
+            templateUrl: '/templates/calendar.html',
+            controller: 'CalendarCtrl'
+          },
+          "pageTitle": {template: 'Calendar'}
+        }
       })
 
       .state('files', {
         url: '/files',
         views: {
-          "mainView": {templateUrl: '/templates/files.html'}
-        },
-        controller: 'FilesCtrl'
+          "mainView": {
+            templateUrl: '/templates/files.html',
+            controller: 'FilesCtrl'
+          },
+          "pageTitle": {template: 'Files'}
+        }
       })
 
       .state('settings', {
         url: '/settings',
         views: {
-          "mainView": {templateUrl: '/templates/settings.html'}
-        },
-        controller: 'SettingsCtrl'
+          "mainView": {
+            templateUrl: '/templates/settings.html',
+            controller: 'SettingsCtrl'
+          },
+          "pageTitle": {template: 'Settings'}
+        }
       })
 
-      $locationProvider.html5Mode(true);
+      //$locationProvider.html5Mode(true);
   }]);
-
 
