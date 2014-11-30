@@ -42,6 +42,19 @@ module.exports = {
 					sails.log.info('[LoginCtrl.login] User "'+req.body.username+'" logged in!');
 					req.session.authenticated = true;
           req.session.user = user;
+
+          //Update onlinestatus
+          User.update({id: user.id}, {online: true}).exec(function(err, updated){
+              // Publish online notifaction to socket
+              User.publishUpdate(user.id, {
+                id: user.id,
+                username: user.username,
+                firstname: user.firstname,
+                lastname: user.lastname,
+                online: true
+              });
+          });
+
           return res.json('Success', 200);
 				}else{
 					sails.log.info('[LoginCtrl.login] Invalid password');
@@ -56,7 +69,18 @@ module.exports = {
 	logout: function(req, res){
     sails.log.verbose("[LoginCtrl] Action 'logout' called");
 		sails.log.info('[LoginCtrl.logout] User "'+ '' +'" logged out!');
-		req.session.authenticated = false;
+
+    //Update onlinestatus
+    User.update({id: req.session.user.id}, {online: false}).exec(function(err, updated){
+        // Publish online notifaction to socket
+        User.publishUpdate(user.id, {
+          online: false,
+          id: user.id
+        });
+    });
+
+    req.session.authenticated = false;
+    req.session.user = null;
 		return res.json('logged out!', 200);
 	},
 

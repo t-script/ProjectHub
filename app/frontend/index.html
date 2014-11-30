@@ -7,7 +7,7 @@
     <link href="/semantic/css/semantic.css" rel="stylesheet" type="text/css" />
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body ng-controller="ChatCtrl">
     <!-- Sidebar -->
     <div>
     <aside class="sidenav">
@@ -25,9 +25,21 @@
       <ul>
         <li><i class="bell outline icon"></i></li>
         <li>Tom Schalbar <i class="angle down icon"></i></li>
-        <li class="last"><i class="chat outline icon"></i></li>
+        <li id="toogle_chat" class="last"><i class="chat outline icon"></i></li>
       </ul>
     </header>
+
+    <!-- TESTING Privatechat -->
+    <div class="privatchat"  ng-init="init()">
+      <ul>
+        <li ng-repeat="user in users">
+          <span ng-class="(user.online==true) ? 'green' : 'red'" class="ui label">
+            {{user.firstname | limitTo: 1}}{{user.lastname | limitTo: 1}}
+          </span>
+          {{user.firstname}} {{user.lastname}}
+        </li>
+      </ul>
+    </div>
 
     <!-- View -->
     <main class="view" ui-view="mainView"></main>
@@ -44,6 +56,7 @@
     <script src="/lib/angular-sails/angular-sails.js"></script>
     <!-- Controller -->
     <script src="/scripts/app.js"></script>
+    <script src="/scripts/controllers/chat.js"></script>
     <script src="/scripts/controllers/dashboard.js"></script>
     <script src="/scripts/controllers/projects.js"></script>
     <script src="/scripts/controllers/tickets.js"></script>
