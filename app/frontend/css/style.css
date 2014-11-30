@@ -1,3 +1,12 @@
+/*
+ *
+ * Projecthub - ITP 5
+ *
+ */
+
+/*******************************
+           Standard
+*******************************/
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,300italic,400italic,600italic,700italic);
 
 * {
@@ -17,10 +26,13 @@ hr {
 body {
   background-color: #f2f2f2;
   color: #424242;
-  min-width: 800px;
+  min-width: 1024px;
+  height: 100%;
 }
 
-/* Blue Sidebar */
+/*******************************
+           Sidebar
+*******************************/
 aside.sidenav {
   position: fixed;
   top: 0px;
@@ -64,4 +76,87 @@ aside.sidenav section:hover {
 .logo b {
   font-weight: 400;
 }
-/*###############################################*/
+
+/*******************************
+           Header
+*******************************/
+header.head {
+  position: absolute;
+  top: 0;
+  height: 3.0em;
+  width: 100%;
+  min-width: 1024px;
+  background-color: #ffffff;
+  color: #666666;
+  z-index: 500;
+
+}
+
+header.head ul {
+  padding-top: 0.75em;
+  text-align: right;
+}
+
+header.head li {
+  display: inline;
+  list-style: none;
+  margin-right: 1.2em;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+header.head li.last {
+  margin-right: 2.0em;
+}
+
+header.head li i {
+  font-size: 1.5em;
+}
+
+div.head_h1 {
+  position: fixed;
+  left: 4.75em;
+  z-index: 800;
+  color: #666666;
+}
+
+div.head_h1 h1 {
+  padding-top: 0.5em;
+  font-size: 1.1em;
+}
+
+/*******************************
+           View
+*******************************/
+main.view {
+  position: fixed;
+  width: 100%;
+  top: 2.75em;
+  left: 2.75em;
+}
+
+/*******************************
+           Chat Window
+*******************************/
+div.privatchat {
+  display: none;
+  position: absolute;
+  top:0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: rgba(2, 2, 2, 0.4);
+  z-index: 100;
+}
+
+div.privatchat ul {
+  padding-top: 4.0em;
+}
+
+div.privatchat li {
+  margin-bottom: 1.0em;
+  padding-left: 1.0em;
+  list-style: none;
+  color: #fafafa;
+}
+

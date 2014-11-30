@@ -7,11 +7,6 @@
 module.exports = {
 
   attributes: {
-  	_id: {
-  		type: 'string',
-  		primaryKey: true,
-  	},
-
   	username: {
   		type: 'string',
   		unique: true,
@@ -53,6 +48,16 @@ module.exports = {
   		required: true,
       defaultsTo: false,
   	},
+
+    online: {
+      type: 'boolean',
+      defaultsTo: false
+    },
+
+    projects: {
+      collection: 'Project',
+      via: 'members'
+    }
   },
 
   // Before saving to db hash password

@@ -1,7 +1,12 @@
-angular.module('phApp', ['ui.router'])
+angular.module('phApp', [
+  'ui.router',
+  'ngSails'
+])
 
-  .config(['$urlRouterProvider', '$stateProvider', '$locationProvider', function($urlRouterProvider, $stateProvider, $locationProvider) {
+  .config(['$urlRouterProvider', '$stateProvider', '$locationProvider', '$sailsProvider', function($urlRouterProvider, $stateProvider, $locationProvider, $sailsProvider) {
     $urlRouterProvider.otherwise('/');
+
+    $sailsProvider.url = 'http://localhost:1337';
 
     $stateProvider
       .state('dashboard', {
