@@ -54,7 +54,7 @@ module.exports = {
 
     socketid: {
       type: 'string'
-    },
+    }
   },
 
 // Before saving to db hash password
