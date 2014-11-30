@@ -22,21 +22,22 @@ module.exports.sockets = {
   *                                                                          *
   ***************************************************************************/
   onConnect: function(session, socket) {
+    if (session.user) {
+      sails.log.info('[SocketConfig] User "' + session.user.username + '" connected!');
 
-    sails.log.info('[SocketConfig] User "'+session.user.username+'" connected!');
-
-    //Update onlinestatus
-    User.update({id: session.user.id}, {online: true}).exec(function(err, updated){
-      sails.log.info('[SocketConfig] Update user status to online');
-      // Publish online notifaction to socket
-      User.publishUpdate(session.user.id, {
-        id: session.user.id,
-        username: session.user.username,
-        firstname: session.user.firstname,
-        lastname: session.user.lastname,
-        online: true
+      //Update onlinestatus
+      User.update({id: session.user.id}, {online: true, socketid: socket.id}).exec(function (err, updated) {
+        sails.log.info('[SocketConfig] Update user status to online');
+        // Publish online notifaction to socket
+        User.publishUpdate(session.user.id, {
+          id: session.user.id,
+          username: session.user.username,
+          firstname: session.user.firstname,
+          lastname: session.user.lastname,
+          online: true
+        });
       });
-    });
+    }
   },
 
 
@@ -47,21 +48,23 @@ module.exports.sockets = {
   *                                                                          *
   ***************************************************************************/
   onDisconnect: function(session, socket) {
-    sails.log.info('[SocketConfig] User "'+session.user.username+'" disconnected!');
+    if (session.user) {
+      sails.log.info('[SocketConfig] User "' + session.user.username + '" disconnected!');
 
-    //Update onlinestatus
-    User.update({id: session.user.id}, {online: false}).exec(function(err, updated){
-      sails.log.info('[SocketConfig] Update user status to offline');
+      //Update onlinestatus
+      User.update({id: session.user.id}, {online: false, socketid: null}).exec(function (err, updated) {
+        sails.log.info('[SocketConfig] Update user status to offline');
 
-      // Publish online notifaction to socket
-      User.publishUpdate(session.user.id, {
-        id: session.user.id,
-        username: session.user.username,
-        firstname: session.user.firstname,
-        lastname: session.user.lastname,
-        online: false
+        // Publish online notifaction to socket
+        User.publishUpdate(session.user.id, {
+          id: session.user.id,
+          username: session.user.username,
+          firstname: session.user.firstname,
+          lastname: session.user.lastname,
+          online: false
+        });
       });
-    });
+    }
   },
 
 

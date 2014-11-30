@@ -35,7 +35,7 @@
   <!-- TESTING Privatechat -->
   <div class="privatchat" ng-init="init()">
     <ul>
-      <li ng-repeat="user in users">
+      <li ng-click="openPrivateChat(user.username)" ng-repeat="user in users">
         <span ng-class="(user.online==true) ? 'green' : 'red'" class="ui label">
             {{user.firstname | limitTo: 1}}{{user.lastname | limitTo: 1}}
         </span>

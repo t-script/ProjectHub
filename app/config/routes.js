@@ -21,10 +21,14 @@
  */
 
 module.exports.routes = {
-    '/': 'IndexController.index',
-    '/start': 'IndexController.singin',
-    'POST /login' : 'LoginController.login',
+    '/'      : 'IndexController.index',
+    '/start' : 'IndexController.singin',
+
+    'POST /login'  : 'LoginController.login',
     'POST /logout' : 'LoginController.logout',
     'POST /forgot' : 'LoginController.forgotPassword',
-    'POST /reset' : 'LoginController.resetPassword'
+    'POST /reset'  : 'LoginController.resetPassword',
+
+    'POST /chat/sendPrivateMsg'    : 'ChatController.sendPrivateMsg',
+    'GET /chat/getPrivateMessages' : 'ChatController.getPrivateMessages',
 };
