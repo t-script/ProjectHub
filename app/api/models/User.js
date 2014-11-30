@@ -52,9 +52,8 @@ module.exports = {
       defaultsTo: false
     },
 
-    projects: {
-      collection: 'Project',
-      via: 'members'
+    socketid: {
+      type: 'string'
     }
   },
 
