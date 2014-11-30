@@ -26,5 +26,5 @@ module.exports.routes = {
     'POST /login' : 'LoginController.login',
     'POST /logout' : 'LoginController.logout',
     'POST /forgot' : 'LoginController.forgotPassword',
-    'POST /reset' : 'LoginController.resetPassword',
+    'POST /reset' : 'LoginController.resetPassword'
 };
