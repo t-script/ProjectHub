@@ -233,3 +233,21 @@ sympy-plots-for-*.tex/
 *.tdo
 # xindy
 *.xdy
+node_modules
+bower_components
+.tmp
+lib-cov
+*.seed
+*.log
+*.out
+*.pid
+npm-debug.log
+*~
+*#
+.DS_STORE
+.netbeans
+nbproject
+.idea
+.node_history
+node_modules
+bower_components

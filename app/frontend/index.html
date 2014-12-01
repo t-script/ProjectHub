@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="phApp">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <title>ProjectHub</title>
+    <link href="/semantic/css/semantic.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href='lib/fullcalendar/css/fullcalendar.css' rel='stylesheet' />
+    <link href='lib/fullcalendar/css/fullcalendar.print.css' rel='stylesheet' media='print' />
+
+</head>
+<body ng-controller="ChatCtrl">
+
+  <!-- Sidebar -->
+  <aside class="sidenav">
+    <a href="#/projects"><section class="tooltip" title="Projects"><i class="reorder icon"></i></section></a>
+    <a href="#/tickets"><section class="tooltip" title="Tickets"><i class="checkmark icon"></i></section></a>
+    <a href="#/calendar"><section class="tooltip" title="Calendar"><i class="calendar icon"></i></section></a>
+    <a href="#/files"><section class="tooltip" title="Files"><i class="open folder icon"></i></section></a>
+    <a href="#/settings"><section class="tooltip" title="Settings"><i class="setting icon"></i></section></a>
+  </aside>
+  <a href="#/dashboard"><div class="logo"><i class="bolt icon"></i><b>Project</b>Hub</div></a>
+
+  <!-- Header -->
+  <div class="head_h1"><h1 ui-view="pageTitle"></h1></div>
+  <header class="head">
+    <ul>
+      <li><i class="bell outline icon"></i></li>
+      <li>Tom Schalbar <i class="angle down icon"></i></li>
+      <li id="toogle_chat" class="last"><i class="chat outline icon"></i></li>
+    </ul>
+  </header>
+
+  <!-- TESTING Privatechat -->
+  <div class="privatchat" ng-init="init()">
+    <ul>
+      <li ng-click="openPrivateChat(user.username)" ng-repeat="user in users">
+        <span ng-class="(user.online==true) ? 'green' : 'red'" class="ui label">
+            {{user.firstname | limitTo: 1}}{{user.lastname | limitTo: 1}}
+        </span>
+        {{user.firstname}} {{user.lastname}}
+      </li>
+    </ul>
+  </div>
+
+  <!-- View -->
+  <main class="view" ui-view="mainView"></main>
+
+  <!---------- Scripts ----------->
+  <!-- Socket IO -->
+  <script src="/scripts/dependencies/sails.io.js"></script>
+
+  <!-- full calender -->
+  <script src='lib/fullcalendar/moment.min.js'></script>
+  <script src='lib/fullcalendar/fullcalendar.js'></script>
+
+  <!-- Libraries -->
+  <script src="/lib/jquery/jquery-1.11.1.min.js"></script>
+  <script src="/lib/jquery/jquery-ui.min.js"></script>
+  <script src='lib/fullcalendar/moment.min.js'></script>
+  <script src='lib/fullcalendar/fullcalendar.js'></script>
+  <script src="semantic/javascript/semantic.js"></script>
+  <script src="/lib/angular/angular.js"></script>
+  <script src="/lib/angular-ui-router/angular-ui-router.js"></script>
+  <script src="/lib/angular-sails/angular-sails.js"></script>
+
+  <!-- Controller -->
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/controllers/chat.js"></script>
+  <script src="/scripts/controllers/dashboard.js"></script>
+  <script src="/scripts/controllers/project.js"></script>
+  <script src="/scripts/controllers/projects.js"></script>
+  <script src="/scripts/controllers/kanban.js"></script>
+  <script src="/scripts/controllers/tickets.js"></script>
+  <script src="/scripts/controllers/calendar.js"></script>
+  <script src="/scripts/controllers/files.js"></script>
+  <script src="/scripts/controllers/settings.js"></script>
+
+  <!-- Other Scripts -->
+  <script src="/scripts/script.js"></script>
+</body>
+</html>

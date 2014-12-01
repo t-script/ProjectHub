@@ -1,0 +1,296 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,300italic,400italic,600italic,700italic);
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+body {
+    background-color: #424242;
+    color: #424242;
+}
+
+b {
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: #424242;
+}
+
+a:hover {
+    color: #5677fc;
+}
+
+a.btn {
+    padding: 15px 20px;
+    background-color: rgba(255,255,255, 0.4);
+    border-radius: 5px;
+}
+
+a.btn:hover{
+    background-color: rgba(255,255,255, 0.6);
+    color: #424242;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid #757575;
+    padding-bottom: 10px;
+}
+/* ---------------------------------------------------------- */
+
+/* Navbar Design */
+header.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.6);
+    z-index: 800;
+}
+
+div.content {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 5px;
+    width: 90%;
+}
+
+div.content h1 {
+    display: inline;
+    font-size: 22px;
+    color: #212121;
+}
+
+div.content ul {
+    display: inline;
+    text-align: right;
+}
+
+div.content li {
+    float: right;
+    list-style: none;
+    margin-top: 5px;
+    margin-left: 25px;
+}
+
+div.content a {
+    color: #212121;
+}
+
+div.content a:hover {
+    color: #000000;
+}
+/* ---------------------------------------------------------- */
+
+/* Jumbo Design */
+div.jumbo {
+    position: relative;
+    background-image: url("../pic/home-office-336373_1280.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+    min-height: 500px;
+}
+
+div.jumboH1 {
+    position: absolute;
+    top: 24%;
+    left: 6%;
+    color: #FAFAFA;
+}
+/* ---------------------------------------------------------- */
+
+/* Wrapper Design */
+div.wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 90%;
+    min-height: 500px;
+    color: #bdbdbd;
+    text-align: center;
+}
+
+div.wrapper h1 {
+    padding-top: 75px;
+}
+
+table {
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    border-spacing: 50px 30px;
+}
+
+td {
+    border: 1px solid #757575;
+    border-radius: 5px;
+    width: 300px;
+    height: 180px;
+    padding: 15px 0px;
+    vertical-align: top;
+}
+
+td p {
+    padding: 5px;
+    padding-top: 15px;
+}
+/* ---------------------------------------------------------- */
+
+/* Popup Design */
+div.popup {
+    position: fixed;
+    width: 100%;
+    min-height: 500px;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    z-index: 9998;
+}
+
+div.popupWrapper {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 750px;
+    min-height: 400px;
+    background: #000000;
+    border: 1px solid #9e9e9e;
+    border-radius: 5px;
+    color: #9e9e9e;
+}
+
+div.close {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+div.popupContent {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 40px;
+    text-align: center;
+}
+
+div.popupContent h1 {
+    font-size: 25px;
+    padding-bottom: 5px;
+}
+
+div.popupContent hr {
+    position: relative;
+    margin: 0 auto;
+    border: 0;
+    border-bottom: 1px solid #9e9e9e;
+    width: 700px;
+}
+
+div.popupContent input {
+    width: 350px;
+    background-color: #000000;
+    border: 1px solid #9e9e9e;
+    border-radius: 5px;
+    margin-top: 15px;
+    padding: 6px 10px;
+    font-size: 16px;
+    color: #9e9e9e;
+}
+
+div.popupContent input:focus {
+    outline: none;
+}
+
+div.popupContent input.ng-valid {
+    border: 1px solid #8bc34a;
+}
+
+div.popupContent input.space {
+    margin-top: 10px;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #424242;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #424242;
+    opacity:  1;
+}
+
+div.popupContent button {
+    width: 370px;
+    padding: 6px 10px;
+    background-color: #000000;
+    border: 1px solid #9e9e9e;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #9e9e9e;
+    cursor: pointer;
+}
+
+div.popupContent button:hover:enabled {
+    background-color: #424242;
+}
+
+div.popupContent button:focus:enabled {
+    outline: none;
+}
+
+div.popupContent button:disabled {
+    border: 1px solid #424242;
+    color: #424242;
+}
+
+div.inputmsg {
+    height: 75px;
+}
+
+div.popupContent p{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+div.popupContent a {
+    color: #9e9e9e;
+}
+
+div.popupContent a:hover {
+    color: #FAFAFA;
+}
+
+div.popupContent a.space {
+    margin-right: 60px;
+    margin-bottom: 5px;
+}
+
+div.message {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 6px 0px;
+  text-align: center;
+  background-color: #e57373;
+  border-bottom: 4px solid #c62828;
+  color: #c62828;
+  visibility: hidden;
+  z-index: 9999;
+}
+
