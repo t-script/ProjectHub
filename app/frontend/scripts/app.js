@@ -31,10 +31,30 @@ angular.module('phApp', [
         }
       })
 
-      .state('kanban', {
-        url: '/projects/kanban',
+      .state('project', {
         views: {
           "mainView": {
+            templateUrl: '/templates/project.html',
+            controller: 'ProjectCtrl'
+          },
+          "pageTitle": {template: 'Project / ProjectName'}
+        }
+      })
+
+      .state('project.start', {
+        url: '/project/:id',
+        views: {
+          "projectView": {
+            templateUrl: '/templates/start.html',
+            controller: 'ProjectCtrl'
+          }
+        },
+      })
+
+      .state('project.kanban', {
+        url: '/project/:id/kanban',
+        views: {
+          "projectView": {
             templateUrl: '/templates/kanban.html',
             controller: 'KanbanCtrl'
           },
@@ -88,4 +108,3 @@ angular.module('phApp', [
 
       //$locationProvider.html5Mode(true);
   }]);
-

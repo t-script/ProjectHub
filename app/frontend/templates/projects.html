@@ -22,7 +22,7 @@
     <table class="list" ng-init="getProjects()">
       <tr ng-repeat="project in projects | filter:search">
         <td>{{project.name}}</td>
-        <td class="btn"><a href="#/" class="btnBlue"><i class="open folder icon"></i> Open Project</a> </td>
+        <td class="btn"><a href="#/project/{{project.id}}" class="btnBlue"><i class="open folder icon"></i> Open Project</a> </td>
       </tr>
     </table>
   </div>
