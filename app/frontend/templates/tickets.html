@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Overview</h2>
+  <a class="orderby" ng-click="reverse=false"><i class="angle up icon"></i></a>
+  <a class="orderby" ng-click="reverse=true"><i class="angle down icon"></i></a>
+  <span class="textRight"><input class="standard" type="text" ng-model="search" placeholder="Search" /></span>
+
+  <div class="wrapper">
+    <table class="list" ng-init="getTickets()">
+      <tr ng-repeat="ticket in tickets | orderBy: 'name':reverse | filter:search">
+        <td>{{ticket.title}}</td>
+        <td>{{ticket.description}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
