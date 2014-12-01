@@ -121,6 +121,14 @@ module.exports = {
 
     //TODO Prüfen, ob User teil des Projekts ist
 
+    // Verlasse den aktuellen Raum, bevor man einen neuen Raum betritt (z.B. beim Projektwechsel)
+    var rooms = sails.sockets.socketRooms(req.socket);
+    for (var i = 0; i < rooms.length; i++){
+      if (Strings.startWith("project-room-", rooms[i])) {
+        sails.sockets.leave(req.socket, rooms[i]);
+      }
+    }
+
     sails.sockets.join(req.socket, 'project-room-'+req.param('projectId'));
 
     GroupChatMsg.find({ where: { project: req.param('projectId')}, limit: 100, sort: 'createdAt: ASC' })
@@ -132,7 +140,6 @@ module.exports = {
         }
 
         // Gefundene Nachrichten zurückliefern
-        console.log(msgs);
         return res.json(msgs, 200);
       });
   },
