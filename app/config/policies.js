@@ -25,7 +25,7 @@ module.exports.policies = {
   ***************************************************************************/
 
   'user': {
-    '*': false,
+    //'*': false,
     'create': 'isLoggedOut',
     'update': 'isLoggedIn'
   },

@@ -76,6 +76,24 @@ input.white {
 input.white:focus {
   outline: none;
 }
+
+.ui-autocomplete {
+  background: #ffffff;
+  list-style: none;
+  width: 300px;
+  border-radius: 4px;
+  border: 1px solid #eeeeee;
+  z-index: 10000000;
+}
+
+.ui-autocomplete li {
+  padding: 5px 10px;
+  border-bottom: 1px solid #eeeeee;
+  cursor: pointer;
+}
+
+.ui-helper-hidden-accessible { display:none; }
+
 /*******************************
           Sidebar
 *******************************/
@@ -338,6 +356,7 @@ div.groupchat #grpChatSubmitBtn{
   width: 17%;
   padding: 6px;
 }
+
 /*******************************
           OrderBy
 *******************************/

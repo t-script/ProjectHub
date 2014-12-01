@@ -1,9 +1,8 @@
 <h2>Members</h2>
-<div class="wrapper">
+<div class="wrapper" >
   <table class="list" ng-init="getMembers(); getUsers()">
     <tr ng-repeat="member in members">
-      <td>{{member.name}}</td>
-      <td class="btn"><a href="#/project/{{member.id}}" class="btnBlue"><i class="open folder icon"></i> Open Project</a> </td>
+      <td>{{member.firstname}} {{member.lastname}}</td>
     </tr>
   </table>
 </div>
@@ -11,7 +10,7 @@
   <div class="wrapper_inner">
     <form name="frmCreateProject" ng-submit="addMember()" novalidate>
       <i class="plus icon"></i>
-      <input class="white" type="text" placeholder="Add a new member" name="memberName" ng-model="memberName" ng-minlength="3" ng-maxlength="32" required />
+      <input class="white" type="text" placeholder="Add a new member" id="memberName" name="memberName" ng-model="memberName" ng-minlength="3" ng-maxlength="32" required />
     </form>
   </div>
 </div>

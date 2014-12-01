@@ -16,11 +16,12 @@ angular.module('phApp').controller('ProjectsCtrl', function($scope, $sails){
   $scope.createProject = function () {
     if ($scope.frmCreateProject.$valid) {
       $('#projectName').val(null);
-      var data = {name: $scope.projectName};
-      $scope.projects.push(data)
+      // TODO : Session id, firstname, lastname
+      var data = {name: $scope.projectName, members: [{id: 1, firstname: 'Tom', lastname : 'Schalbar'}], leader: 1};
       $sails.post('/project', data)
         .success(function (data) {
           console.log('success');
+          $scope.getProjects();
         })
         .error(function (data) {
           console.log(data)
