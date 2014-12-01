@@ -62,6 +62,28 @@ angular.module('phApp', [
         }
       })
 
+      .state('project.planningpoker', {
+        url: '/project/:id/planningpoker',
+        views: {
+          "projectView": {
+            templateUrl: '/templates/poker.html',
+            controller: 'PokerCtrl'
+          },
+          "pageTitle": {template: 'Project/ ProjectName / Planning Poker'}
+        }
+      })
+
+      .state('project.files', {
+        url: '/project/:id/files',
+        views: {
+          "projectView": {
+            templateUrl: '/templates/projectfiles.html',
+            controller: 'FilesCtrl'
+          },
+          "pageTitle": {template: 'Project/ ProjectName / Files'}
+        }
+      })
+
       .state('tickets', {
         url: '/tickets',
         views: {
