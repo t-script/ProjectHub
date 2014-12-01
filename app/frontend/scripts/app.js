@@ -48,7 +48,7 @@ angular.module('phApp', [
             templateUrl: '/templates/start.html',
             controller: 'ProjectCtrl'
           }
-        },
+        }
       })
 
       .state('project.kanban', {
@@ -58,7 +58,7 @@ angular.module('phApp', [
             templateUrl: '/templates/kanban.html',
             controller: 'KanbanCtrl'
           },
-          "pageTitle": {template: 'Project/Kanban'}
+          "pageTitle": {template: 'Project/ ProjectName / Kanban'}
         }
       })
 
