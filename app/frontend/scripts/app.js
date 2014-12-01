@@ -32,9 +32,14 @@ angular.module('phApp', [
       })
 
       .state('project', {
+        url: '/project/:id',
         views: {
           "mainView": {
             templateUrl: '/templates/project.html',
+            controller: 'ProjectCtrl'
+          },
+          "projectChatView": {
+            templateUrl: '/templates/projectChat.html',
             controller: 'ProjectCtrl'
           },
           "pageTitle": {template: 'Project / ProjectName'}
@@ -42,39 +47,50 @@ angular.module('phApp', [
       })
 
       .state('project.start', {
-        url: '/project/:id',
         views: {
           "projectView": {
             templateUrl: '/templates/start.html',
+            controller: 'ProjectCtrl'
+          },
+          "projectChatView": {
+            templateUrl: '/templates/projectChat.html',
             controller: 'ProjectCtrl'
           }
         }
       })
 
       .state('project.kanban', {
-        url: '/project/:id/kanban',
+        url: '/kanban',
         views: {
           "projectView": {
             templateUrl: '/templates/kanban.html',
             controller: 'KanbanCtrl'
+          },
+          "projectChatView": {
+            templateUrl: '/templates/projectChat.html',
+            controller: 'ProjectCtrl'
           },
           "pageTitle": {template: 'Project/ ProjectName / Kanban'}
         }
       })
 
       .state('project.planningpoker', {
-        url: '/project/:id/planningpoker',
+        url: '/planningpoker',
         views: {
           "projectView": {
             templateUrl: '/templates/poker.html',
             controller: 'PokerCtrl'
+          },
+          "projectChatView": {
+            templateUrl: '/templates/projectChat.html',
+            controller: 'ProjectCtrl'
           },
           "pageTitle": {template: 'Project/ ProjectName / Planning Poker'}
         }
       })
 
       .state('project.files', {
-        url: '/project/:id/files',
+        url: '/files',
         views: {
           "projectView": {
             templateUrl: '/templates/projectfiles.html',

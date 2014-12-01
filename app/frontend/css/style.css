@@ -296,6 +296,49 @@ div.privatchat li {
 }
 
 /*******************************
+          Chat Window
+*******************************/
+
+div.groupchat_header{
+  position: fixed;
+  left: 65%;
+  top: 3.69em;
+  font-size: 0.9em;
+  font-weight: 400;
+  color: #666666;
+}
+
+div.groupchat {
+  position: fixed;
+  top: 5.0em;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+div.groupchat li {
+  padding: 0.5em 1.5em;
+  list-style: none;
+  font-size: 0.8em;
+  color: #666666;
+}
+
+div.groupchat #grpChatSubmit{
+   position: absolute;
+   bottom: 80px;
+   width: 80%;
+   padding: 6px;
+}
+
+div.groupchat #grpChatSubmitBtn{
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 17%;
+  padding: 6px;
+}
+/*******************************
           OrderBy
 *******************************/
 a.orderby {

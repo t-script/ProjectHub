@@ -1,0 +1,12 @@
+<div class="groupchat_header"><i class="chat icon"></i>Group Chat</div>
+<div class="groupchat">
+  <ul>
+    <li ng-repeat="msg in msgs">
+      {{msg.sendername}}: {{msg.message}}
+    </li>
+  </ul>
+  <form name="frmGroupChat" ng-submit="sendMsg()">
+    <input id="grpChatSubmit" type="text" placeholder="Enter message" ng-model="msg.message">
+    <input id="grpChatSubmitBtn" type="submit" value="Send">
+  </form>
+</div>

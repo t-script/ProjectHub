@@ -31,4 +31,5 @@ module.exports.routes = {
 
     'POST /chat/sendPrivateMsg'    : 'ChatController.sendPrivateMsg',
     'GET /chat/getPrivateMessages' : 'ChatController.getPrivateMessages',
+    'GET /chat/joinProjectRoom'    : 'ChatController.joinProjectRoom',
 };

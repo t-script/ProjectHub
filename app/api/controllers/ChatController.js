@@ -98,6 +98,62 @@ module.exports = {
         // Gefundene Nachrichten zurückliefern
         return res.json(msgs, 200);
       });
+  },
+
+  getGroupMessages: function(req, res){
+    sails.log.verbose("[ChatCtrl] Action 'getGroupMessages' called");
+
+    GroupChatMsg.find({ where: { project: req.param('projectId')}, limit: 100, sort: 'createdAt: ASC' })
+      .exec(function(err, msg){
+        // Bei Fehler return
+        if (err){
+          sails.log.error(err);
+          return res.json('There was an server error', 500);
+        }
+
+        // Gefundene Nachrichten zurückliefern
+        return res.json(msgs, 200);
+      });
+  },
+
+  joinProjectRoom: function(req, res){
+    sails.log.verbose("[ChatCtrl] Action 'joinProjectRoom' called");
+
+    //TODO Prüfen, ob User teil des Projekts ist
+
+    sails.sockets.join(req.socket, 'project-room-'+req.param('projectId'));
+
+    GroupChatMsg.find({ where: { project: req.param('projectId')}, limit: 100, sort: 'createdAt: ASC' })
+      .exec(function(err, msgs){
+        // Bei Fehler return
+        if (err){
+          sails.log.error(err);
+          return res.json('There was an server error', 500);
+        }
+
+        // Gefundene Nachrichten zurückliefern
+        console.log(msgs);
+        return res.json(msgs, 200);
+      });
+  },
+
+  sendGroupMsg: function(req, res){
+    sails.log.verbose("[ChatCtrl] Action 'sendGroupMsg' called");
+
+    GroupChatMsg.create({
+      message: req.param('msg'),
+      sender: req.session.user.id,
+      sendername: req.session.user.username,
+      project: req.param('projectId')
+    }).exec(function(err, createdMsg){
+      // Bei Fehler return
+      if (err){
+        sails.log.error(err);
+        return res.json('There was an server error', 500);
+      }
+
+      sails.sockets.broadcast('project-room-'+req.param('projectId'), 'groupMsg', createdMsg);
+    });
   }
 };
 
