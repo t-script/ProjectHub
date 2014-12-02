@@ -59,6 +59,17 @@ angular.module('phApp', [
         }
       })
 
+      .state('project.backlog', {
+        url: '/backlog',
+        views: {
+          "projectView": {
+            templateUrl: '/templates/backlog.html',
+            controller: 'KanbanCtrl'
+          },
+          "pageTitle": {template: 'Project/ ProjectName / Backlog'}
+        }
+      })
+
       .state('project.kanban', {
         url: '/kanban',
         views: {

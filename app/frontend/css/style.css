@@ -52,6 +52,15 @@ a.btnBlue:hover {
   background-color: #6785fc;
 }
 
+a.blue {
+  color: #5677fC;
+  text-decoration: none;
+}
+
+a.blue:hover {
+  color: #666666;
+}
+
 /*******************************
           Input
 *******************************/

@@ -22,7 +22,7 @@ angular.module('phApp').controller('ProjectCtrl', function($scope, $stateParams,
     $sails.get('/user')
       .success(function (data) {
         angular.forEach(data, function (value, key) {
-          $scope.users.push(value.username);
+          $scope.users.push(value.firstname + ' ' + value.lastname + ' (' +value.username + ')');
         });
         $('#memberName').autocomplete({
           source: $scope.users
@@ -44,9 +44,12 @@ angular.module('phApp').controller('ProjectCtrl', function($scope, $stateParams,
   }
 
   $scope.addMember = function () {
+    $('#memberName').val(null);
     var project_id = $stateParams.id;
-    console.log($scope.memberName);
-    var data = {'projectId': $stateParams.id, 'member': $scope.memberName};
+    var start = $scope.memberName.search("\\(");
+    var end = $scope.memberName.search("\\)");
+    var memberUser = $scope.memberName.substring(start+1,end);
+    var data = {'projectId': $stateParams.id, 'member': memberUser};
     $sails.post('/addMember', data)
       .success(function (data) {
         console.log('success');
