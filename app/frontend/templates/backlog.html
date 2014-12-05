@@ -1,2 +1,21 @@
 <h2>Backlog / <a class="blue" ui-sref="project.kanban">Board</a></h2>
+<p>
+  <a href="#">Add a new ticket</a>
+</p>
+<div class="wrapper" >
+  <table class="list" ng-init="getMembers(); getUsers()">
+    <tr>
+      <th>Ticket ID</th>
+      <th>Title</th>
+      <th>Service Classes</th>
+      <th>Categorie</th>
+    </tr>
+    <tr ng-repeat="ticket in tickets">
+      <td>{{ticket.ticketid}}</td>
+      <td>{{ticket.title}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
 

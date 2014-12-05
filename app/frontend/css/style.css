@@ -290,6 +290,13 @@ table.list td.btn {
   width: 200px;
 }
 
+table.list th {
+  text-align: left;
+  font-weight: 400;
+  border-bottom: 1px solid #eeeeee;
+  padding: 14px 20px;
+}
+
 /*******************************
            Text
 *******************************/
