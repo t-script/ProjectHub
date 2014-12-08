@@ -65,10 +65,11 @@ a.blue:hover {
           Input
 *******************************/
 input.standard {
-  padding: 5px 10px;
-  border: 1px solid #e0e0e0;
+  padding: 6px 15px;
+  border: 1px solid #eeeeee;
+  width: 250px;
   border-radius: 2px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 input.standard:focus {
@@ -372,6 +373,54 @@ div.groupchat #grpChatSubmitBtn{
   width: 17%;
   padding: 6px;
 }
+
+
+/*******************************
+          Kanban Board
+*******************************/
+.kanbanBoard {
+  position: relative;
+  top: 5px;
+}
+
+.kanbanColumns {
+  background-color: #ffffff;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  width: 300px;
+  min-height: calc(100vh - 190px);
+  list-style-type: none;
+  margin: 0;
+  margin-right: 10px;
+  padding: 5px 10px;
+  float: left;
+}
+
+.kanbanHeader{
+  background-color: #bdbdbd;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: 14px;
+  width: 300px;
+  list-style-type: none;
+  margin: 0;
+  margin-right: 10px;
+  padding: 10px 10px;
+  float: left;
+}
+
+.newline{
+  clear: both;
+}
+
+.ticket {
+  background-color: #ffffff;
+  border: 1px solid #eeeeee;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  cursor: move;
+}
+
 
 /*******************************
           OrderBy

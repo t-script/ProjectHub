@@ -1,6 +1,11 @@
-<h2><a class="blue" ui-sref="project.backlog">Backlog</a> / Board</h2>
-<div class="wrapper" >
- <div class="wrapper_inner">
-   Kanban
- </div>
+<h2><a class="blue" ui-sref="project.backlog">Backlog</a> / Board</h2><br />
+
+<div id="board" class="kanbanBoard" ng-init="init()">
+  <ul ng-repeat="column in Jcolumns" class="kanbanHeader">
+    <li>{{column.name}} (WIP: <span id="wip{{column.id}}"></span> / {{column.limit}} )</li>
+  </ul>
+  <div class="newline"></div>
+  <ul ng-repeat="column in Jcolumns" class="kanbanColumns" id="c{{column.id}}">
+  </ul>
 </div>
+
