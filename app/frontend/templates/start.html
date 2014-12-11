@@ -1,16 +1,22 @@
-<h2>Members</h2>
-<div class="wrapper" >
-  <table class="list" ng-init="getMembers(); getUsers()">
-    <tr ng-repeat="member in members">
-      <td>{{member.firstname}} {{member.lastname}}</td>
-    </tr>
-  </table>
-</div>
-<div class="wrapper">
-  <div class="wrapper_inner">
-    <form name="frmCreateProject" ng-submit="addMember()" novalidate>
-      <i class="plus icon"></i>
-      <input class="white" type="text" placeholder="Add a new member" id="memberName" name="memberName" ng-model="memberName" ng-minlength="3" ng-maxlength="32" required />
-    </form>
+<div class="col-left">
+  <h2>Members</h2>
+  <div class="wrapper" >
+    <table class="list" ng-init="getMembers(); getUsers()">
+      <tr ng-repeat="member in members">
+        <td>{{member.firstname}} {{member.lastname}}</td>
+      </tr>
+    </table>
   </div>
+  <div class="wrapper">
+    <div class="wrapper_inner">
+      <form name="frmCreateProject" ng-submit="addMember()" novalidate>
+        <i class="plus icon"></i>
+        <input class="white" type="text" placeholder="Add a new member" id="memberName" name="memberName" ng-model="memberName" ng-minlength="3" ng-maxlength="32" required />
+      </form>
+    </div>
+  </div>
+</div>
+<div class="col-right">
+  <h2>Chat</h2>
+  <!-- Gruppen Chat -->
 </div>

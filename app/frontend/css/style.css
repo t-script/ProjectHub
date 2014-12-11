@@ -30,7 +30,7 @@ body {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 20px;
   display: inline;
 }
 
@@ -65,9 +65,9 @@ a.blue:hover {
           Input
 *******************************/
 input.standard {
-  padding: 6px 15px;
+  padding: 4px 10px;
   border: 1px solid #eeeeee;
-  width: 250px;
+  width: 200px;
   border-radius: 2px;
   font-size: 14px;
 }
@@ -79,7 +79,7 @@ input.standard:focus {
 input.white {
   margin: 0px 10px;
   border: 1px solid #ffffff;
-  font-size: 16px;
+  font-size: 14px;
   width: 300px;
 }
 
@@ -279,6 +279,7 @@ div.wrapper_inner {
 table.list {
   width: 100%;
   border-collapse: collapse;
+  font-size: 14px;
 }
 
 table.list td {
@@ -295,7 +296,7 @@ table.list th {
   text-align: left;
   font-weight: 400;
   border-bottom: 1px solid #eeeeee;
-  padding: 14px 20px;
+  padding: 10px 20px;
 }
 
 /*******************************
@@ -385,26 +386,24 @@ div.groupchat #grpChatSubmitBtn{
 
 .kanbanColumns {
   background-color: #ffffff;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border: 1px solid #dddddd;
   width: 300px;
   min-height: calc(100vh - 190px);
   list-style-type: none;
   margin: 0;
-  margin-right: 10px;
+  margin-left: 8px;
   padding: 5px 10px;
   float: left;
 }
 
 .kanbanHeader{
-  background-color: #bdbdbd;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+  background-color: #dddddd;
+  border: 1px solid #dddddd;
   font-size: 14px;
   width: 300px;
   list-style-type: none;
   margin: 0;
-  margin-right: 10px;
+  margin-left: 8px;
   padding: 10px 10px;
   float: left;
 }
@@ -421,10 +420,22 @@ div.groupchat #grpChatSubmitBtn{
   cursor: move;
 }
 
-
 /*******************************
           OrderBy
 *******************************/
 a.orderby {
   cursor: pointer;
+}
+
+/*******************************
+          column
+*******************************/
+div.col-left {
+  width: 55%;
+  float: left;
+}
+
+div.col-right {
+  width: 40%;
+  float: right;
 }
