@@ -10,13 +10,14 @@
       </form>
     </div>
   </div>
-
-  <h2>Overview</h2>
-  <a class="orderby" ng-click="reverse=false"><i class="angle up icon"></i></a>
-  <a class="orderby" ng-click="reverse=true"><i class="angle down icon"></i></a>
-  <span class="textRight"><input class="standard" type="text" ng-model="search" placeholder="Search" /></span>
-
+  
   <div class="wrapper">
+    <div class="wrapper_header">
+      Project
+      <a class="orderby" ng-click="reverse=false"><i class="angle up icon"></i></a>
+      <a class="orderby" ng-click="reverse=true"><i class="angle down icon"></i></a>
+      <span class="textRight"><i class="search icon"></i> <input class="standard" type="text" ng-model="search" placeholder="Search" /></span>
+    </div>
     <table class="list" ng-init="getProjects()">
       <tr ng-repeat="project in projects | filter:search | orderBy: 'name':reverse">
         <td>{{project.name}}</td>
