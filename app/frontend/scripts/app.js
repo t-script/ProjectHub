@@ -64,7 +64,7 @@ angular.module('phApp', [
         views: {
           "projectView": {
             templateUrl: '/templates/backlog.html',
-            controller: 'KanbanCtrl'
+            controller: 'BacklogCtrl'
           },
           "pageTitle": {template: 'Project/ ProjectName / Backlog'}
         }

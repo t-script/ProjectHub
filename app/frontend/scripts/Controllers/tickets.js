@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('phApp').controller('TicketsCtrl', function($scope){
+angular.module('phApp').controller('TicketsCtrl', function($scope, $sails){
 
 });
 

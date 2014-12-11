@@ -420,6 +420,10 @@ div.groupchat #grpChatSubmitBtn{
   cursor: move;
 }
 
+.addTicket {
+  display: none;
+}
+
 /*******************************
           OrderBy
 *******************************/
@@ -437,5 +441,13 @@ div.col-left {
 
 div.col-right {
   width: 40%;
+  float: right;
+}
+
+div.left {
+  float: left;
+}
+
+div.right {
   float: right;
 }

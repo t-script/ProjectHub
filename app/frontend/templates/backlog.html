@@ -1,7 +1,27 @@
 <h2>Backlog / <a class="blue" ui-sref="project.kanban">Board</a></h2>
-<p>
-  <a href="#">Add a new ticket</a>
-</p>
+<div class="right"> <a href="#" class="btnBlue"><i class="browser icon"></i>Add a new ticket</a></div>
+<div class="wrapper ">
+  <div class="wrapper_inner">
+    <form method="post" action="" name="frmAddTicket" ng-submit="addTicket()" novalidate>
+      <p>
+        <i class="angle right icon"></i>
+        <input class="white" type="text" placeholder="Add a title" id="ticketTitle" name="ticketTitle" ng-model="ticketTitle" ng-minlength="3" ng-maxlength="32" required />
+        <span class="textRight" ng-show="frmAddTicket.ticketTitle.$error.minlength"><i class="info icon"></i> Ttitle is too short.</span>
+        <span class="textRight" ng-show="frmAddTicket.ticketTitle.$error.maxlength"><i class="info icon"></i> Title is too long.</span>
+        <span class="textRight" ng-show="frmAddTicket.ticketTitle.$error.required && frmAddTicket.ticketTitle.$dirty"><i class="info icon"></i> Title is required.</span>
+      </p>
+      <p>
+        <i class="angle right icon"></i>
+        <input class="white" type="text" placeholder="Add description" id="ticketDescription" name="ticketDescription" ng-model="ticketDescription" ng-minlength="3" ng-maxlength="100" required />
+        <span class="textRight" ng-show="frmAddTicket.ticketDescription.$error.minlength"><i class="info icon"></i> Description is too short.</span>
+        <span class="textRight" ng-show="frmAddTicket.ticketDescription.$error.maxlength"><i class="info icon"></i> Description is too long.</span>
+        <span class="textRight" ng-show="frmAddTicket.ticketDescription.$error.required && frmAddTicket.ticketDescription.$dirty"><i class="info icon"></i> Description is required.</span>
+      </p>
+      <button type="submit" ng-disabled="frmAddTicket.$invalid">Add Ticket</button>
+    </form>
+  </div>
+</div>
+
 <div class="wrapper" >
   <table class="list" ng-init="getMembers(); getUsers()">
     <tr>
