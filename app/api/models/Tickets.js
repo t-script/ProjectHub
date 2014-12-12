@@ -56,7 +56,13 @@ module.exports = {
 
     userid: {
       type: 'integer'
+    },
+
+    projectid: {
+      type: 'integer',
+      required: true
     }
+
   }
 };
 
