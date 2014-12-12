@@ -400,22 +400,31 @@ div.groupchat li {
   color: #666666;
 }
 
+
 div.groupchat #grpChatSubmit{
   position: absolute;
-  bottom: 79px;
-  width: 80%;
+  bottom: 90px;
   padding: 8px;
-  border: 1px solid rgb(210, 210, 210);
-  border-left: none;
+  border: 1px solid #ffffff;
+  font-size: 14px;
 }
 
 div.groupchat #grpChatSubmitBtn{
   position: absolute;
-  bottom: 79px;
-  right: -1px;
-  border-radius: 0;
-  width: 18%;
-  padding: 10px;
+  bottom: 88px;
+  right: 4px;
+  background-color: #ffffff;
+  border: 0px;
+  font-size: 30px;
+}
+
+hr.chat {
+  position: fixed;
+  bottom: 40px;
+  width: 100%;
+  height: 1px;
+  background: #e0e0e0;
+  z-index: 9999;
 }
 
 /*******************************

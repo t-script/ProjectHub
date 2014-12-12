@@ -1,8 +1,14 @@
 <div class="col-left">
   <h2>Members</h2>
   <div class="wrapper" >
+    <div class="wrapper_header">
+      Name
+      <a class="orderby" ng-click="reverse=false"><i class="angle up icon"></i></a>
+      <a class="orderby" ng-click="reverse=true"><i class="angle down icon"></i></a>
+      <span class="textRight"><i class="search icon"></i> <input class="standard" type="text" ng-model="search" placeholder="Search" /></span>
+    </div>
     <table class="list" ng-init="getMembers(); getUsers()">
-      <tr ng-repeat="member in members">
+      <tr ng-repeat="member in members  | filter:search | orderBy: 'lastname':reverse">
         <td>{{member.firstname}} {{member.lastname}}</td>
       </tr>
     </table>
@@ -15,6 +21,4 @@
       </form>
     </div>
   </div>
-</div>
-<div class="col-right">
 </div>

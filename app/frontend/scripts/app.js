@@ -77,10 +77,6 @@ angular.module('phApp', [
             templateUrl: '/templates/kanban.html',
             controller: 'KanbanCtrl'
           },
-          "projectChatView": {
-            templateUrl: '/templates/projectChat.html',
-            controller: 'ProjectCtrl'
-          },
           "pageTitle": {template: 'Project/ ProjectName / Kanban'}
         }
       })
