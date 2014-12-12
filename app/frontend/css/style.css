@@ -377,7 +377,7 @@ div.privatchat li {
 
 div.groupchat_header{
   position: fixed;
-  left: 65%;
+  left: 59%;
   top: 3.69em;
   font-size: 0.9em;
   font-weight: 400;
@@ -388,7 +388,7 @@ div.groupchat {
   position: fixed;
   top: 5.0em;
   right: 0;
-  width: 35%;
+  width: 42%;
   height: 100%;
   background-color: #ffffff;
 }
@@ -401,21 +401,62 @@ div.groupchat li {
 }
 
 div.groupchat #grpChatSubmit{
-   position: absolute;
-   bottom: 80px;
-   width: 80%;
-   padding: 6px;
+  position: absolute;
+  bottom: 79px;
+  width: 80%;
+  padding: 8px;
+  border: 1px solid rgb(210, 210, 210);
+  border-left: none;
 }
 
 div.groupchat #grpChatSubmitBtn{
   position: absolute;
-  bottom: 80px;
-  right: 0;
-  width: 17%;
-  padding: 6px;
+  bottom: 79px;
+  right: -1px;
+  border-radius: 0;
+  width: 18%;
+  padding: 10px;
 }
 
+/*******************************
+           Einzelchat
+*******************************/
+#privat-chat-container {
+  height: 2.3em;
+  width: 100%;
+  bottom: 0;
+  z-index: 100;
+  position: absolute;
+}
 
+#privat-chat-container #chat-list {
+  float: right;
+  line-height: 36px;
+  margin-right: 8px;
+}
+
+#privat-chat-container ul li {
+  display: block;
+  float: left;
+}
+
+#privat-chat-container .chat-tab {
+  background: red;
+  margin-right: 10px;
+  width: 185px;
+  height: 2.3em;
+}
+
+#privat-chat-container .chat-tab a{
+  margin-left: 8px;
+  text-decoration: none;
+  color: black;
+}
+
+#privat-chat-container .chat-tab a:visited{
+  text-decoration: none;
+  color: black;
+}
 /*******************************
           Kanban Board
 *******************************/

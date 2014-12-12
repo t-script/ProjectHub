@@ -2,6 +2,7 @@
 
 angular.module('phApp').controller('ChatCtrl', function($scope, $sails){
   $scope.users = [];
+  $scope.chatTabs = [];
 
 /*
  * Nach dem connecten mit Socket.IO Userliste holen
