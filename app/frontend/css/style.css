@@ -77,14 +77,26 @@ button.blue {
           Input
 *******************************/
 input.standard {
+   background-color: #e0e0e0;
+   border: 1px solid #e0e0e0;
+   width: 200px;
+   padding-left: 10px;
+   font-size: 14px;
+ }
+
+input.standard:focus {
+  outline: none;
+}
+
+input.stdLong {
   background-color: #e0e0e0;
   border: 1px solid #e0e0e0;
-  width: 200px;
+  width: 400px;
   padding-left: 10px;
   font-size: 14px;
 }
 
-input.standard:focus {
+input.stdLong:focus {
   outline: none;
 }
 
