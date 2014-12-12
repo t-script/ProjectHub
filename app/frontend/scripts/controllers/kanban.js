@@ -1,31 +1,36 @@
 'use strict';
 
 angular.module('phApp').controller('KanbanCtrl', ['$scope', '$http', function ($scope, $http) {
-  var dragNdrop;
-  var columnDrop;
-  var columnsArray = [];
-  var tickets = [];
+  var dragNdrop,
+      columnDrop,
+      columnsArray = [],
+      tickets = [];
 
-  $scope.Jcolumns = null;
-  $scope.Jtickets = null;
+
+  $scope.columns = null;
+  $scope.tickets = null;
+  $scope.countCol= 0;
 
   $scope.init = function() {
     getColumns();
     getTickets();
+
   }
 
   var getColumns = function() {
     $http.get('/columns.json').success(function(data) {
-      $scope.Jcolumns = data;
+      $scope.columns = data;
       $.each(data, function(index, element){
         columnsArray.push(element.id);
+        $scope.countCol++;
       });
+
     });
   }
 
   var getTickets = function() {
     $http.get('/tickets.json').success(function(data) {
-      $scope.Jtickets = data;;
+      $scope.tickets = data;;
       for (var i=0; i < columnsArray.length; i++) {
         $.each(data, function(index, element){
           if (element.columnsid == columnsArray[i]){

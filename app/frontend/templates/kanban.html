@@ -1,6 +1,15 @@
 <h2><a class="blue" ui-sref="project.backlog">Backlog</a></h2><h2>Board</h2><br />
 
 <div id="board" class="kanbanBoard" ng-init="init()">
+  <div class="wrapper_header">
+    <i class="search icon"></i><input class="stdLong" type="text" ng-model="search" placeholder="Search for Title, Description, Service Classes and Category" />
+  </div>
+  <ul ng-repeat="column in columns" class="kanbanHeader" ng-style="{width: 100 / {{countCol}} + '%'}">
+    <li>{{column.name}} (WIP: <span id="wip{{column.id}}"></span> / {{column.limit}} )</li>
+  </ul>
+</div>
+<!--
+<div id="board" class="kanbanBoard" ng-init="init()">
   <ul ng-repeat="column in Jcolumns" class="kanbanHeader">
     <li>{{column.name}} (WIP: <span id="wip{{column.id}}"></span> / {{column.limit}} )</li>
   </ul>
@@ -8,4 +17,4 @@
   <ul ng-repeat="column in Jcolumns" class="kanbanColumns" id="c{{column.id}}">
   </ul>
 </div>
-
+-->
