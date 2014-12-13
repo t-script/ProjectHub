@@ -62,8 +62,9 @@ module.exports = {
         PrivateChatMsg.create({
           message: req.param('msg'),
           sender: req.session.user.id,
-          sendername: req.session.username,
+          sendername: req.session.user.username,
           reciever: user.id,
+          recievername: user.username,
           read: user.online
         }).exec(function(err, createdMsg){
           // Bei Fehler return
@@ -75,6 +76,8 @@ module.exports = {
           // Wenn der User online ist, direkt via Socket an den User senden
           if (user.online == true)
             sails.sockets.emit(user.socketid, 'privateMsg', createdMsg);
+
+          return res.json(createdMsg, 200);
         });
       }
     });
@@ -87,14 +90,13 @@ module.exports = {
     PrivateChatMsg.find({or: [
         {sender: req.session.user.id, reciever: req.param('sender')},
         {sender: req.param('sender'), reciever: req.session.user.id},
-      ], limit: 100, sort: 'createdAt: ASC'})
+      ], limit: 25, sort: 'createdAt: ASC'})
       .exec(function(err, msgs){
         // Bei Fehler return
         if (err){
           sails.log.error(err);
           return res.json('There was an server error', 500);
         }
-
         // Gefundene Nachrichten zurückliefern
         return res.json(msgs, 200);
       });

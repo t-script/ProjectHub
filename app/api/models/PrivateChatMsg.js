@@ -26,6 +26,13 @@ module.exports = {
       model: 'user'
     },
 
+    recievername: {
+      type: 'string',
+      minLength: 3,
+      maxLength: 32
+    },
+
+
     read: {
       type: 'boolean',
       defaultsTo: false
