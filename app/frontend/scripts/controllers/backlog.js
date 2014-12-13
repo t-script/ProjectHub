@@ -24,7 +24,7 @@ angular.module('phApp').controller('BacklogCtrl', function($scope, $stateParams,
       $('#ticketDescription').val(null);
       $('#addNewTicket').show();
       $('#addTicket').hide();
-      var data = {ticketid: 1, title: $scope.ticketTitle, description: $scope.ticketDescription, projectid: $stateParams.id };
+      var data = {ticketid: 1, title: $scope.ticketTitle, description: $scope.ticketDescription, project: $stateParams.id };
       $sails.post('/tickets', data)
         .success(function (data) {
           console.log('success');

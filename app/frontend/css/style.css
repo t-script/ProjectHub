@@ -537,9 +537,8 @@ hr.chat{
 .prvt-chat .prvt-chat-submit{
   padding: 7px;
   outline: none;
-  width: 190px;
   border: 1px solid #ffffff;
-  outline: none;
+  width: 180px;
 }
 
 .prvt-chat .prvt-chat-submit-btn{
