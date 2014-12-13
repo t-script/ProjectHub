@@ -37,6 +37,7 @@ angular.module('phApp').controller('ProjectCtrl', function($scope,$stateParams, 
     $sails.get('/getMembers', {'projectId': $stateParams.id})
       .success(function (data) {
         $scope.members = data;
+        console.log(data);
       })
       .error(function (data) {
         console.log(data);
@@ -45,7 +46,6 @@ angular.module('phApp').controller('ProjectCtrl', function($scope,$stateParams, 
 
   $scope.addMember = function () {
     $('#memberName').val(null);
-    var project_id = $stateParams.id;
     var start = $scope.memberName.search("\\(");
     var end = $scope.memberName.search("\\)");
     var memberUser = $scope.memberName.substring(start+1,end);

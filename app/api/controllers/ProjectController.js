@@ -72,9 +72,10 @@ module.exports = {
       Project.findOne()
         .where({ id: req.body.projectId })
         .then(function(project){
-          project.members.push({id : user.id, firstname : user.firstname, lastname : user.lastname});
+          project.members.add({id : user.id, firstname : user.firstname, lastname : user.lastname});
           project.save(function (err) { /* all done */ });
-          return res.json('Add member!', 200);
+          sails.log.info('[ProjectCtrl.addmember] Add member "'+user.lastname +'"');
+          return sails.controllers.project.getMembers(req, res);
         });
     });
   },
