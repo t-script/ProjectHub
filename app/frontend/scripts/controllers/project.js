@@ -37,7 +37,6 @@ angular.module('phApp').controller('ProjectCtrl', function($scope,$stateParams, 
     $sails.get('/getMembers', {'projectId': $stateParams.id})
       .success(function (data) {
         $scope.members = data;
-        console.log(data);
       })
       .error(function (data) {
         console.log(data);

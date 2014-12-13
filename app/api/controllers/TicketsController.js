@@ -6,6 +6,40 @@
  */
 
 module.exports = {
-	
+  createTickets: function(req, res) {
+    sails.log.verbose("[TicketsCtrl] Action 'createTickets' called");
+    if (!req.body.ticketid && !req.body.title && !req.body.description && !req.body.project) {
+      sails.log.info('No id, title, description or project provided');
+      return res.json({error: 'Invalid entry'}, 500);
+    }
+
+    Tickets.create({
+      ticketid: req.body.ticketid,
+      title: req.body.title,
+      description: req.body.description,
+      project: req.body.project,
+      user: req.session.user.id
+    }).exec(function (err) {
+      if (err) {
+        sails.log.error(err);
+        return res.json({error: 'There was an error creating a new project'}, 500);
+      }
+      sails.log.info("[TicketsCtrl] Ticket '" + req.body.title + "' created");
+      return sails.controllers.tickets.getTickets(req, res);
+    });
+  },
+
+  getTickets: function(req, res) {
+    sails.log.verbose("[TicketsCtrl] Action 'getTickets' called");
+
+    Tickets.find({ project : req.body.project }).exec(function(err, found){
+      if (err){
+        sails.log.error(err);
+        return res.json({ error: 'There was an error retrieven tickets' }, 500);
+      }
+      return res.json(found, 200);
+    });
+  }
+
 };
 

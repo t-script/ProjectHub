@@ -37,5 +37,8 @@ module.exports.routes = {
     'GET /ownProject'     : 'ProjectController.getProjectsByUser',
     'POST /addMember'     : 'ProjectController.addMember',
     'GET /getMembers'     : 'ProjectController.getMembers',
-    'GET /kanbanColums'   : 'ProjectController.getKanbanColumns'
+    'GET /kanbanColums'   : 'ProjectController.getKanbanColumns',
+
+    'POST /createTickets' : 'TicketsController.createTickets',
+    'GET /getTickets'     : 'TicketsController.getTickets'
 };

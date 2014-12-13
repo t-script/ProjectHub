@@ -9,7 +9,7 @@ angular.module('phApp').controller('BacklogCtrl', function($scope, $stateParams,
   }
 
   $scope.getTickets = function () {
-    $sails.get('/tickets/?project='+$stateParams.id)
+    $sails.get('/getTickets', { project: $stateParams.id})
       .success(function (data) {
         $scope.tickets = data;
       })
@@ -25,7 +25,7 @@ angular.module('phApp').controller('BacklogCtrl', function($scope, $stateParams,
       $('#addNewTicket').show();
       $('#addTicket').hide();
       var data = {ticketid: 1, title: $scope.ticketTitle, description: $scope.ticketDescription, project: $stateParams.id };
-      $sails.post('/tickets', data)
+      $sails.post('/createTickets', data)
         .success(function (data) {
           console.log('success');
           $scope.getTickets();
