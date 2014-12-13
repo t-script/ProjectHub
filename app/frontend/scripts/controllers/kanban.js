@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('phApp').controller('KanbanCtrl', ['$scope', '$http', function ($scope, $http) {
+angular.module('phApp').controller('KanbanCtrl', function ($scope, $stateParams, $sails) {
   var dragNdrop,
       columnDrop,
       columnsArray = [],
@@ -18,22 +18,22 @@ angular.module('phApp').controller('KanbanCtrl', ['$scope', '$http', function ($
   }
 
   var getColumns = function() {
-    $http.get('/columns.json').success(function(data) {
-      $scope.columns = data;
-      $.each(data, function(index, element){
-        columnsArray.push(element.id);
-        $scope.countCol++;
-      });
-
+    $sails.get('/kanbanColums', {id: $stateParams.id})
+    .success(function(data){
+        $scope.columns = data;
+        $.each(data, function(index, element){
+          columnsArray.push(element.id);
+          $scope.countCol++;
+        });
     });
   }
 
   var getTickets = function() {
-    $http.get('/tickets.json').success(function(data) {
-      $scope.tickets = data;;
+    $sails.get('/tickets/?project='+$stateParams.id).success(function(data) {
+      $scope.tickets = data;
       for (var i=0; i < columnsArray.length; i++) {
         $.each(data, function(index, element){
-          if (element.columnsid == columnsArray[i]){
+          if (element.columns.id == columnsArray[i]){
             tickets.push(element);
           };
         });
@@ -74,4 +74,4 @@ angular.module('phApp').controller('KanbanCtrl', ['$scope', '$http', function ($
       stop: $scope.dragStop
     }).disableSelection();
   }
-}])
+});

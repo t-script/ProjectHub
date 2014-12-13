@@ -1,14 +1,14 @@
 'use strict';
 
-angular.module('phApp').controller('ProjectCtrl', function($scope, $stateParams, $sails){
+angular.module('phApp').controller('ProjectCtrl', function($scope,$stateParams, $sails){
   $scope.members = [];
   $scope.users = [];
   $scope.msgs = [];
 
   $sails.get('/chat/joinProjectRoom', { 'projectId': $stateParams.id } )
-    .success(function(msgs){
-      $scope.msgs = msgs;
-    });
+  .success(function(msgs){
+    $scope.msgs = msgs;
+  });
 
   $sails.on('groupMsg', function(msg){
     $scope.msgs.push(msg);
@@ -16,7 +16,7 @@ angular.module('phApp').controller('ProjectCtrl', function($scope, $stateParams,
 
   $scope.sendMsg = function(){
     $sails.post('/chat/sendGroupMsg', {'projectId': $stateParams.id, 'msg': $scope.msg.message});
-  }
+  };
 
   $scope.getUsers = function () {
     $sails.get('/user')
@@ -31,7 +31,7 @@ angular.module('phApp').controller('ProjectCtrl', function($scope, $stateParams,
       .error( function (data) {
         console.log(data);
       })
-  }
+  };
 
   $scope.getMembers = function () {
     $sails.get('/getMembers', {'projectId': $stateParams.id})
@@ -59,4 +59,5 @@ angular.module('phApp').controller('ProjectCtrl', function($scope, $stateParams,
         console.log(data);
       })
   }
+
 });

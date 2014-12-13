@@ -30,6 +30,10 @@ module.exports.policies = {
     'update': 'isLoggedIn'
   },
 
+  /*'project': {
+    '*': false
+  },*/
+
   /***************************************************************************
   *                                                                          *
   * CONTROLLER POLICIES                                                      *
@@ -44,5 +48,9 @@ module.exports.policies = {
     'login': 'isLoggedOut',
     'logout': 'isLoggedIn',
     'resetPassword': true
+  },
+
+  ProjectController: {
+    '*': 'isLoggedIn'
   }
 };

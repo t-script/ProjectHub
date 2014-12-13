@@ -9,7 +9,7 @@ angular.module('phApp').controller('BacklogCtrl', function($scope, $stateParams,
   }
 
   $scope.getTickets = function () {
-    $sails.get('/tickets/?projectid='+$stateParams.id)
+    $sails.get('/tickets/?project='+$stateParams.id)
       .success(function (data) {
         $scope.tickets = data;
       })

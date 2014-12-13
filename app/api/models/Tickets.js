@@ -7,7 +7,7 @@
 module.exports = {
 
   attributes: {
-    ticketid: {
+    ticketid:{
       type: 'integer',
       required: true
     },
@@ -50,17 +50,16 @@ module.exports = {
       type: 'integer'
     },
 
-    columnsid: {
-      type: 'integer'
+    columns: {
+      model: 'KanbanColumns'
     },
 
-    userid: {
-      type: 'integer'
+    user: {
+      model: 'User'
     },
 
-    projectid: {
-      type: 'integer',
-      required: true
+    project: {
+      model: 'Project'
     }
 
   }

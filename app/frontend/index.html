@@ -45,6 +45,27 @@
     </ul>
   </div>
 
+  <!--div id="privat-chat-container"-->
+    <div ng-repeat="tab in chatTabs" class="prvt-chat chat-tab" id="prvt-chat-{{tab.id}}" ng-class="{ 'chat-first': $index == 0 , 'chat-sec': $index == 1, 'chat-third': $index == 2 }">
+      <div class="chat-header" ng-click="selectTab($event)">
+        <div class="column indicator"><i class="angle up large icon"></i></div>
+        <div class="username">{{tab.username}}</div>
+      </div>
+      <div class="column close" ng-click="closeTab(tab.username)"><i class="remove icon right floated"></i></div>
+      <div class="chat-content">
+        <ul>
+          <li ng-repeat="msg in tab.msgs">
+            {{msg.sendername}}: {{msg.message}}
+          </li>
+        </ul>
+        <hr class="chat-hr">
+        <form name="frm-private-chat" class="frm-private-chat" ng-submit="sendPrvtMsg(tab.username)">
+          <input class="prvt-chat-submit" type="text" placeholder="Enter message" id="frm-msg-{{tab.username}}">
+          <button class="prvt-chat-submit-btn" type="submit"><i class="play icon"></i></button>
+        </form>
+      </div>
+    </div>
+
   <!-- View -->
   <main class="view" ui-view="mainView"></main>
 
