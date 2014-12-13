@@ -20,7 +20,7 @@ angular.module('phApp').controller('ProjectsCtrl', function($scope, $sails){
       $sails.post('/createProject', data)
         .success(function (data) {
           console.log('success');
-          $scope.getProjects();
+          $scope.projects = data;
         })
         .error(function (data) {
           console.log(data)
