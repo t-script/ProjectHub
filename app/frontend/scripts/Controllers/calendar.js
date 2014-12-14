@@ -3,7 +3,12 @@
 angular.module('phApp').controller('CalendarCtrl', function($scope){
 
   $('#calendar').fullCalendar({
-    defaultDate: '2014-11-12',
+    header:
+      {
+        left:   'title',
+        center: 'month,basicWeek,basicDay',
+        right:  'today prev,next'
+      },
     editable: true,
     eventLimit: true, // allow "more" link when too many events
     events: [
