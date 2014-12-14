@@ -22,22 +22,28 @@ module.exports = {
     }).exec(function (err) {
       if (err) {
         sails.log.error(err);
-        return res.json({error: 'There was an error creating a new project'}, 500);
+        return res.json({error: 'There was an error creating a new ticket'}, 500);
       }
       sails.log.info("[TicketsCtrl] Ticket '" + req.body.title + "' created");
       return sails.controllers.tickets.getTickets(req, res);
     });
   },
 
-  getTickets: function(req, res) {
+  getTickets: function(req, res, broadcast) {
     sails.log.verbose("[TicketsCtrl] Action 'getTickets' called");
+    broadcast = typeof broadcast !== 'undefined' ? broadcast : false;
 
-    Tickets.find({ project : req.body.project }).exec(function(err, found){
+    Tickets.find({ project : req.body.project }).populate('columns').exec(function(err, found){
       if (err){
         sails.log.error(err);
         return res.json({ error: 'There was an error retrieven tickets' }, 500);
       }
-      return res.json(found, 200);
+
+      if (broadcast == true){
+        sails.sockets.broadcast('project-room-'+req.param('project'), 'updateTickets', found);
+      }else {
+        return res.json(found, 200);
+      }
     });
   }
 

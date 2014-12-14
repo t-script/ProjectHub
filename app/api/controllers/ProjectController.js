@@ -54,7 +54,6 @@ module.exports = {
   },
 
 	addMember: function (req, res) {
-
     User.findOneByUsername(req.body.member).exec(function(err, user) {
       // Return if an error occoured
       if (err) {

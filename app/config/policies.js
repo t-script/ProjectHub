@@ -52,5 +52,9 @@ module.exports.policies = {
 
   ProjectController: {
     '*': 'isLoggedIn'
+  },
+
+  KanbanController: {
+    '*': 'isLoggedIn'
   }
 };
