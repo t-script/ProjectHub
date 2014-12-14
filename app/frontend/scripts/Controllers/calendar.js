@@ -54,7 +54,8 @@ angular.module('phApp').controller('CalendarCtrl', function($scope){
       },
       {
         title: 'Birthday Party',
-        start: '2014-11-13T07:00:00'
+        start: '2014-11-13T07:00:00',
+        end: '2014-11-13T07:00:00'
       },
       {
         title: 'Click for Google',
