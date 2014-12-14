@@ -29,10 +29,16 @@ module.exports.routes = {
     'POST /forgot' : 'LoginController.forgotPassword',
     'POST /reset'  : 'LoginController.resetPassword',
 
-    'POST /addMember' : 'ProjectController.addMember',
-    'GET /getMembers' : 'ProjectController.getMembers',
-
     'POST /chat/sendPrivateMsg'    : 'ChatController.sendPrivateMsg',
     'GET /chat/getPrivateMessages' : 'ChatController.getPrivateMessages',
-    'GET /chat/joinProjectRoom'    : 'ChatController.joinProjectRoom'
+    'GET /chat/joinProjectRoom'    : 'ChatController.joinProjectRoom',
+
+    'POST /createProject' : 'ProjectController.createProject',
+    'GET /ownProject'     : 'ProjectController.getProjectsByUser',
+    'POST /addMember'     : 'ProjectController.addMember',
+    'GET /getMembers'     : 'ProjectController.getMembers',
+    'GET /kanbanColums'   : 'ProjectController.getKanbanColumns',
+
+    'POST /createTickets' : 'TicketsController.createTickets',
+    'GET /getTickets'     : 'TicketsController.getTickets'
 };

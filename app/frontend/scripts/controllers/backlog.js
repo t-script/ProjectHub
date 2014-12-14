@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('phApp').controller('BacklogCtrl', function($scope, $sails){
+angular.module('phApp').controller('BacklogCtrl', function($scope, $stateParams, $sails){
   $scope.tickets = [];
 
   $scope.showTicket = function() {
@@ -9,7 +9,7 @@ angular.module('phApp').controller('BacklogCtrl', function($scope, $sails){
   }
 
   $scope.getTickets = function () {
-    $sails.get('/tickets')
+    $sails.get('/getTickets', { project: $stateParams.id})
       .success(function (data) {
         $scope.tickets = data;
       })
@@ -24,8 +24,8 @@ angular.module('phApp').controller('BacklogCtrl', function($scope, $sails){
       $('#ticketDescription').val(null);
       $('#addNewTicket').show();
       $('#addTicket').hide();
-      var data = {ticketid: 1, title: $scope.ticketTitle, description: $scope.ticketDescription };
-      $sails.post('/tickets', data)
+      var data = {ticketid: 1, title: $scope.ticketTitle, description: $scope.ticketDescription, project: $stateParams.id };
+      $sails.post('/createTickets', data)
         .success(function (data) {
           console.log('success');
           $scope.getTickets();
