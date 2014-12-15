@@ -63,6 +63,15 @@ a.blue:hover {
   color: #666666;
 }
 
+a.std {
+  color: #424242;
+  text-decoration: none;
+}
+
+a.std:hover {
+  color: #5677fC;
+}
+
 button.blue {
   padding: 5px 10px;
   background-color: #5677fC;
