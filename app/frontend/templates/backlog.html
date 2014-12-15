@@ -22,6 +22,15 @@
 <div class="wrapper" >
   <div class="wrapper_header">
     <i class="search icon"></i><input class="stdLong" type="text" ng-model="search" placeholder="Search for Title, Description, Service Classes and Category" />
+    <span class="textRight">
+      <form method="post" action="" name="frmAddService" ng-submit="addService()" novalidate>
+        <span ng-show="frmAddService.service.$error.minlength"><i class="info icon"></i> Service class name is too short.</span>
+        <span ng-show="frmAddService.service.$error.maxlength"><i class="info icon"></i> Service class name is too long.</span>
+        <span ng-show="frmAddService.service.$error.required && frmAddService.service.$dirty"><i class="info icon"></i> Service class name is required.</span>
+        <i class="add icon"></i>
+        <input class="standard" type="text" placeholder="Add a new service class" id="service" name="service" ng-model="service" ng-minlength="3" ng-maxlegnt="32" required />
+      </form>
+    </span>
   </div>
   <table class="list" ng-init="getTickets()">
     <tr>
@@ -39,7 +48,7 @@
       <td>{{ticket.ticketid}}</td>
       <td>{{ticket.title}}</td>
       <td>{{ticket.description}}</td>
-      <td></td>
+      <td>{{ticket.columns.name}}</td>
       <td></td>
     </tr>
   </table>
