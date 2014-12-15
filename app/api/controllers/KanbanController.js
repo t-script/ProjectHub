@@ -33,7 +33,7 @@ module.exports = {
         {where: {project: req.param('project'), columns: req.param('oldColumn'), position: {'>': req.param('oldPos')}}}
       ).exec(function (err, tickets) {
           if (err) {
-            sails.log.err(err);
+            sails.log.error(err);
             return res.json('Server error', 500);
           }
 
@@ -41,7 +41,7 @@ module.exports = {
             tickets[i].position = tickets[i].position + 1;
             tickets[i].save(function (err, saved) {
               if (err) {
-                sails.log.err(err);
+                sails.log.error(err);
                 return res.json('Server error', 500);
               }
             });
@@ -49,7 +49,7 @@ module.exports = {
 
           Tickets.update({id: req.param('ticketid')}, {position: req.param('newPos')}).exec(function (err, updated) {
             if (err) {
-              sails.log.err(err);
+              sails.log.error(err);
               return res.json('Server error', 500);
             }
 
@@ -74,7 +74,7 @@ module.exports = {
         {where: {project: req.param('project'), columns: req.param('newColumn'), position: {'>': req.param('newPos')}}}
       ).exec(function (err, ticketsNew) {
           if (err) {
-            sails.log.err(err);
+            sails.log.error(err);
             return res.json('Server error', 500);
           }
 
@@ -82,7 +82,7 @@ module.exports = {
             ticketsNew[i].position = ticketsNew[i].position + 1;
             ticketsNew[i].save(function (err, saved) {
               if (err) {
-                sails.log.err(err);
+                sails.log.error(err);
                 return res.json('Server error', 500);
               }
             });
@@ -92,7 +92,7 @@ module.exports = {
           Tickets.update({id: req.param('ticketid')}, {columns: req.param('newColumn'), position: req.param('newPos')})
             .exec(function (err) {
               if (err) {
-                sails.log.err(err);
+                sails.log.error(err);
                 return res.json('Server error', 500);
               }
 
@@ -101,14 +101,14 @@ module.exports = {
                 {project: req.param('project'), columns: req.param('oldColumn'), position: {'>': req.param('oldPos')}}
               ).exec(function (err, ticketsOld) {
                   if (err) {
-                    sails.log.err(err);
+                    sails.log.error(err);
                     return res.json('Server error', 500);
                   }
                   for (var i = 0; i < ticketsOld.length; i++) {
                     ticketsOld[i].position = ticketsOld[i].position + 1;
                     ticketsOld[i].save(function (err, saved) {
                       if (err) {
-                        sails.log.err(err);
+                        sails.log.error(err);
                         return res.json('Server error', 500);
                       }
                     });
