@@ -11,7 +11,7 @@ angular.module('phApp').controller('ProjectsCtrl', function($scope, $sails){
       .error(function (data) {
         console.log(data);
       })
-  }
+  },
 
   $scope.createProject = function () {
     if ($scope.frmCreateProject.$valid) {
@@ -28,4 +28,3 @@ angular.module('phApp').controller('ProjectsCtrl', function($scope, $sails){
     }
   }
 });
-

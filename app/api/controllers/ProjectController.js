@@ -39,14 +39,23 @@ module.exports = {
   getProjectsByUser: function(req, res){
     sails.log.verbose("[ProjectCtrl] Action 'getProjectsByUser' called");
 
-    Project.find({or : [{leader: req.session.user.id}, {members: req.session.user.id}] }).exec(function(err, found){
+    Project.find().populate('members').populate('leader').exec(function(err, found){
+      //{or : [{leader: req.session.user.id}, {members: req.session.user.id}] }
       if (err){
         sails.log.error(err);
         return res.json({ error: 'There was an error retrieven projects' }, 500);
       }
 
-      return res.json(found, 200);
+      /* Sails/Waiterline unterstützt keine where-statements in Many-to-Many Relations, daher
+       * muss durch alle Projekte iteriert werden, um nur die Projekte zurückzuliefern, in denen ein User als Member
+       * vorhanden ist.
+       */
+      Functions.getProjects(found, req, res, function(req, res, rtn){
+        return res.json(rtn, 200);
+      });
+
     });
+
   },
 
   getProjectsByID: function(req, res){
@@ -54,7 +63,14 @@ module.exports = {
   },
 
 	addMember: function (req, res) {
-    User.findOneByUsername(req.body.member).exec(function(err, user) {
+    sails.log.verbose("[ProjectCtrl] Action 'addMember' called");
+
+    if (!req.param('projectId') || !req.param('member')){
+      sails.log.info('[ProjectCtrl.removeMember] No ProjectID or username');
+      return res.json('No ProjectID or username', 500);
+    }
+
+    User.findOneByUsername(req.param('member')).exec(function(err, user) {
       // Return if an error occoured
       if (err) {
         sails.log.error(err);
@@ -63,46 +79,75 @@ module.exports = {
 
       // Return if no user was found
       if (!user) {
-        sails.log.info('[ProjectCtrl.addmember] Username "'+req.body.member+'" not found.');
+        sails.log.info('[ProjectCtrl.addmember] Username "'+req.param('member')+'" not found.');
         return res.json({ error: 'User not found' }, 404);
       }
 
       // Everything fine --> Update Project
       Project.findOne()
-        .where({ id: req.body.projectId })
+        .where({ id: req.param('projectId') })
         .then(function(project){
-          project.members.add({id : user.id, firstname : user.firstname, lastname : user.lastname});
-          project.save(function (err) { /* all done */ });
-          sails.log.info('[ProjectCtrl.addmember] Add member "'+user.lastname +'"');
-          return sails.controllers.project.getMembers(req, res);
+          project.members.add(user.id);
+          project.save(function (err) {
+            if (err){
+              sails.log.error(err);
+              return res.json('User already exists in project', 500);
+            }
+            sails.log.info('[ProjectCtrl.addmember] Member "'+user.lastname +'" added');
+            return sails.controllers.project.getMembers(req, res, true);
+          });
         });
     });
   },
 
-  getMembers: function (req, res) {
+  getMembers: function (req, res, broadcast) {
+    broadcast = typeof broadcast !== 'undefined' ? broadcast : false;
+
     Project.findOne()
-      .where({ id : req.body.projectId }).populate('members')
+      .where({ id : req.param('projectId') }).populate('members').populate('leader')
       .exec(function(err, project){
         if (err){
           sails.log.error(err);
           return res.json({error: 'Server error'}, 500);
         }
 
-        return res.json(project.members, 200);
+        if (broadcast == true) {
+          sails.sockets.broadcast('project-room-' + req.param('projectId'), 'addUser', {
+            leader: project.leader,
+            member: project.members
+          });
+        }else{
+          return res.json({leader: project.leader, member: project.members}, 200);
+        }
       });
   },
 
-  getKanbanColumns: function(req, res){
-    sails.log.verbose("[ProjectCtrl] Action 'getKanbanColumns' called");
+  removeMember: function (req, res){
+    sails.log.verbose("[ProjectCtrl] Action 'removeMember' called");
 
-    KanbanColumns.find().where({project: req.param('id')}).exec(function(err, columns){
-      if(err){
-        sails.log.error(err);
-        return res.json({error: 'Server error'}, 500);
-      }
+    if (!req.param('projectId') || !req.param('memberid')){
+      sails.log.info('[ProjectCtrl.removeMember] No ProjectID or MemberID');
+      return res.json('No ProjectID or MemberID', 500);
+    }
 
-      return res.json(columns, 200);
-    });
+    Project.findOne()
+      .where({ id: req.param('projectId') }).populate('leader').populate('members')
+      .then(function(project){
+        console.log(project.leader.id);
+        console.log(req.param('memberid'));
+        if (project.leader.id != req.param('memberid')) {
+          project.members.remove(req.param('memberid'));
+          project.save(function (err) {
+            if (err) {
+              sails.log.error(err);
+              return res.json('Server error', 500);
+            }
+
+            sails.log.info('[ProjectCtrl.addmember] Remove member from project.');
+            return sails.controllers.project.getMembers(req, res, true);
+          });
+        }
+      });
   }
 };
 
