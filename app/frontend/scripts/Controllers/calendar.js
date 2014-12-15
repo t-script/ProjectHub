@@ -2,15 +2,26 @@
 
 angular.module('phApp').controller('CalendarCtrl', function($scope){
 
+  $('#startTimepicker').datetimepicker({
+
+  });
+
   $('#calendar').fullCalendar({
     header:
       {
         left:   'title',
-        center: 'month,basicWeek,basicDay',
+        center: 'month,agendaWeek,agendaDay',
         right:  'today prev,next'
       },
     editable: true,
     eventLimit: true, // allow "more" link when too many events
+    aspectRatio: 1.8,
+    dayClick: function() {
+      $('.modal')
+        .modal('show')
+      ;
+    },
+
     events: [
       {
         title: 'All Day Event',
@@ -69,6 +80,8 @@ angular.module('phApp').controller('CalendarCtrl', function($scope){
       }
     ]
   });
+
+
 
 });
 

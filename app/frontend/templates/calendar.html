@@ -1,10 +1,50 @@
 <div class="container" ng-controller="CalendarCtrl">
-  <div id='calendar'></div>
+  <div id='calendar'>
+
+
+
+  </div>
+
+
 </div>
+
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Calendar Event
+  </div>
+  <div class="content">
+    <div class="description">
+      <div class="ui header">We've auto-chosen a profile image for you.</div>
+
+      <p><input id="startTimepicker" type="text"/></p>
+      <p>Is it okay to use this photo?</p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black button">
+      Nope
+    </div>
+    <div class="ui positive right labeled icon button">
+      Yep, that's me
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+
+
 
 <style>
   #calendar {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
+  }
+
+  .modal {
+    z-index: 99999999;
+  }
+
+  .ui.page.dimmer {
+    z-index: 99999999;
   }
 </style>
