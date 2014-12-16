@@ -1,11 +1,7 @@
 <div class="container" ng-controller="CalendarCtrl">
-  <div id='calendar'>
-
-
-
+  <div id="calendar-wrapper" class="wrapper">
+    <div id='calendar'></div>
   </div>
-
-
 </div>
 
 <div class="ui modal">
@@ -15,10 +11,41 @@
   </div>
   <div class="content">
     <div class="description">
-      <div class="ui header">We've auto-chosen a profile image for you.</div>
+      <div id="calendarForm" class="ui form">
+        <div class="field">
+          <label>Title</label>
+          <div class="two fields">
+            <div class="field">
+              <input type="text">
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Start</label>
+          <div class="three fields">
+            <div class="field">
+              <input id="startDatepicker" type="text">
+            </div>
+            <div class="field">
+              <input id="startTimepicker" type="text">
+            </div>
+          </div>
+        </div>
 
-      <p><input id="startTimepicker" type="text"/></p>
-      <p>Is it okay to use this photo?</p>
+        <div class="field">
+          <label>End</label>
+          <div class="three fields">
+            <div class="field">
+              <input id="endDatepicker" type="text">
+            </div>
+            <div class="field">
+              <input id="endTimepicker" type="text">
+            </div>
+          </div>
+        </div>
+
+
+      </div>
     </div>
   </div>
   <div class="actions">
@@ -36,15 +63,6 @@
 
 <style>
   #calendar {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .modal {
-    z-index: 99999999;
-  }
-
-  .ui.page.dimmer {
-    z-index: 99999999;
+    width: 1000px;
   }
 </style>

@@ -637,3 +637,19 @@ div.left {
 div.right {
   float: right;
 }
+
+/*******************************
+          calendar
+*******************************/
+
+label {
+  font-weight: 600;
+}
+
+#calendar-wrapper {
+}
+
+#calendar {
+  margin: 0 auto;
+  padding: 20px 0;
+}

@@ -16,10 +16,20 @@ angular.module('phApp').controller('CalendarCtrl', function($scope){
     editable: true,
     eventLimit: true, // allow "more" link when too many events
     aspectRatio: 1.8,
-    dayClick: function() {
-      $('.modal')
-        .modal('show')
-      ;
+    selectable: true,
+    selectHelper: true,
+    select: function(start, end) {
+      var title = prompt('Event Title:');
+      var eventData;
+      if (title) {
+        eventData = {
+          title: title,
+          start: start,
+          end: end
+        };
+        $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+      }
+      $('#calendar').fullCalendar('unselect');
     },
 
     events: [
