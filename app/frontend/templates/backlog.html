@@ -44,7 +44,7 @@
       <th>Service Classes</th>
       <th>Category</th>
     </tr>
-    <tr ng-repeat="ticket in tickets | filter:search | orderBy: 'title':reverse"">
+    <tr ng-repeat="ticket in tickets | filter:search | orderBy: 'title':reverse">
       <td>{{ticket.ticketid}}</td>
       <td>{{ticket.title}}</td>
       <td>{{ticket.description}}</td>

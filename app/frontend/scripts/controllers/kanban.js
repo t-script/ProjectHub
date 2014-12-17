@@ -2,11 +2,11 @@
 
 angular.module('phApp').controller('KanbanCtrl', function ($scope, $stateParams, $sails) {
   var dragNdrop,
-      columnDrag,
-      columnDrop,
-      positionDrag,
-      columnsArray = [],
-      tickets = [];
+    columnDrag,
+    columnDrop,
+    positionDrag,
+    columnsArray = [],
+    tickets = [];
 
 
   $scope.columns = null;
@@ -15,22 +15,22 @@ angular.module('phApp').controller('KanbanCtrl', function ($scope, $stateParams,
 
   $scope.init = function() {
     getColumns(function(){
-        getTickets(function(){
-          dragNdrop()
-        });
+      getTickets(function(){
+        dragNdrop()
       });
+    });
   }
 
   var getColumns = function(cb) {
     $sails.get('/kanbanColums', {id: $stateParams.id})
-    .success(function(data){
+      .success(function(data){
         $scope.columns = data;
         $.each(data, function(index, element){
           columnsArray.push(element.id);
           $scope.countCol++;
         });
         cb();
-    });
+      });
   }
 
   var getTickets = function(cb) {
@@ -92,3 +92,4 @@ angular.module('phApp').controller('KanbanCtrl', function ($scope, $stateParams,
     }).disableSelection();
   }
 });
+

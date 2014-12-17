@@ -6,9 +6,9 @@ angular.module('phApp').controller('ProjectCtrl', function($scope,$stateParams, 
   $scope.msgs = [];
 
   $sails.get('/chat/joinProjectRoom', { 'projectId': $stateParams.id } )
-  .success(function(msgs){
-    $scope.msgs = msgs;
-  });
+    .success(function(msgs){
+      $scope.msgs = msgs;
+    });
 
   $sails.on('groupMsg', function(msg){
     $scope.msgs.push(msg);
