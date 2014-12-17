@@ -70,7 +70,6 @@ angular.module('phApp').controller('KanbanCtrl', function ($scope, $stateParams,
     var value = parseInt($('#wip'+columnDrop).text(),10);
 
     for (var i = 0; i < $scope.columns.length; i++){
-
       if ($scope.columns[i].id == columnDrop && ($scope.columns[i].limit > value || $scope.columns[i].limit == 0) ){
         $('#wip'+columnDrop).html(value + 1);
         $('#wip'+columnDrag).html(parseInt($('#wip'+columnDrag).text(),10)-1);

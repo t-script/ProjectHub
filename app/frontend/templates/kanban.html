@@ -13,4 +13,3 @@
     <li ng-repeat="ticket in tickets" ng-if="ticket.columns.id == column.id || (column.name == 'done' && $index < 10)" class="ticket" id="{{ticket.id}}">{{ticket.title}}</li>
   </ul>
 </div>
-

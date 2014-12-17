@@ -9,7 +9,10 @@
     </div>
     <table class="list" ng-init="getMembers(); getUsers()">
       <tr ng-repeat="member in members  | filter:search | orderBy: 'lastname':reverse">
-        <td>{{member.firstname}} {{member.lastname}}</td>
+        <td>{{member.firstname}} {{member.lastname}}
+          <i ng-if="member.id != leader.id" class="remove large icon tooltip" style="float:right" ng-click="removeMember(member.id)" title="Remove Member"></i>
+          <i ng-if="member.id == leader.id" class="star large icon tooltip" style="float:right;margin-right: 8px;" title="Projectleader"></i>
+        </td>
       </tr>
     </table>
   </div>
