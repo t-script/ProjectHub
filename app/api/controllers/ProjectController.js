@@ -117,7 +117,7 @@ module.exports = {
             member: project.members
           });
         }else{
-          return res.json({leader: project.leader, member: project.members}, 200);
+          return res.json({leader: project.leader, members: project.members}, 200);
         }
       });
   },

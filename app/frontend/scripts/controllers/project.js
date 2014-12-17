@@ -2,6 +2,7 @@
 
 angular.module('phApp').controller('ProjectCtrl', function($scope,$stateParams, $sails){
   $scope.members = [];
+  $scope.leader = null;
   $scope.users = [];
   $scope.msgs = [];
 
@@ -36,7 +37,8 @@ angular.module('phApp').controller('ProjectCtrl', function($scope,$stateParams, 
   $scope.getMembers = function () {
     $sails.get('/getMembers', {'projectId': $stateParams.id})
       .success(function (data) {
-        $scope.members = data;
+        $scope.members = data.members;
+        $scope.leader = data.leader;
       })
       .error(function (data) {
         console.log(data);
