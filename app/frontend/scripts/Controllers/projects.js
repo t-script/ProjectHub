@@ -27,4 +27,13 @@ angular.module('phApp').controller('ProjectsCtrl', function($scope, $sails){
         })
     }
   }
+
+  $scope.setFocus = function () {
+    $('#projectName').focus();
+  }
+
+  $scope.setFocusSearch = function () {
+    $('#search').focus();
+  }
+
 });

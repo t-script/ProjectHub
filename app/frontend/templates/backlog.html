@@ -21,13 +21,14 @@
 
 <div class="wrapper" >
   <div class="wrapper_header">
-    <i class="search icon"></i><input class="stdLong" type="text" ng-model="search" placeholder="Search for Title, Description, Service Classes and Category" />
+    <i class="search icon setFocus" ng-click="setFocusSearch()"></i>
+    <input id=search class="stdLong" type="text" ng-model="search" placeholder="Search for Title, Description, Service Classes and Category" />
     <span class="textRight">
       <form method="post" action="" name="frmAddService" ng-submit="addService()" novalidate>
         <span ng-show="frmAddService.service.$error.minlength"><i class="info icon"></i> Service class name is too short.</span>
         <span ng-show="frmAddService.service.$error.maxlength"><i class="info icon"></i> Service class name is too long.</span>
         <span ng-show="frmAddService.service.$error.required && frmAddService.service.$dirty"><i class="info icon"></i> Service class name is required.</span>
-        <i class="add icon"></i>
+        <i class="add icon setFocus" ng-click="setFocusClass()"></i>
         <input class="standard" type="text" placeholder="Add a new service class" id="service" name="service" ng-model="service" ng-minlength="3" ng-maxlegnt="32" required />
       </form>
     </span>

@@ -3,13 +3,19 @@
 
 <div id="board" class="kanbanBoard" ng-init="init()">
   <div class="wrapper_header">
-    <i class="search icon"></i><input class="stdLong" type="text" ng-model="search" placeholder="Search for Title, Description, Service Classes and Category" />
+    <i class="search icon setFocus" ng-click="setFocusSearch()"></i>
+    <input id="search" class="stdLong" type="text" ng-model="search" placeholder="Search for Title, Description, Service Classes and Category" />
   </div>
   <ul ng-repeat="column in columns" class="kanbanHeader" ng-style="{width: 100 / {{countCol}} + '%'}">
     <li>{{column.name}} (WIP: <span id="wip{{column.id}}"></span> / {{column.limit}} )</li>
   </ul>
   <div class="newline"></div>
   <ul ng-repeat="column in columns" class="kanbanColumns" ng-style="{width: 100 / {{countCol}} + '%'}" id="c{{column.id}}">
-    <li ng-repeat="ticket in tickets" ng-if="ticket.columns.id == column.id || (column.name == 'done' && $index < 10)" class="ticket" id="{{ticket.id}}">{{ticket.title}}</li>
+    <li ng-repeat="ticket in tickets" ng-if="ticket.columns.id == column.id || (column.name == 'done' && $index < 10)" class="ticket" id="{{ticket.id}}">
+      <div class="ticketId">ID {{ticket.ticketid}}</div>
+      <div class="ticketTitle">{{ticket.title}}</div>
+      <div class="ticketDesc">{{ticket.description}}</div>
+      <div class="time">0H <span class="progressbar"><span class="bar"></span></span> 20H</div>
+    </li>
   </ul>
 </div>

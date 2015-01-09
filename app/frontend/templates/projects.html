@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="wrapper_inner">
       <form name="frmCreateProject" ng-submit="createProject()" novalidate>
-        <i class="plus icon"></i>
+        <i class="plus icon setFocus" ng-click="setFocus()"></i>
         <input class="white" type="text" placeholder="Add a new project" id="projectName" name="projectName" ng-model="projectName" ng-minlength="3" ng-maxlength="32" required />
         <span class="textRight" ng-show="frmCreateProject.projectName.$error.minlength"><i class="info icon"></i> Projectname is too short.</span>
         <span class="textRight" ng-show="frmCreateProject.projectName.$error.maxlength"><i class="info icon"></i> Projectname is too long.</span>
@@ -16,7 +16,8 @@
       Project
       <a class="orderby" ng-click="reverse=false"><i class="angle up icon"></i></a>
       <a class="orderby" ng-click="reverse=true"><i class="angle down icon"></i></a>
-      <span class="textRight"><i class="search icon"></i> <input class="standard" type="text" ng-model="search" placeholder="Search" /></span>
+      <span class="textRight"><i class="search icon setFocus" ng-click="setFocusSearch()"></i>
+        <input id="search" class="standard" type="text" ng-model="search" placeholder="Search"/></span>
     </div>
     <table class="list" ng-init="getProjects()">
       <tr ng-repeat="project in projects | filter:search | orderBy: 'name':reverse">

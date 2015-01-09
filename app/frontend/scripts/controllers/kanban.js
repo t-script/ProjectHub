@@ -90,5 +90,9 @@ angular.module('phApp').controller('KanbanCtrl', function ($scope, $stateParams,
       stop: $scope.dragStop
     }).disableSelection();
   }
+
+  $scope.setFocusSearch = function () {
+    $('#search').focus();
+  }
 });
 

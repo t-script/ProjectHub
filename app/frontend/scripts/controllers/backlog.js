@@ -36,4 +36,12 @@ angular.module('phApp').controller('BacklogCtrl', function($scope, $stateParams,
     }
   }
 
+  $scope.setFocusSearch = function () {
+    $('#search').focus();
+  }
+
+  $scope.setFocusClass = function () {
+    $('#service').focus()
+  }
+
 });

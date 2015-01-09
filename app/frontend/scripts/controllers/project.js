@@ -80,4 +80,12 @@ angular.module('phApp').controller('ProjectCtrl', function($scope,$stateParams, 
     $scope.leader = data.leader;
   })
 
+  $scope.setFocusMember = function () {
+    $('#memberName').focus();
+  }
+
+  $scope.setFocusSearch = function () {
+    $('#search').focus();
+  }
+
 });

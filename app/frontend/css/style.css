@@ -147,6 +147,11 @@ input.stdBorder {
 
 .ui-helper-hidden-accessible { display:none; }
 
+.setFocus:hover {
+  color: #5677fC;
+  cursor: pointer;
+}
+
 /*******************************
           Sidebar
 *******************************/
@@ -577,10 +582,6 @@ hr.chat{
   float: left;
 }
 
-.kanbanColumns li {
-  padding: 5px 10px;
-}
-
 .kanbanHeader{
   background-color: #e0e0e0;
   font-size: 14px;
@@ -599,16 +600,63 @@ hr.chat{
   clear: both;
 }
 
-.ticket {
-  background-color: #ffffff;
-  border-left: 5px solid red;
-  padding: 8px 12px;
-  cursor: move;
-}
-
 .addTicket {
   display: none;
 }
+
+/*******************************
+          Tickets
+*******************************/
+.ticket {
+  background-color: #fafafa;
+  border-left: 5px solid #8bc34a;
+  box-shadow: 0px 3px 3px #EEE;
+  margin: 10px 10px;
+  cursor: move;
+}
+
+.time {
+  background-color: #eeeeee;
+  padding: 5px 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.ticketId {
+  padding-left: 5px;
+  font-size: 12px;
+}
+
+.ticketTitle {
+  text-align: center;
+  font-weight: 400;
+}
+
+.ticketDesc {
+  text-align: center;
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+
+.progressbar {
+  width: 80%;
+  height: 10px;
+  border: 1px solid #9e9e9e;
+  border-radius: 5px;
+  text-align: left;
+  float: inherit;
+  display: inline-block;
+}
+
+.bar {
+  background-color: #ffffff;
+  border-radius: 5px;
+  width: 20%;
+  height: 10px;
+  float: left;
+  display: inline-block;
+}
+
 
 /*******************************
           OrderBy
