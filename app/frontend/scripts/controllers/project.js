@@ -17,6 +17,7 @@ angular.module('phApp').controller('ProjectCtrl', function($scope,$stateParams, 
 
   $scope.sendMsg = function(){
     $sails.post('/chat/sendGroupMsg', {'projectId': $stateParams.id, 'msg': $scope.msg.message});
+    $('#grpChatSubmit').val(null);
   };
 
   $scope.getUsers = function () {
