@@ -701,3 +701,83 @@ label {
   margin: 0 auto;
   padding: 20px 0;
 }
+
+/*******************************
+        planning poker
+*******************************/
+div.estimate {
+  position: relative;
+  top: 0px;
+  height: 170px;
+  background-color: #fff;
+  margin-bottom: 30px;
+  box-shadow: 0px 3px 3px #eee;
+  padding-left: 13px;
+}
+
+div.estimate ul {
+  position: relative;
+  display: block;
+}
+
+div.estimate li {
+  display: inline;
+  list-style: none;
+}
+
+div.flipside {
+  height: 150px;
+  width: 108px;
+  border-radius: 2px;
+  border: 1px solid #5677fC;
+  background-color: #5677fC;
+  float: left;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+div.cardUser {
+  position: relative;
+  top: 40px;
+  text-align: center;
+  color: #fafafa;
+  font-size: 14px;
+}
+
+div.cards {
+  position: relative;
+  height: 335px;
+  background-color: #fff;
+  box-shadow: 0px 3px 3px #eee;
+  padding-left: 13px;
+}
+
+div.cards ul {
+  position: relative;
+  display: block;
+}
+
+div.cards li {
+  display: inline;
+  list-style: none;
+}
+
+div.card {
+  height: 150px;
+  width: 108px;
+  border-radius: 2px;
+  border: 1px solid #5677fC;
+  background-color: #fff;
+  float: left;
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+div.cardNumber {
+  position: relative;
+  top: 40px;
+  text-align: center;
+  color: #5677fC;
+  font-size: 40px;
+}
