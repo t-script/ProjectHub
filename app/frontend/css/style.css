@@ -782,3 +782,7 @@ div.cardNumber {
   color: #5677fC;
   font-size: 40px;
 }
+
+#reset {
+  display: none;
+}

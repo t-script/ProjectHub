@@ -53,43 +53,46 @@
     Choose your estimate
   </div>
   <div class="cards">
-    <ul>
-      <li>
+    <span id="reset">
+      <br /><p>Your estimate: {{value}} <a class="btnBlue" ng-click="resetVoting()"><i class="refresh icon"></i> Reset</a></p>
+    </span>
+    <ul id="displayCards">
+      <li ng-click="sendEstimate(0)">
         <div class="card">
           <div class="cardNumber">
             0
           </div>
         </div>
       </li>
-      <li>
+      <li ng-click="sendEstimate(0.5)">
         <div class="card">
           <div class="cardNumber">
             1/2
           </div>
         </div>
       </li>
-      <li>
+      <li ng-click="sendEstimate(1)">
         <div class="card">
           <div class="cardNumber">
             1
           </div>
         </div>
       </li>
-      <li>
+      <li ng-click="sendEstimate(2)">
         <div class="card">
           <div class="cardNumber">
             2
           </div>
         </div>
       </li>
-      <li>
+      <li ng-click="sendEstimate(3)">
         <div class="card">
           <div class="cardNumber">
             3
           </div>
         </div>
       </li>
-      <li>
+      <li ng-click="sendEstimate(5)">
         <div class="card">
           <div class="cardNumber">
             5
@@ -97,42 +100,42 @@
         </div>
       </li>
       <br />
-      <li>
+      <li ng-click="sendEstimate(8)">
         <div class="card">
           <div class="cardNumber">
             8
           </div>
         </div>
       </li>
-      <li>
+      <li ng-click="sendEstimate(13)">
         <div class="card">
           <div class="cardNumber">
             13
           </div>
         </div>
       </li>
-      <li>
+      <li ng-click="sendEstimate(20)">
         <div class="card">
           <div class="cardNumber">
             20
           </div>
         </div>
       </li>
-      <li>
+      <li ng-click="sendEstimate(40)">
         <div class="card">
           <div class="cardNumber">
             40
           </div>
         </div>
       </li>
-      <li>
+      <li ng-click="sendEstimate(100)">
         <div class="card">
           <div class="cardNumber">
             100
           </div>
         </div>
       </li>
-      <li>
+      <li ng-click="sendEstimate(null)">
         <div class="card">
           <div class="cardNumber">
             ?
