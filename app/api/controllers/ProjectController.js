@@ -58,10 +58,6 @@ module.exports = {
 
   },
 
-  getProjectsByID: function(req, res){
-
-  },
-
 	addMember: function (req, res) {
     sails.log.verbose("[ProjectCtrl] Action 'addMember' called");
 
