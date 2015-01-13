@@ -73,10 +73,10 @@ module.exports = {
     //Update onlinestatus
     User.update({id: req.session.user.id}, {online: false}).exec(function(err, updated){
         // Publish online notifaction to socket
-        User.publishUpdate(user.id, {
+        /*User.publishUpdate(user.id, {
           online: false,
           id: user.id
-        });
+        });*/
     });
 
     req.session.authenticated = false;
@@ -191,5 +191,6 @@ module.exports = {
       });
     });
   }
+
 };
 

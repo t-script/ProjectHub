@@ -25,14 +25,16 @@
 
   <!-- Header -->
   <div class="head_h1"><h1 ui-view="pageTitle"></h1></div>
-  <header class="head">
-    <ul>
-      <li><i class="bell outline icon"></i></li>
-      <li>Tom Schalbar</li>
-      <li><i class="sign out icon"></i></li>
-      <li id="toogle_chat" class="last"><i class="chat outline icon"></i></li>
-    </ul>
-  </header>
+  <div ng-controller="MainCtrl" ng-init="getUsername()">
+    <header class="head">
+      <ul>
+        <li><i class="bell outline icon"></i></li>
+        <li>{{username}}</li>
+        <li><i class="sign out icon" ng-click="logout()"></i></li>
+        <li id="toogle_chat" class="last"><i class="chat outline icon"></i></li>
+      </ul>
+    </header>
+  </div>
 
   <!-- TESTING Privatechat -->
   <div class="privatchat" ng-init="init()">
@@ -100,6 +102,7 @@
   <script src="/scripts/controllers/files.js"></script>
   <script src="/scripts/controllers/poker.js"></script>
   <script src="/scripts/controllers/settings.js"></script>
+  <script src="/scripts/controllers/main.js"></script>
 
   <!-- Other Scripts -->
   <script src="/scripts/script.js"></script>

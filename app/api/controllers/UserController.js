@@ -6,8 +6,8 @@
  */
 
 module.exports = {
-	/* DO NOT DELETE
-	 * Datei wird von Sails benötigt, sonst können keine Rest-Operationen auf das Usermodel durchgeführt werden!
-	 */
+  getUsername: function (req, res) {
+    res.json(req.session.user, 200);
+  }
 };
 

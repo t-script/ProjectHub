@@ -2,7 +2,7 @@
 
 angular.module('phApp').controller('PokerCtrl', function($scope, $sails){
   $scope.value = 0;
-  
+
   $scope.sendEstimate = function (value) {
     var data = {value : value};
     $sails.post('/', data)
