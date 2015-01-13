@@ -60,7 +60,13 @@ module.exports = {
 
     project: {
       model: 'Project'
+    },
+
+    pokerActive: {
+      type: 'boolean',
+      defaultsTo: false
     }
+
 
   }
 };

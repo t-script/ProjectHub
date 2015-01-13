@@ -45,5 +45,9 @@ module.exports.routes = {
     'POST /updateTicket' : 'KanbanController.updateTicket',
 
     'GET /getUsername' : 'UserController.getUsername',
-    'POST /updateUser' : 'UserController.updateUser'
+    'POST /updateUser' : 'UserController.updateUser',
+
+    'POST /startVoting' : 'PokerController.startVoting',
+    'POST /stopVoting' : 'PokerController.stopVoting',
+    'POST /vote' : 'PokerController.vote'
 };

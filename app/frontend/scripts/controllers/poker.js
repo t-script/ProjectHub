@@ -2,25 +2,44 @@
 
 angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateParams){
   $scope.value = 0;
+  $scope.active = false;
   $scope.members=[];
   $scope.leader=[];
   $scope.tickets=[];
-  $scope.ticket=[];
+  $scope.curTicket=[];
+  $scope.votes=[];
 
   //Schätzung an den Server senden
+
+  $scope.startVoting = function(obj){
+    // TODO CHECK IF LEADER
+    if (obj.ticket.active == false){
+      data = {
+        project: $stateParams.id,
+        ticket: obj.ticket.id
+      };
+
+      $sails.post('/startVoting', data).success(function(data) {
+        console.log(data);
+      });
+    }
+  },
+
   $scope.sendEstimate = function (value) {
-    var data = {value : value};
-    $sails.post('/', data)
-      .success(function (data) {
-        console.log(data);
-        $scope.value = value;
-        $('#displayCards').hide();
-        $('#reset').show();
-      })
-      .error(function (data) {
-        console.log(data);
-      })
-  }
+    if ($scope.active == true) {
+      var data = {vote: value, project: $stateParams.id, ticket: $scope.curTicket.id};
+      $sails.post('/vote', data)
+        .success(function (data) {
+          console.log(data);
+          $scope.value = value;
+          $('#displayCards').hide();
+          $('#reset').show();
+        })
+        .error(function (data) {
+          console.log(data);
+        })
+    }
+  },
 
   $scope.resetVoting = function () {
     $('#reset').hide();
@@ -33,17 +52,17 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
   }
 
   //Ticket auswählen
-  $scope.setTicket = function (id, title) {
+  $scope.setTicket = function (ticket) {
     $('#ticketsOverview').hide();
     $('#choose').hide();
     $('#play').show();
-    $('#ticket').html(title)
-
+    $('#ticket').html(ticket.title);
+    $scope.curTicket = ticket;
   }
 
   //Start planning poker
   $scope.start = function () {
-    $sails.post('/')
+    $sails.post('/startVoting', {project: $stateParams.id, ticket: $scope.curTicket.id})
       .success(function (data) {
         $('#play').hide();
         $('#stop').show();
@@ -51,13 +70,12 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
       .error(function (data) {
         console.log(data);
       })
-
   }
 
   //Stop planning poker
   $scope.stop = function () {
-    $sails.post('/')
-      .success(function (data) {
+    $sails.post('/stopVoting', {project: $stateParams.id, ticket: $scope.curTicket.id})
+      .success(function () {
         $('#play').hide();
         $('#stop').hide();
         $('#ticket').html('Choose a ticket')
@@ -66,7 +84,26 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
       .error(function(data) {
         console.log(data);
       })
-  }
+  },
+
+  $sails.on('votingStarted', function(msg){
+    $scope.active = true;
+    $scope.votes = [];
+    $scope.curTicket = msg.ticket;
+    console.log(msg);
+  });
+
+  $sails.on('votingStoped', function(msg){
+    $scope.active = false;
+    $scope.curTicket = [];
+    console.log(msg);
+  });
+
+  $sails.on('voted', function(msg){
+    $scope.votes = msg;
+    console.log(msg);
+  });
+
 
   //Ab hier: nicht relevant für dich!!!!
   $scope.getUsers = function () {
@@ -99,5 +136,4 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
         console.log(data);
       })
   }
-
 });
