@@ -3,11 +3,28 @@
 angular.module('phApp').controller('SettingsCtrl', function($scope, $sails){
   $scope.user = [];
   $('.remove').hide();
+  $('#send').hide();
+  $scope.send=0;
 
   $scope.getUser = function() {
     $sails.get('/getUsername')
       .success(function (data) {
         $scope.user = data;
+      })
+      .error(function (data) {
+        console.log(data);
+      })
+  }
+
+  $scope.updateUser = function() {
+    var data = {id: $scope.user.id, firstname: $scope.user.firstname, lastname: $scope.user.lastname, email: $scope.user.email, password: $scope.user.password};
+    $sails.post('/updateUser', data)
+      .success(function (data) {
+        $scope.user = data;
+        $('.whiteBlue').hide();
+        $('.remove').hide();
+        $('.textSetting').show();
+        $('.pencil').show();
       })
       .error(function (data) {
         console.log(data);
@@ -20,6 +37,8 @@ angular.module('phApp').controller('SettingsCtrl', function($scope, $sails){
     $('#'+remove).show();
     $('#'+input).show();
     $('#'+input).focus();
+    $('#send').show();
+    $scope.send++;
   }
 
   $scope.cancelInput = function (text, input, pencil, remove) {
@@ -27,6 +46,10 @@ angular.module('phApp').controller('SettingsCtrl', function($scope, $sails){
     $('#'+pencil).show();
     $('#'+input).hide();
     $('#'+remove).hide();
+    $scope.send--;
+    if ($scope.send == 0) {
+      $('#send').hide();
+    }
   }
 
 });

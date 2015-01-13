@@ -44,5 +44,6 @@ module.exports.routes = {
     'GET /kanbanColums'   : 'KanbanController.getKanbanColumns',
     'POST /updateTicket' : 'KanbanController.updateTicket',
 
-    'GET /getUsername' : 'UserController.getUsername'
+    'GET /getUsername' : 'UserController.getUsername',
+    'POST /updateUser' : 'UserController.updateUser'
 };

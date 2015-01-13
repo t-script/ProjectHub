@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form name="frmUpdateUser" ng-submit="updateUser()">
     <div class="wrapper">
       <div class="wrapper_header">
         General Settings
@@ -8,8 +8,8 @@
           <tr>
             <td style="width: 30%">Firstname</td>
             <td>
-              <span id="firstnameText">{{user.firstname}}</span>
-              <input id="firstnameInput" class="whiteBlue" type="text" value="{{user.firstname}}" />
+              <span id="firstnameText" class="textSetting">{{user.firstname}}</span>
+              <input id="firstnameInput" class="whiteBlue" type="text" value="{{user.firstname}}" ng-model="user.firstname" />
             </td>
             <td class="btn">
               <i id="firstnamePencil" class="pencil icon setFocus" ng-click="showInput('firstnameText','firstnameInput', 'firstnamePencil', 'firstnameRemove')"></i>
@@ -19,8 +19,8 @@
           <tr>
             <td>Lastname</td>
             <td>
-              <span id="lastnameText">{{user.lastname}}</span>
-              <input id="lastnameInput" class="whiteBlue" type="text" value="{{user.lastname}}" />
+              <span id="lastnameText" class="textSetting">{{user.lastname}}</span>
+              <input id="lastnameInput" class="whiteBlue" type="text" value="{{user.lastname}}" name="lastname" />
             </td>
             <td class="btn">
               <i id="lastnamePencil" class="pencil icon setFocus" ng-click="showInput('lastnameText','lastnameInput', 'lastnamePencil', 'lastnameRemove')"></i>
@@ -30,8 +30,8 @@
           <tr>
             <td>Email</td>
             <td>
-              <span id="emailText">{{user.email}}</span>
-              <input id="emailInput" class="whiteBlue" type="text" value="{{user.email}}" />
+              <span id="emailText" class="textSetting">{{user.email}}</span>
+              <input id="emailInput" class="whiteBlue" type="text" value="{{user.email}}" ng-model="email" />
             </td>
             <td class="btn">
               <i id="emailPencil" class="pencil icon setFocus" ng-click="showInput('emailText','emailInput', 'emailPencil', 'emailRemove')"></i>
@@ -41,8 +41,8 @@
           <tr>
             <td>Password</td>
             <td>
-              <span id="passwordText">* * * * * *</span>
-              <input id="passwordInput" class="whiteBlue" type="text" placeholder="Password" />
+              <span id="passwordText" class="textSetting">* * * * * *</span>
+              <input id="passwordInput" class="whiteBlue" type="text" placeholder="Password" name="password" />
             </td>
             <td class="btn">
               <i id="passwordPencil" class="pencil icon setFocus" ng-click="showInput('passwordText','passwordInput', 'passwordPencil', 'passwordRemove')"></i>
@@ -51,6 +51,6 @@
           </tr>
         </table>
     </div>
-    <span class="textRight"><button class="blue" type="submit">Save changes</button></span>
+    <span class="textRight"><button id="send" class="blue" type="submit">Save changes</button></span>
   </form>
 </div>
