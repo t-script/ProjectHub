@@ -121,6 +121,20 @@ input.white:focus {
   outline: none;
 }
 
+input.whiteBlue {
+  margin: 0px 0px;
+  border: 1px solid #ffffff;
+  font-size: 14px;
+  width: 300px;
+  color: #5677fC;
+  display: none;
+}
+
+input.whiteBlue:focus {
+  outline: none;
+  color: #5677fC;
+}
+
 input.stdBorder {
   border: 1px solid #e0e0e0;
   border-radius: 2px;
