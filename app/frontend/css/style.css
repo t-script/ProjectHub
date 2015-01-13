@@ -709,9 +709,9 @@ label {
 div.estimate {
   position: relative;
   top: 0px;
-  height: 172px;
+  height: 162px;
   background-color: #fff;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   box-shadow: 0px 3px 3px #eee;
   padding-left: 13px;
 }
@@ -727,9 +727,9 @@ div.estimate li {
 }
 
 div.flipside {
-  height: 150px;
+  height: 140px;
   width: 108px;
-  border-radius: 2px;
+  border-radius: 4px;
   border: 1px solid #5677fC;
   background-color: #5677fC;
   float: left;
@@ -747,7 +747,7 @@ div.cardUser {
 
 div.cards {
   position: relative;
-  height: 335px;
+  height: 315px;
   background-color: #fff;
   box-shadow: 0px 3px 3px #eee;
   padding-left: 13px;
@@ -764,9 +764,9 @@ div.cards li {
 }
 
 div.card {
-  height: 150px;
+  height: 140px;
   width: 108px;
-  border-radius: 2px;
+  border-radius: 4px;
   border: 1px solid #5677fC;
   background-color: #fff;
   float: left;
@@ -784,5 +784,18 @@ div.cardNumber {
 }
 
 #reset {
+  display: none;
+}
+
+a.pp {
+  display: none;
+}
+
+a.pp:hover {
+  color: #5677fC;
+  cursor: pointer;
+}
+
+#ticketsOverview {
   display: none;
 }
