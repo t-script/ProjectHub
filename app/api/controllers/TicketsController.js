@@ -20,21 +20,28 @@ module.exports = {
           sails.log.error(err);
           return res.json('Server error', 500);
         }
-        Tickets.create({
-          ticketid: req.body.ticketid,
-          title: req.body.title,
-          description: req.body.description,
-          project: req.body.project,
-          user: req.session.user.id,
-          columns: backlog.id
-        }).exec(function (err) {
-          if (err) {
-            sails.log.error(err);
-            return res.json({error: 'There was an error creating a new ticket'}, 500);
-          }
-          sails.log.info("[TicketsCtrl] Ticket '" + req.body.title + "' created");
-          return sails.controllers.tickets.getTickets(req, res);
-        });
+        Tickets.count({project: req.body.project})
+          .exec(function(err, count) {
+            if (err){
+              sails.log.error(err);
+              return res.json({ error: 'There was an error' }, 500);
+            }
+            Tickets.create({
+              ticketid: count+1,
+              title: req.body.title,
+              description: req.body.description,
+              project: req.body.project,
+              user: req.session.user.id,
+              columns: backlog.id
+            }).exec(function (err) {
+              if (err) {
+                sails.log.error(err);
+                return res.json({error: 'There was an error creating a new ticket'}, 500);
+              }
+              sails.log.info("[TicketsCtrl] Ticket '" + req.body.title + "' created");
+              return sails.controllers.tickets.getTickets(req, res);
+            });
+          });
       })
   },
 
