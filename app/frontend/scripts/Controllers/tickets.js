@@ -8,6 +8,7 @@ angular.module('phApp').controller('TicketsCtrl', function($scope, $sails){
       .success(function(data) {
         console.log(data);
         $scope.tickets= data;
+
       })
       .error(function(data) {
         $scope.tickets= data;

@@ -59,7 +59,7 @@ module.exports = {
   getTicketsbyUser: function(req, res, broadcast) {
     sails.log.verbose("[TicketsCtrl] Action 'getTickets' called");
     broadcast = typeof broadcast !== 'undefined' ? broadcast : false;
-    Tickets.find({ user: req.session.user.id }).exec(function(err, found){
+    Tickets.find({ user: req.session.user.id }).populate('columns').exec(function(err, found){
       if (err){
         sails.log.error(err);
         return res.json({ error: 'There was an error retrieven tickets' }, 500);
