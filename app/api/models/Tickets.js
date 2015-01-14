@@ -32,7 +32,8 @@ module.exports = {
     },
 
     currentTime: {
-      type: 'integer'
+      type: 'integer',
+      defaultsTo: 0
     },
 
     fixedDate: {

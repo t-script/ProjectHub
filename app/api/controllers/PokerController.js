@@ -120,14 +120,14 @@ module.exports = {
     }
 
     Tickets.update(
-      { project: req.param('project'), ticket: req.param('ticket') },
+      { project: req.param('project'), id: req.param('ticket') },
       { approximatedTime: req.param('vote') }
     ).exec(function(err, updated){
         if (err){
           sails.log.error('[PokerCtrl.vote] Saving approximated time for ticket not possible');
           return res.json({ error: 'Saving approximated time for ticket not possible' }, 500);
         }
-
+        console.log(updated);
         return res.json({success: 'Saving approximated time for ticket successfull.'}, 200);
       });
   }

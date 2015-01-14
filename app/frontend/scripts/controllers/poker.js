@@ -42,7 +42,7 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
   },
 
   $scope.saveValue = function(vote){
-    if (data.username == $scope.leader.username) {
+    if ($scope.active == false) {
       var data = {vote: vote.value, project: $stateParams.id, ticket: $scope.curTicket.id};
       $sails.post('/saveValue', data).success(function(data){
         console.log(data);
@@ -104,7 +104,6 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
 
   $sails.on('votingStoped', function(msg){
     $scope.active = false;
-    $scope.curTicket = [];
     console.log(msg);
   });
 

@@ -15,7 +15,7 @@
       <div class="ticketId">ID {{ticket.ticketid}}</div>
       <div class="ticketTitle">{{ticket.title}}</div>
       <div class="ticketDesc">{{ticket.description}}</div>
-      <div class="time">0H <span class="progressbar"><span class="bar"></span></span> 20H</div>
+      <div class="time">{{ticket.currentTime}}H <span class="progressbar"><span class="bar" style="width: {{100*ticket.currentTime/ticket.approximatedTime | number:0}}%"></span></span> {{ticket.approximatedTime}}H</div>
     </li>
   </ul>
 </div>
