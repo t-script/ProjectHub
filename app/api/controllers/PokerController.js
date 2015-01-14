@@ -83,7 +83,7 @@ module.exports = {
       {project: req.param('project'), ticket: req.param('ticket'), open: true}
     ).exec(function(err, found){
         if (err){
-          sails.log.info(err);
+          sails.log.error(err);
           return res.json({ error: 'Voting not possible' }, 500);
         }
 
@@ -97,7 +97,7 @@ module.exports = {
 
         found.save(function(err){
           if (err){
-            sails.log.info(err);
+            sails.log.error(err);
             return res.json({ error: 'Voting not possible' }, 500);
           }else{
             sails.log.info('[PokerCtrl.vote] Voting successfull');
@@ -109,6 +109,28 @@ module.exports = {
           }
         });
      });
+  },
+
+  saveValue: function(req, res){
+    sails.log.verbose("[PokerCtrl] Action 'saveValue' called");
+
+    if (!req.param('project') || !req.param('ticket') || !req.param('vote')){
+      sails.log.info('[PokerCtrl.vote] No project, ticket or vote provided');
+      return res.json({ error: 'Project, ticket or vote missing.' }, 500);
+    }
+
+    Tickets.update(
+      { project: req.param('project'), ticket: req.param('ticket') },
+      { approximatedTime: req.param('vote') }
+    ).exec(function(err, updated){
+        if (err){
+          sails.log.error('[PokerCtrl.vote] Saving approximated time for ticket not possible');
+          return res.json({ error: 'Saving approximated time for ticket not possible' }, 500);
+        }
+
+        return res.json({success: 'Saving approximated time for ticket successfull.'}, 200);
+      });
   }
+
 };
 

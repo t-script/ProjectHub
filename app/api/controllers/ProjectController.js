@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-	createProject: function(req, res){
+  createProject: function(req, res){
     sails.log.verbose("[ProjectCtrl] Action 'createProject' called");
     //Check if projectname was entered
     if (!req.body.projectName){
@@ -39,7 +39,7 @@ module.exports = {
   getProjectsByUser: function(req, res){
     sails.log.verbose("[ProjectCtrl] Action 'getProjectsByUser' called");
 
-    Project.find().populate('members').populate('leader').exec(function(err, found){
+    Project.find().populate('members').exec(function(err, found){
       //{or : [{leader: req.session.user.id}, {members: req.session.user.id}] }
       if (err){
         sails.log.error(err);
@@ -58,7 +58,7 @@ module.exports = {
 
   },
 
-	addMember: function (req, res) {
+  addMember: function (req, res) {
     sails.log.verbose("[ProjectCtrl] Action 'addMember' called");
 
     if (!req.param('projectId') || !req.param('member')){

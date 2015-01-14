@@ -37,7 +37,7 @@
   <div  class="estimate" ng-init="getUsers()">
     <ul>
       <li ng-repeat="vote in votes" >
-        <div ng-class="{card: active == false, flipside: active == true}" >
+        <div ng-click="saveValue(vote)" ng-class="{card: active == false, flipside: active == true}" >
           <div ng-class="{activeUser: active == false }" class="cardUser" >
             {{vote.firstname}} {{vote.lastname}}
           </div>

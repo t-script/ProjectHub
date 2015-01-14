@@ -27,7 +27,8 @@ module.exports = {
     },
 
     approximatedTime: {
-      type: 'integer'
+      type: 'integer',
+      defaultsTo: 0
     },
 
     currentTime: {
@@ -60,14 +61,7 @@ module.exports = {
 
     project: {
       model: 'Project'
-    },
-
-    pokerActive: {
-      type: 'boolean',
-      defaultsTo: false
     }
-
-
   }
 };
 

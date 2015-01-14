@@ -41,6 +41,15 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
     }
   },
 
+  $scope.saveValue = function(vote){
+    if (data.username == $scope.leader.username) {
+      var data = {vote: vote.value, project: $stateParams.id, ticket: $scope.curTicket.id};
+      $sails.post('/saveValue', data).success(function(data){
+        console.log(data);
+      });
+    }
+  }
+
   $scope.resetVoting = function () {
     $('#reset').hide();
     $('#displayCards').show();
