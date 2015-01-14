@@ -5,12 +5,12 @@ angular.module('phApp').controller('KanbanCtrl', function ($scope, $stateParams,
     columnDrag,
     columnDrop,
     positionDrag,
-    columnsArray = [],
-    tickets = [];
+    columnsArray=[],
+    tmpTickets=[];
 
 
   $scope.columns = [];
-  $scope.tickets = null;
+  $scope.tickets = [];
   $scope.countCol= 0;
 
   $scope.init = function() {
@@ -41,18 +41,18 @@ angular.module('phApp').controller('KanbanCtrl', function ($scope, $stateParams,
       for (var i=0; i < columnsArray.length; i++) {
         $.each(data, function(index, element){
           if (element.columns.id == columnsArray[i]){
-            tickets.push(element);
+            tmpTickets.push(element);
           };
         });
-        $('#wip'+columnsArray[i]).html(tickets.length);
-        tickets=[];
+        $('#wip'+columnsArray[i]).html(tmpTickets.length);
+        tmpTickets=[];
       }
       cb();
     });
   }
 
   $sails.on('updateTickets', function(data){
-    $scope.tickets = data;
+    $scope.tickets.push(data);
   });
 
   //Drag n Drop Funktionalität
