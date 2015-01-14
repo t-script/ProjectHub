@@ -8,11 +8,12 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
   $scope.tickets=[];
   $scope.curTicket=[];
   $scope.votes=[];
+  $scope.ticketName = "";
+  $scope.ticketDescription = "";
 
   //Schätzung an den Server senden
 
   $scope.startVoting = function(obj){
-    // TODO CHECK IF LEADER
     if (obj.ticket.active == false){
       data = {
         project: $stateParams.id,
@@ -32,8 +33,13 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
         .success(function (data) {
           console.log(data);
           $scope.value = value;
-          $('#displayCards').hide();
-          $('#reset').show();
+
+          $('div.card').removeClass('selected');
+
+          if (value != null)
+            $('#estimate-'+value.toString().replace('.', '')).addClass('selected');
+          else
+            $('#estimate-null').addClass('selected');
         })
         .error(function (data) {
           console.log(data);
@@ -89,7 +95,7 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
         $('#stop').hide();
         $('#reset').hide();
         $('#displayCards').show();
-        $('#ticket').html('Choose a ticket')
+        $scope.ticketName = "Choose a ticket";
         $('#choose').show();
       })
       .error(function(data) {
@@ -101,6 +107,9 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
     $scope.active = true;
     $scope.votes = [];
     $scope.curTicket = msg.ticket;
+    $scope.ticketName = msg.ticket.title;
+    $scope.ticketDescription = msg.ticket.description;
+    $('div.card').removeClass('selected');
     console.log(msg);
   });
 
@@ -131,7 +140,12 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
     $sails.get('/getUsername')
       .success(function (data) {
         if (data.username != $scope.leader.username) {
-          $('#leader').hide();
+          $('.leader').hide();
+          $scope.ticketName = "No ticket selected, wait for project leader.";
+          $scope.ticketDescription = "";
+        }else{
+          $scope.ticketName = "Choose a ticket";
+          $scope.ticketDescription = "";
         }
       })
   }

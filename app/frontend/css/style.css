@@ -823,6 +823,10 @@ div.card.inactive {
   border: 1px solid #A8A8A8;
 }
 
+div.card.selected {
+  background-color: #E2E8FF;
+}
+
 div.cardNumber {
   position: relative;
   top: 40px;

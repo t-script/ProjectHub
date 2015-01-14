@@ -1,9 +1,9 @@
 <div class="col-left">
   <div class="wrapper" id="leader">
     <div class="wrapper_inner">
-      <i id="choose" class="plus icon setFocus" ng-click="chooseTicket()"></i>
-      <span id="ticket">Choose a ticket</span>
-      <span class="textRight">
+      <i id="choose" class="plus icon setFocus leader" ng-click="chooseTicket()"></i>
+      <span id="ticket">{{ticketName}} <span ng-if="ticketDescription"> - {{ticketDescription}}</span></span>
+      <span class="textRight leader">
         <a id="play" class="pp" ng-click="start()"><i class="play icon"></i> Start</a>
         <a id="stop" class="pp" ng-click="stop()"><i class="stop icon"></i> Stop</a>
       </span>
@@ -58,42 +58,42 @@
     </span>
     <ul id="displayCards">
       <li ng-click="sendEstimate(0)">
-        <div class="card" ng-class="{inactive: active == false } ">
+        <div id="estimate-0" class="card" ng-class="{inactive: active == false } ">
           <div class="cardNumber" ng-class="{inactive: active == false } ">
             0
           </div>
         </div>
       </li>
       <li ng-click="sendEstimate(0.5)">
-        <div class="card" ng-class="{inactive: active == false } ">
+        <div id="estimate-05" class="card" ng-class="{inactive: active == false } ">
           <div class="cardNumber" ng-class="{inactive: active == false } ">
             1/2
           </div>
         </div>
       </li>
       <li ng-click="sendEstimate(1)">
-        <div class="card" ng-class="{inactive: active == false } ">
+        <div id="estimate-1" class="card" ng-class="{inactive: active == false } ">
           <div class="cardNumber" ng-class="{inactive: active == false } ">
             1
           </div>
         </div>
       </li>
       <li ng-click="sendEstimate(2)">
-        <div class="card" ng-class="{inactive: active == false } ">
+        <div id="estimate-2" class="card" ng-class="{inactive: active == false } ">
           <div class="cardNumber" ng-class="{inactive: active == false } ">
             2
           </div>
         </div>
       </li>
       <li ng-click="sendEstimate(3)">
-        <div class="card" ng-class="{inactive: active == false } ">
+        <div id="estimate-3" class="card" ng-class="{inactive: active == false } ">
           <div class="cardNumber" ng-class="{inactive: active == false } ">
             3
           </div>
         </div>
       </li>
       <li ng-click="sendEstimate(5)">
-        <div class="card" ng-class="{inactive: active == false } ">
+        <div id="estimate-5" class="card" ng-class="{inactive: active == false } ">
           <div class="cardNumber" ng-class="{inactive: active == false } ">
             5
           </div>
@@ -101,42 +101,42 @@
       </li>
       <br />
       <li ng-click="sendEstimate(8)">
-        <div class="card" ng-class="{inactive: active == false } ">
+        <div id="estimate-8" class="card" ng-class="{inactive: active == false } ">
           <div class="cardNumber" ng-class="{inactive: active == false } ">
             8
           </div>
         </div>
       </li>
       <li ng-click="sendEstimate(13)">
-        <div class="card" ng-class="{inactive: active == false } ">
+        <div id="estimate-13" class="card" ng-class="{inactive: active == false } ">
           <div class="cardNumber" ng-class="{inactive: active == false } ">
             13
           </div>
         </div>
       </li>
       <li ng-click="sendEstimate(20)">
-        <div class="card" ng-class="{inactive: active == false } ">
+        <div id="estimate-20" class="card" ng-class="{inactive: active == false } ">
           <div class="cardNumber" ng-class="{inactive: active == false } ">
             20
           </div>
         </div>
       </li>
       <li ng-click="sendEstimate(40)">
-        <div class="card" ng-class="{inactive: active == false } ">
+        <div id="estimate-40" class="card" ng-class="{inactive: active == false } ">
           <div class="cardNumber" ng-class="{inactive: active == false } ">
             40
           </div>
         </div>
       </li>
       <li ng-click="sendEstimate(100)">
-        <div class="card" ng-class="{inactive: active == false } ">
+        <div id="estimate-100" class="card" ng-class="{inactive: active == false } ">
           <div class="cardNumber" ng-class="{inactive: active == false } ">
             100
           </div>
         </div>
       </li>
       <li ng-click="sendEstimate(null)">
-        <div class="card" ng-class="{inactive: active == false } ">
+        <div id="estimate-null" class="card" ng-class="{inactive: active == false } ">
           <div class="cardNumber" ng-class="{inactive: active == false } ">
             ?
           </div>
