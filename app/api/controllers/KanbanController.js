@@ -155,7 +155,7 @@ module.exports = {
             sails.log.info(updated);
 
             sails.log.info("[KanbanCtrl.addTicketToBoard] Ticket added to board");
-            sails.controllers.tickets.getTickets(req, res);
+            sails.controllers.tickets.getTickets(req, res, true);
          });
       });
     });

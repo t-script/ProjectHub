@@ -34,7 +34,11 @@ angular.module('phApp').controller('BacklogCtrl', function($scope, $stateParams,
           console.log(data)
         })
     }
-  }
+  },
+
+    $sails.on('updateTickets', function(data){
+      $scope.tickets = data;
+    });
 
   $scope.setTicketReady = function (obj) {
     $sails.post('/addTicketToBoard', {project: $stateParams.id, ticketid: obj.id})
