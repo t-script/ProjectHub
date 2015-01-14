@@ -56,5 +56,7 @@ module.exports.routes = {
     'POST /startVoting' : 'PokerController.startVoting',
     'POST /stopVoting'  : 'PokerController.stopVoting',
     'POST /vote'        : 'PokerController.vote',
-    'POST /saveValue'   : 'PokerController.saveValue'
+    'POST /saveValue'   : 'PokerController.saveValue',
+
+    'POST /createMessage': 'MessageController.createMessage'
 };

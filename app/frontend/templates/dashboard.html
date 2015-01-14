@@ -5,4 +5,24 @@
     <div class="block red">Members<p>{{countMembers}}</p><span>Count all members</span></div>
     <div class="block block2 purple">Events<p>{{countEvents}}</p><span>Count all events from all projects</span></div>
   </div>
+  <div class="wrapper">
+    <div class="wrapper_inner">
+      <form name="frmSendMsg" ng-submit="sendMsg()" novalidate>
+        <i class="plus icon setFocus" ng-click="setFocus()"></i>
+        <input class="white" type="text" placeholder="What is on your mind?" id="message" name="message" ng-model="message" ng-minlength="3" ng-maxlength="100" required />
+        <span class="textRight" ng-show="frmSendMsg.message.$error.minlength"><i class="info icon"></i> Message is too short.</span>
+        <span class="textRight" ng-show="frmSendMsg.message.$error.maxlength"><i class="info icon"></i> Message is too long.</span>
+        <span class="textRight" ng-show="frmSendMsg.message.$error.required && frmSendMsg.message.$dirty"><i class="info icon"></i> Message is required.</span>
+      </form>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <table class="list" ng-init="getMessage()">
+      <tr ng-repeat="msg in msgs | orderBy: 'id':true">
+        <td style="width: 80%">{{msg.text}}</td>
+        <td>{{msg.leader.firstname}} {{msg.leader.lastname}} ({{msg.createdAt | date : 'dd.MM.yyyy HH:mm'}})</td>
+      </tr>
+    </table>
+  </div>
 </div>

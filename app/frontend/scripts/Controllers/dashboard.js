@@ -5,6 +5,7 @@ angular.module('phApp').controller('DashboardCtrl', function($scope, $sails) {
   $scope.countTickets=0;
   $scope.countMembers=0;
   $scope.countEvents=0;
+  $scope.msgs=[];
 
   $scope.count = function() {
     $scope.countproject();
@@ -43,5 +44,27 @@ angular.module('phApp').controller('DashboardCtrl', function($scope, $sails) {
       .error(function(data) {
         console.log(data);
       })
+  }
+
+  $scope.sendMsg = function() {
+    if ($scope.frmSendMsg.$valid) {
+      var data= {text: $scope.message};
+      $sails.post('/createMessage',data)
+        .success(function(data) {
+          $('#message').val(null);
+          $scope.getMessage();
+        })
+    }
+  }
+
+  $scope.getMessage = function() {
+    $sails.get('/message')
+      .success(function(data) {
+        $scope.msgs= data;
+      })
+  }
+
+  $scope.setFocus = function () {
+    $('#message').focus();
   }
 });
