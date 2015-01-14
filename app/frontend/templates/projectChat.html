@@ -1,8 +1,8 @@
 <div class="groupchat_header"><i class="chat icon"></i>Group Chat</div>
 <div class="groupchat">
-  <ul>
+  <ul id="groupchat_ul">
     <li ng-repeat="msg in msgs">
-      {{msg.sendername}}: {{msg.message}}
+      <span style="font-weight: 600;">{{msg.sendername}}</span> ({{msg.createdAt | date : 'HH:mm:ss'}}): {{msg.message}}
     </li>
   </ul>
   <hr class="chat" />
