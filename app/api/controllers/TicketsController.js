@@ -54,6 +54,23 @@ module.exports = {
         return res.json(found, 200);
       }
     });
+  },
+
+  getTicketsbyUser: function(req, res, broadcast) {
+    sails.log.verbose("[TicketsCtrl] Action 'getTickets' called");
+    broadcast = typeof broadcast !== 'undefined' ? broadcast : false;
+    Tickets.find({ user: req.session.user.id }).exec(function(err, found){
+      if (err){
+        sails.log.error(err);
+        return res.json({ error: 'There was an error retrieven tickets' }, 500);
+      }
+
+      if (broadcast == true){
+        sails.sockets.broadcast('project-room-'+req.param('project'), 'updateTickets', found);
+      }else {
+        return res.json(found, 200);
+      }
+    });
   }
 
 };

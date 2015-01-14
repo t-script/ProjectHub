@@ -1,14 +1,30 @@
 <div class="container">
-  <h2>Overview</h2>
-  <a class="orderby" ng-click="reverse=false"><i class="angle up icon"></i></a>
-  <a class="orderby" ng-click="reverse=true"><i class="angle down icon"></i></a>
-  <span class="textRight"><input class="standard" type="text" ng-model="search" placeholder="Search" /></span>
-
-  <div class="wrapper">
+  <div class="wrapper" >
+    <div class="wrapper_header">
+      Overview
+    <span class="textRight">
+      <i class="search icon setFocus" ng-click="setFocusSearch()"></i>
+      <input id=search class="stdLong" type="text" ng-model="search" placeholder="Search for Title, Description, Service Classes and Category" />
+    </span>
+    </div>
     <table class="list" ng-init="getTickets()">
-      <tr ng-repeat="ticket in tickets | orderBy: 'name':reverse | filter:search">
+      <tr>
+        <th>Ticket ID</th>
+        <th>
+          Title
+          <a class="orderby" ng-click="reverse=false"><i class="angle up icon"></i></a>
+          <a class="orderby" ng-click="reverse=true"><i class="angle down icon"></i></a>
+        </th>
+        <th>Description</th>
+        <th>Service Classes</th>
+        <th>Category</th>
+      </tr>
+      <tr ng-repeat="ticket in tickets | filter:search | orderBy: 'title':reverse">
+        <td>{{ticket.ticketid}}</td>
         <td>{{ticket.title}}</td>
         <td>{{ticket.description}}</td>
+        <td></td>
+        <td>{{ticket.columns.name}}</td>
       </tr>
     </table>
   </div>

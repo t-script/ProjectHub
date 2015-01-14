@@ -20,7 +20,7 @@
             <td>Lastname</td>
             <td>
               <span id="lastnameText" class="textSetting">{{user.lastname}}</span>
-              <input id="lastnameInput" class="whiteBlue" type="text" value="{{user.lastname}}" name="lastname" />
+              <input id="lastnameInput" class="whiteBlue" type="text" value="{{user.lastname}}" ng-model="user.lastname" />
             </td>
             <td class="btn">
               <i id="lastnamePencil" class="pencil icon setFocus" ng-click="showInput('lastnameText','lastnameInput', 'lastnamePencil', 'lastnameRemove')"></i>

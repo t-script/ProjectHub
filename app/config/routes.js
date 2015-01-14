@@ -38,11 +38,12 @@ module.exports.routes = {
     'POST /addMember'     : 'ProjectController.addMember',
     'GET /getMembers'     : 'ProjectController.getMembers',
 
-    'POST /createTickets' : 'TicketsController.createTickets',
-    'GET /getTickets'     : 'TicketsController.getTickets',
+    'POST /createTickets'   : 'TicketsController.createTickets',
+    'GET /getTickets'       : 'TicketsController.getTickets',
+    'GET /getTicketsbyUser' : 'TicketsController.getTicketsbyUser',
 
     'GET /kanbanColums'   : 'KanbanController.getKanbanColumns',
-    'POST /updateTicket' : 'KanbanController.updateTicket',
+    'POST /updateTicket'  : 'KanbanController.updateTicket',
 
     'GET /getUsername' : 'UserController.getUsername',
     'POST /updateUser' : 'UserController.updateUser',
