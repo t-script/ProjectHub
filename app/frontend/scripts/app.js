@@ -42,7 +42,10 @@ angular.module('phApp', [
             templateUrl: '/templates/projectChat.html',
             controller: 'ProjectCtrl'
           },
-          "pageTitle": {template: 'Project / ProjectName'}
+          "pageTitle": {
+            template: 'Project / <span id="name"></span>',
+            controller: 'ProjectCtrl'
+          }
         }
       })
 

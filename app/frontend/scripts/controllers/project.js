@@ -43,6 +43,10 @@ angular.module('phApp').controller('ProjectCtrl', function($scope,$stateParams, 
       .success(function (data) {
         $scope.members = data.members;
         $scope.leader = data.leader;
+        $sails.get('/project/'+$stateParams.id)
+          .success(function (data) {
+            $('#name').html(data.name);
+          })
       })
       .error(function (data) {
         console.log(data);
