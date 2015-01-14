@@ -36,6 +36,10 @@ angular.module('phApp').controller('BacklogCtrl', function($scope, $stateParams,
     }
   }
 
+  $scope.setTicketReady = function () {
+    $sails.post('/',data)
+  }
+
   $scope.setFocusSearch = function () {
     $('#search').focus();
   }

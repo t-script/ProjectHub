@@ -1,5 +1,5 @@
 <h2>Backlog</h2><h2><a class="blue" ui-sref="project.kanban">Board</a></h2>
-<div class="right"> <a ng-click="showTicket()" id="addNewTicket" class="btnBlue"><i class="browser icon"></i>Add a new ticket</a></div>
+<div class="right"> <a ng-click="showTicket()" id="addNewTicket" class="btnBlue"><i class="browser icon"></i> Add a new ticket</a></div>
 <div id="addTicket" class="wrapper addTicket">
   <div class="wrapper_header">Add a new ticket</div>
   <div class="wrapper_inner">
@@ -49,8 +49,8 @@
       <td>{{ticket.ticketid}}</td>
       <td>{{ticket.title}}</td>
       <td>{{ticket.description}}</td>
-      <td>{{ticket.columns.name}}</td>
       <td></td>
+      <td>{{ticket.columns.name}}<span class="textRight"><a class="btnBlue" ng-click="setTicketReady()"><i class="browser icon"></i> Push</a></span> </td>
     </tr>
   </table>
 </div>
