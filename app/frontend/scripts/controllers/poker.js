@@ -87,6 +87,8 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
       .success(function () {
         $('#play').hide();
         $('#stop').hide();
+        $('#reset').hide();
+        $('#displayCards').show();
         $('#ticket').html('Choose a ticket')
         $('#choose').show();
       })
@@ -113,7 +115,6 @@ angular.module('phApp').controller('PokerCtrl', function($scope, $sails, $stateP
   });
 
 
-  //Ab hier: nicht relevant für dich!!!!
   $scope.getUsers = function () {
     $sails.get('/getMembers', {'projectId': $stateParams.id})
       .success(function (data) {
