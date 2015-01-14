@@ -9,7 +9,7 @@ angular.module('phApp').controller('KanbanCtrl', function ($scope, $stateParams,
     tickets = [];
 
 
-  $scope.columns = null;
+  $scope.columns = [];
   $scope.tickets = null;
   $scope.countCol= 0;
 
@@ -24,10 +24,12 @@ angular.module('phApp').controller('KanbanCtrl', function ($scope, $stateParams,
   var getColumns = function(cb) {
     $sails.get('/kanbanColums', {id: $stateParams.id})
       .success(function(data){
-        $scope.columns = data;
         $.each(data, function(index, element){
-          columnsArray.push(element.id);
-          $scope.countCol++;
+          if (element.name != 'Backlog') {
+            $scope.columns.push(element);
+            columnsArray.push(element.id);
+            $scope.countCol++;
+          }
         });
         cb();
       });
