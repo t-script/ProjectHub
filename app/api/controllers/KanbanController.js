@@ -119,6 +119,48 @@ module.exports = {
             });
         });
     }
+  },
+
+  addTicketToBoard: function(req, res){
+    sails.log.info("[KanbanCtrl] Action 'addTicketToBoard' called");
+
+    if (!req.param('project') || !req.param('ticketid')) {
+      sails.log.info('[KanbanCtrl.addTicketToBoard] Invalid entry');
+      return res.json({error: 'Invalid entry'}, 500);
+    }
+
+    KanbanColumns.findOne({project: req.param('project'), name: 'Ready' }).exec(function(err, column){
+      if (err){
+        sails.log.error(err);
+        return res.json('Server error', 500);
+      }
+
+      Tickets.count({project: req.param('project'), columns: column.id}).exec(function(err, count){
+        if (err){
+          sails.log.error(err);
+          return res.json('Server error', 500);
+        }
+
+        sails.log.info("[KanbanCtrl.addTicketToBoard] Column Ready contains " + count + " tickets");
+
+        Tickets.update(
+          {project: req.param('project'), id: req.param('ticketid')},
+          {columns: column.id, position: count + 1}
+        ).exec(function(err, updated){
+            if (err){
+              sails.log.error(err);
+              return res.json('Server error', 500);
+            }
+
+            sails.log.info(updated);
+
+            sails.log.info("[KanbanCtrl.addTicketToBoard] Ticket added to board");
+            sails.controllers.tickets.getTickets(req, res, true);
+         });
+      });
+    });
+
+
   }
 
 };
