@@ -425,19 +425,30 @@ div.groupchat {
 div.groupchat ul{
   overflow-y: scroll;
   height: 790px;
+  margin-top: 10px;
 }
 
 div.groupchat li {
   padding: 0.7em 1.0em;
   list-style: none;
   font-size: 0.8em;
-  color: #626262;
-  border: 1px solid #F0F0F0;
-  background-color: #FAFAFA;
+  color: #fafafa;
+  background-color: #5677fC;
   border-radius: 2px;
   margin: 0px 15px 5px;
 }
 
+div.groupchat li:after {
+  content:"";
+  position: relative;
+  float:right;
+  top: 33%;
+  margin-right:-29px;
+  border-top: 10px solid transparent;
+  border-left: 10px solid #5677fC;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
 
 div.groupchat #grpChatSubmit{
   position: absolute;
