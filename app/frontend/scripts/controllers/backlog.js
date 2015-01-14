@@ -37,9 +37,13 @@ angular.module('phApp').controller('BacklogCtrl', function($scope, $stateParams,
   }
 
   $scope.setTicketReady = function (obj) {
-    $sails.post('/addTicketToBoard', {project: $stateParams.id, ticketid: obj.id}).success(function(data){
-      console.log(data);
-    })
+    $sails.post('/addTicketToBoard', {project: $stateParams.id, ticketid: obj.id})
+      .success(function(data){
+        $scope.tickets= data;
+      })
+      .error(function (data) {
+        console.log(data);
+      })
   }
 
   $scope.setFocusSearch = function () {
