@@ -868,6 +868,7 @@ div.block {
   margin-right: 1.3%;
   text-align: center;
   color: #fafafa;
+  font-size: 18px;
 }
 
 div.block2 {
@@ -879,18 +880,21 @@ div.blue {
 }
 
 div.teal {
-  background-color: #26a69a;
+  background-color: #1abc9c;
 }
 
 div.red {
-  background-color: #f44336;
+  background-color: #e74c3c;
 }
 
 div.purple {
-  background-color: #aa66cc;
+  background-color: #9b59b6;
 }
 
 div.block p {
-  padding-top: 10px;
   font-size: 80px;
+}
+
+div.block span {
+  font-size: 14px;
 }
