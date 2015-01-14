@@ -37,6 +37,7 @@ module.exports.routes = {
     'GET /ownProject'     : 'ProjectController.getProjectsByUser',
     'POST /addMember'     : 'ProjectController.addMember',
     'GET /getMembers'     : 'ProjectController.getMembers',
+    'POST /removeMember'  : 'ProjectController.removeMember',
     'GET /countProject'   : 'ProjectController.countProject',
     'GET /countTickets'   : 'ProjectController.countTickets',
     'GET /countMembers'   : 'ProjectController.countMembers',
