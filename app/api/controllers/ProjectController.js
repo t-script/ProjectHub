@@ -144,6 +144,39 @@ module.exports = {
           });
         }
       });
+  },
+
+  countProject: function(req, res) {
+    Project.count()
+      .exec(function(err, found) {
+        if (err){
+          sails.log.error(err);
+          return res.json({ error: 'There was an error' }, 500);
+        }
+        return res.json(found);
+      });
+  },
+
+  countTickets: function(req, res) {
+    Tickets.count()
+      .exec(function(err, found) {
+        if (err){
+          sails.log.error(err);
+          return res.json({ error: 'There was an error' }, 500);
+        }
+        return res.json(found);
+      });
+  },
+
+  countMembers: function(req, res) {
+    User.count()
+      .exec(function(err, found) {
+        if (err){
+          sails.log.error(err);
+          return res.json({ error: 'There was an error' }, 500);
+        }
+        return res.json(found);
+      });
   }
 };
 
