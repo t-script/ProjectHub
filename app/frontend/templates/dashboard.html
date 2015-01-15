@@ -20,7 +20,7 @@
   <div class="wrapper">
     <table class="list" ng-init="getMessage()">
       <tr ng-repeat="msg in msgs | orderBy: 'id':true">
-        <td style="width: 80%">{{msg.text}}</td>
+        <td style="width: 75%">{{msg.text}}</td>
         <td>{{msg.leader.firstname}} {{msg.leader.lastname}} ({{msg.createdAt | date : 'dd.MM.yyyy HH:mm'}})</td>
       </tr>
     </table>

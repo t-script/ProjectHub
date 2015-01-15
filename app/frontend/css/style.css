@@ -508,6 +508,7 @@ hr.chat{
   overflow: hidden;
   position: absolute;
   bottom: 0;
+  z-index: 9999;
 }
 
 .chat-first{

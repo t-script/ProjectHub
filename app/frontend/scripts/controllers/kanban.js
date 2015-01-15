@@ -10,7 +10,7 @@ angular.module('phApp').controller('KanbanCtrl', function ($scope, $stateParams,
 
 
   $scope.columns = [];
-  $scope.tickets = [];
+  $scope.tickets = {};
   $scope.countCol= 0;
 
   $scope.init = function() {
@@ -52,7 +52,7 @@ angular.module('phApp').controller('KanbanCtrl', function ($scope, $stateParams,
   }
 
   $sails.on('updateTickets', function(data){
-    $scope.tickets.push(data);
+    $scope.tickets= data;
   });
 
   //Drag n Drop Funktionalität
