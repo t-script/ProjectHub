@@ -2,10 +2,36 @@
 
 angular.module('phApp').controller('CalendarCtrl', function($scope){
 
+  $('#startTimepicker').datetimepicker({
+
+  });
+
   $('#calendar').fullCalendar({
-    defaultDate: '2014-11-12',
+    header:
+      {
+        left:   'title',
+        center: 'month,agendaWeek,agendaDay',
+        right:  'today prev,next'
+      },
     editable: true,
     eventLimit: true, // allow "more" link when too many events
+    aspectRatio: 1.8,
+    selectable: true,
+    selectHelper: true,
+    select: function(start, end) {
+      var title = prompt('Event Title:');
+      var eventData;
+      if (title) {
+        eventData = {
+          title: title,
+          start: start,
+          end: end
+        };
+        $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+      }
+      $('#calendar').fullCalendar('unselect');
+    },
+
     events: [
       {
         title: 'All Day Event',
@@ -54,7 +80,8 @@ angular.module('phApp').controller('CalendarCtrl', function($scope){
       },
       {
         title: 'Birthday Party',
-        start: '2014-11-13T07:00:00'
+        start: '2014-11-13T07:00:00',
+        end: '2014-11-13T07:00:00'
       },
       {
         title: 'Click for Google',
@@ -63,6 +90,8 @@ angular.module('phApp').controller('CalendarCtrl', function($scope){
       }
     ]
   });
+
+
 
 });
 

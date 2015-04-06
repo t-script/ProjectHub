@@ -73,9 +73,12 @@ module.exports = {
     //Update onlinestatus
     User.update({id: req.session.user.id}, {online: false}).exec(function(err, updated){
         // Publish online notifaction to socket
-        User.publishUpdate(user.id, {
-          online: false,
-          id: user.id
+        User.publishUpdate(updated[0].id, {
+          id: updated[0].id,
+          username: updated[0].username,
+          firstname: updated[0].firstname,
+          lastname: updated[0].lastname,
+          online: false
         });
     });
 
@@ -191,5 +194,6 @@ module.exports = {
       });
     });
   }
+
 };
 

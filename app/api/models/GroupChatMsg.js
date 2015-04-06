@@ -5,7 +5,6 @@
 */
 
 module.exports = {
-
   attributes: {
     message: {
       type: 'text',
@@ -22,20 +21,8 @@ module.exports = {
       maxLength: 32
     },
 
-    reciever: {
-      model: 'user'
-    },
-
-    recievername: {
-      type: 'string',
-      minLength: 3,
-      maxLength: 32
-    },
-
-
-    read: {
-      type: 'boolean',
-      defaultsTo: false
+    project: {
+      model: 'project'
     }
   }
 };

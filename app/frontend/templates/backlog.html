@@ -1,0 +1,57 @@
+<h2>Backlog</h2><h2><a class="blue" ui-sref="project.kanban">Board</a></h2>
+<div class="right"> <a ng-click="showTicket()" id="addNewTicket" class="btnBlue"><i class="browser icon"></i> Add a new ticket</a></div>
+<div id="addTicket" class="wrapper addTicket">
+  <div class="wrapper_header">Add a new ticket</div>
+  <div class="wrapper_inner">
+    <form method="post" action="" name="frmAddTicket" ng-submit="addTicket()" novalidate>
+      <input class="stdBorder" type="text" placeholder="Add a title" id="ticketTitle" name="ticketTitle" ng-model="ticketTitle" ng-minlength="3" ng-maxlength="32" required />
+      <input class="stdBorder" type="text" placeholder="Add description" id="ticketDescription" name="ticketDescription" ng-model="ticketDescription" ng-minlength="3" ng-maxlength="100" required />
+
+      <span class="textRight" ng-show="frmAddTicket.ticketDescription.$error.minlength"><i class="info icon"></i> Description is too short.</span>
+      <span class="textRight" ng-show="frmAddTicket.ticketDescription.$error.maxlength"><i class="info icon"></i> Description is too long.</span>
+      <span class="textRight" ng-show="frmAddTicket.ticketDescription.$error.required && frmAddTicket.ticketDescription.$dirty"><i class="info icon"></i> Description is required.</span>
+
+      <span class="textRight" ng-show="frmAddTicket.ticketTitle.$error.minlength"><i class="info icon"></i> Ttitle is too short.</span>
+      <span class="textRight" ng-show="frmAddTicket.ticketTitle.$error.maxlength"><i class="info icon"></i> Title is too long.</span>
+      <span class="textRight" ng-show="frmAddTicket.ticketTitle.$error.required && frmAddTicket.ticketTitle.$dirty"><i class="info icon"></i> Title is required.</span>
+      <button class="blue" type="submit" ng-disabled="frmAddTicket.$invalid"><i class="save icon"></i> Save Ticket</button>
+    </form>
+  </div>
+</div>
+
+<div class="wrapper" >
+  <div class="wrapper_header">
+    <i class="search icon setFocus" ng-click="setFocusSearch()"></i>
+    <input id=search class="stdLong" type="text" ng-model="search" placeholder="Search for Title, Description, Service Classes and Category" />
+    <span class="textRight">
+      <form method="post" action="" name="frmAddService" ng-submit="addService()" novalidate>
+        <span ng-show="frmAddService.service.$error.minlength"><i class="info icon"></i> Service class name is too short.</span>
+        <span ng-show="frmAddService.service.$error.maxlength"><i class="info icon"></i> Service class name is too long.</span>
+        <span ng-show="frmAddService.service.$error.required && frmAddService.service.$dirty"><i class="info icon"></i> Service class name is required.</span>
+        <i class="add icon setFocus" ng-click="setFocusClass()"></i>
+        <input class="standard" type="text" placeholder="Add a new service class" id="service" name="service" ng-model="service" ng-minlength="3" ng-maxlegnt="32" required />
+      </form>
+    </span>
+  </div>
+  <table class="list" ng-init="getTickets()">
+    <tr>
+      <th>Ticket ID</th>
+      <th>
+        Title
+        <a class="orderby" ng-click="reverse=false"><i class="angle up icon"></i></a>
+        <a class="orderby" ng-click="reverse=true"><i class="angle down icon"></i></a>
+      </th>
+      <th>Description</th>
+      <th>Service Classes</th>
+      <th>Category</th>
+    </tr>
+    <tr ng-repeat="ticket in tickets | filter:search | orderBy: 'title':reverse">
+      <td>{{ticket.ticketid}}</td>
+      <td>{{ticket.title}}</td>
+      <td>{{ticket.description}}</td>
+      <td></td>
+      <td>{{ticket.columns.name}}<span class="textRight"><a class="btnBlue" ng-click="setTicketReady(ticket)"><i class="browser icon"></i> Push</a></span> </td>
+    </tr>
+  </table>
+</div>
+

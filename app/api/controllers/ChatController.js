@@ -62,8 +62,9 @@ module.exports = {
         PrivateChatMsg.create({
           message: req.param('msg'),
           sender: req.session.user.id,
-          sendername: req.session.username,
+          sendername: req.session.user.username,
           reciever: user.id,
+          recievername: user.username,
           read: user.online
         }).exec(function(err, createdMsg){
           // Bei Fehler return
@@ -75,6 +76,8 @@ module.exports = {
           // Wenn der User online ist, direkt via Socket an den User senden
           if (user.online == true)
             sails.sockets.emit(user.socketid, 'privateMsg', createdMsg);
+
+          return res.json(createdMsg, 200);
         });
       }
     });
@@ -87,7 +90,50 @@ module.exports = {
     PrivateChatMsg.find({or: [
         {sender: req.session.user.id, reciever: req.param('sender')},
         {sender: req.param('sender'), reciever: req.session.user.id},
-      ], limit: 100, sort: 'createdAt: ASC'})
+      ], limit: 25, sort: 'createdAt: ASC'})
+      .exec(function(err, msgs){
+        // Bei Fehler return
+        if (err){
+          sails.log.error(err);
+          return res.json('There was an server error', 500);
+        }
+        // Gefundene Nachrichten zurückliefern
+        return res.json(msgs, 200);
+      });
+  },
+
+  getGroupMessages: function(req, res){
+    sails.log.verbose("[ChatCtrl] Action 'getGroupMessages' called");
+
+    GroupChatMsg.find({ where: { project: req.param('projectId')}, limit: 100, sort: 'createdAt: ASC' })
+      .exec(function(err, msg){
+        // Bei Fehler return
+        if (err){
+          sails.log.error(err);
+          return res.json('There was an server error', 500);
+        }
+
+        // Gefundene Nachrichten zurückliefern
+        return res.json(msgs, 200);
+      });
+  },
+
+  joinProjectRoom: function(req, res){
+    sails.log.verbose("[ChatCtrl] Action 'joinProjectRoom' called");
+
+    //TODO Prüfen, ob User teil des Projekts ist
+
+    // Verlasse den aktuellen Raum, bevor man einen neuen Raum betritt (z.B. beim Projektwechsel)
+    var rooms = sails.sockets.socketRooms(req.socket);
+    for (var i = 0; i < rooms.length; i++){
+      if (Strings.startWith("project-room-", rooms[i])) {
+        sails.sockets.leave(req.socket, rooms[i]);
+      }
+    }
+
+    sails.sockets.join(req.socket, 'project-room-'+req.param('projectId'));
+
+    GroupChatMsg.find({ where: { project: req.param('projectId')}, limit: 100, sort: 'createdAt: ASC' })
       .exec(function(err, msgs){
         // Bei Fehler return
         if (err){
@@ -98,6 +144,25 @@ module.exports = {
         // Gefundene Nachrichten zurückliefern
         return res.json(msgs, 200);
       });
+  },
+
+  sendGroupMsg: function(req, res){
+    sails.log.verbose("[ChatCtrl] Action 'sendGroupMsg' called");
+
+    GroupChatMsg.create({
+      message: req.param('msg'),
+      sender: req.session.user.id,
+      sendername: req.session.user.username,
+      project: req.param('projectId')
+    }).exec(function(err, createdMsg){
+      // Bei Fehler return
+      if (err){
+        sails.log.error(err);
+        return res.json('There was an server error', 500);
+      }
+
+      sails.sockets.broadcast('project-room-'+req.param('projectId'), 'groupMsg', createdMsg);
+    });
   }
 };
 

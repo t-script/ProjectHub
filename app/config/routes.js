@@ -31,4 +31,32 @@ module.exports.routes = {
 
     'POST /chat/sendPrivateMsg'    : 'ChatController.sendPrivateMsg',
     'GET /chat/getPrivateMessages' : 'ChatController.getPrivateMessages',
+    'GET /chat/joinProjectRoom'    : 'ChatController.joinProjectRoom',
+
+    'POST /createProject' : 'ProjectController.createProject',
+    'GET /ownProject'     : 'ProjectController.getProjectsByUser',
+    'POST /addMember'     : 'ProjectController.addMember',
+    'GET /getMembers'     : 'ProjectController.getMembers',
+    'POST /removeMember'  : 'ProjectController.removeMember',
+    'GET /countProject'   : 'ProjectController.countProject',
+    'GET /countTickets'   : 'ProjectController.countTickets',
+    'GET /countMembers'   : 'ProjectController.countMembers',
+
+    'POST /createTickets'   : 'TicketsController.createTickets',
+    'GET /getTickets'       : 'TicketsController.getTickets',
+    'GET /getTicketsbyUser' : 'TicketsController.getTicketsbyUser',
+
+    'GET /kanbanColums'      : 'KanbanController.getKanbanColumns',
+    'POST /updateTicket'     : 'KanbanController.updateTicket',
+    'POST /addTicketToBoard' : 'KanbanController.addTicketToBoard',
+
+    'GET /getUsername' : 'UserController.getUsername',
+    'POST /updateUser' : 'UserController.updateUser',
+
+    'POST /startVoting' : 'PokerController.startVoting',
+    'POST /stopVoting'  : 'PokerController.stopVoting',
+    'POST /vote'        : 'PokerController.vote',
+    'POST /saveValue'   : 'PokerController.saveValue',
+
+    'POST /createMessage': 'MessageController.createMessage'
 };

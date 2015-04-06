@@ -29,6 +29,13 @@ body {
   height: 100%;
 }
 
+h2 {
+  font-size: 20px;
+  padding-left: 5px;
+  padding-right: 10px;
+  display: inline;
+}
+
 /*******************************
           Buttons
 *******************************/
@@ -47,30 +54,118 @@ a.btnBlue:hover {
   background-color: #6785fc;
 }
 
+a.blue {
+  color: #5677fC;
+  text-decoration: none;
+}
+
+a.blue:hover {
+  color: #666666;
+}
+
+a.std {
+  color: #424242;
+  text-decoration: none;
+}
+
+a.std:hover {
+  color: #5677fC;
+}
+
+button.blue {
+  padding: 5px 10px;
+  background-color: #5677fC;
+  border: 1px solid #5677fC;
+  border-radius: 2px;
+  color: #ffffff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+
 /*******************************
           Input
 *******************************/
 input.standard {
-  padding: 5px 10px;
-  border: 1px solid #e0e0e0;
-  border-radius: 2px;
-  font-size: 12px;
-}
+   background-color: #e0e0e0;
+   border: 1px solid #e0e0e0;
+   width: 200px;
+   padding-left: 10px;
+   font-size: 14px;
+ }
 
 input.standard:focus {
   outline: none;
 }
 
+input.stdLong {
+  background-color: #e0e0e0;
+  border: 1px solid #e0e0e0;
+  width: 400px;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+input.stdLong:focus {
+  outline: none;
+}
+
 input.white {
-  margin: 2px 10px;
+  margin: 0px 10px;
   border: 1px solid #ffffff;
-  font-size: 16px;
+  font-size: 14px;
   width: 300px;
 }
 
 input.white:focus {
   outline: none;
 }
+
+input.whiteBlue {
+  margin: 0px 0px;
+  border: 1px solid #ffffff;
+  font-size: 14px;
+  width: 300px;
+  color: #5677fC;
+  display: none;
+}
+
+input.whiteBlue:focus {
+  outline: none;
+  color: #5677fC;
+}
+
+input.stdBorder {
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  padding: 5px 10px;
+  margin-right: 15px;
+  font-size: 14px;
+  width: 300px;
+}
+
+.ui-autocomplete {
+  background: #ffffff;
+  list-style: none;
+  width: 300px;
+  border-radius: 4px;
+  border: 1px solid #eeeeee;
+  z-index: 10000000;
+}
+
+.ui-autocomplete li {
+  padding: 5px 10px;
+  border-bottom: 1px solid #eeeeee;
+  cursor: pointer;
+}
+
+.ui-helper-hidden-accessible { display:none; }
+
+.setFocus:hover {
+  color: #5677fC;
+  cursor: pointer;
+}
+
 /*******************************
           Sidebar
 *******************************/
@@ -163,6 +258,41 @@ div.head_h1 h1 {
 }
 
 /*******************************
+          Subhead
+*******************************/
+div.subhead {
+  position: fixed;
+  top: 3.0em;
+  left: 2.75em;
+  width: 100%;
+  height: 2.0em;
+  background-color: #f9f9f9;
+}
+
+div.subhead ul {
+  display: block;
+  padding-left: 2.0em;
+  padding-top: 0.2em;
+  list-style: none;
+}
+
+div.subhead li {
+  display: inline;
+  margin-right: 1.5em;
+  font-size: 0.9em;
+}
+
+div.subhead li a {
+  text-decoration: none;
+  color: #666666;
+  font-weight: 400;
+}
+
+div.subhead li a:hover {
+  color: #5677fC;
+}
+
+/*******************************
           View
 *******************************/
 main.view {
@@ -183,6 +313,10 @@ div.container {
   min-width: 640px;
 }
 
+div.container.height {
+  top: 3.0em;
+}
+
 div.containerContent {
   padding: 0px 5px;
   margin-bottom: 8px;
@@ -191,13 +325,19 @@ div.containerContent {
 div.wrapper {
   position: relative;
   top: 5px;
-  border-radius: 2px;
   background-color: #fff;
   margin-bottom: 20px;
+  box-shadow: 0px 3px 3px #eee;
 
 }
 
 div.wrapper_inner {
+  padding: 10px 20px;
+}
+
+div.wrapper_header {
+  background-color: #e0e0e0;
+  border-bottom: 1px solid #dddddd;
   padding: 10px 20px;
 }
 
@@ -207,6 +347,7 @@ div.wrapper_inner {
 table.list {
   width: 100%;
   border-collapse: collapse;
+  font-size: 14px;
 }
 
 table.list td {
@@ -217,6 +358,14 @@ table.list td {
 table.list td.btn {
   text-align: right;
   width: 200px;
+}
+
+table.list th {
+  text-align: left;
+  font-weight: 400;
+  background-color: #e0e0e0;
+  border-bottom: 1px solid #dddddd;
+  padding: 10px 20px;
 }
 
 /*******************************
@@ -236,7 +385,7 @@ div.privatchat {
   right: 0;
   width: 300px;
   height: 100%;
-  background-color: rgba(2, 2, 2, 0.4);
+  background-color: rgba(2, 2, 2, 0.6);
   z-index: 100;
 }
 
@@ -251,3 +400,507 @@ div.privatchat li {
   color: #fafafa;
 }
 
+/*******************************
+          Chat Window
+*******************************/
+
+div.groupchat_header{
+  position: fixed;
+  left: 59%;
+  top: 3.69em;
+  font-size: 0.9em;
+  font-weight: 400;
+  color: #666666;
+}
+
+div.groupchat {
+  position: fixed;
+  top: 5.0em;
+  right: 0;
+  width: 42%;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+div.groupchat ul{
+  overflow-y: scroll;
+  height: 790px;
+  margin-top: 10px;
+}
+
+div.groupchat li {
+  padding: 0.7em 1.0em;
+  list-style: none;
+  font-size: 0.8em;
+  color: #fafafa;
+  background-color: #5677fC;
+  border-radius: 2px;
+  margin: 0px 15px 5px;
+}
+
+div.groupchat li:after {
+  content:"";
+  position: relative;
+  float:right;
+  top: 33%;
+  margin-right:-29px;
+  border-top: 10px solid transparent;
+  border-left: 10px solid #5677fC;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+div.groupchat #grpChatSubmit{
+  position: absolute;
+  bottom: 90px;
+  padding: 8px;
+  border: 1px solid #ffffff;
+  font-size: 14px;
+  width: 568px;
+  outline: none;
+}
+
+div.groupchat #grpChatSubmitBtn{
+  position: absolute;
+  bottom: 88px;
+  right: 4px;
+  background-color: #ffffff;
+  border: 0px;
+  font-size: 30px;
+  outline: none;
+}
+
+hr.chat{
+  position: fixed;
+  bottom: 40px;
+  width: 100%;
+  height: 1px;
+  background: #e0e0e0;
+  z-index: 99;
+}
+
+/*******************************
+           Einzelchat
+*******************************/
+#privat-chat-container {
+  width: 100%;
+  bottom: 0;
+  z-index: 100;
+  position: absolute;
+}
+
+#chat-list {
+  float: right;
+  line-height: 36px;
+  margin-right: 8px;
+}
+
+#privat-chat-container ul li {
+  display: block;
+  float: left;
+}
+
+.chat-tab {
+  background: #5677fC;
+  margin-right: -40px;
+  width: 15em;
+  height: 2.2em;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.chat-first{
+  margin-left: 50px;
+}
+
+.chat-sec{
+  margin-left: 300px;
+}
+
+.chat-third{
+  margin-left: 550px;
+}
+
+.prvt-chat .chat-header {
+  height: 2.2em; cursor: pointer;
+}
+
+.prvt-chat .chat-header .indicator{
+  margin-right: -5px;
+  margin-top: 5px;
+  color: #D0D9FF;
+}
+
+.prvt-chat .chat-header .username{
+  margin-top: -22px;
+  margin-left: 30px;
+  color: #ffffff;
+}
+
+.prvt-chat .close{
+  margin-right: 15px;
+  margin-top: -33px;
+  float: right;
+  color: #D0D9FF;
+  cursor: pointer;
+}
+
+.chat-tab a{
+  margin-left: 8px;
+  text-decoration: none;
+  color: black;
+}
+
+.chat-tab a:visited{
+  text-decoration: none;
+  color: black;
+}
+
+.prvt-chat .chat-content {
+  background: white;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.prvt-chat .chat-content ul{
+  height: 222px; overflow-y: scroll;
+}
+
+.prvt-chat .frm-private-chat{
+  position: absolute;
+  bottom: 0;
+}
+
+.prvt-chat .chat-hr {
+  position: absolute;
+  bottom: 18px;
+  width: 100%;
+  height: 1px;
+  background: #e0e0e0;
+  z-index: 9999;
+}
+
+.prvt-chat .prvt-chat-submit{
+  padding: 7px;
+  outline: none;
+  border: 1px solid #ffffff;
+  width: 180px;
+}
+
+.prvt-chat .prvt-chat-submit-btn{
+  background-color: #ffffff;
+  border: 0px;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+}
+/*******************************
+          Kanban Board
+*******************************/
+.kanbanBoard {
+  position: relative;
+  top: 5px;
+  height: calc(100vh - 150px);
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  box-shadow: 0px 3px 3px #eee;
+}
+
+.kanbanColumns {
+  background-color: #ffffff;
+  min-height: calc(100vh - 250px);
+  list-style-type: none;
+  margin: 0;
+  float: left;
+}
+
+.kanbanHeader{
+  background-color: #e0e0e0;
+  font-size: 14px;
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 0px;
+  float: left;
+}
+
+.kanbanHeader li {
+  font-weight: 400;
+  padding-left: 20px;
+}
+
+.newline{
+  clear: both;
+}
+
+.addTicket {
+  display: none;
+}
+
+/*******************************
+          Tickets
+*******************************/
+.ticket {
+  background-color: #fafafa;
+  border-top: 5px solid #b2ff59;
+  box-shadow: 0px 3px 3px #EEE;
+  margin: 10px 10px;
+  cursor: move;
+}
+
+.time {
+  background-color: #5677fC;
+  padding: 5px 10px;
+  font-size: 14px;
+  text-align: center;
+  color: #fafafa;
+}
+
+.ticketId {
+  padding-left: 5px;
+  font-size: 12px;
+}
+
+.ticketTitle {
+  text-align: center;
+  font-weight: 400;
+}
+
+.ticketDesc {
+  text-align: center;
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+
+.progressbar {
+  width: 80%;
+  height: 10px;
+  border: 1px solid #3f51b5;
+  border-radius: 5px;
+  text-align: left;
+  float: inherit;
+  display: inline-block;
+}
+
+.bar {
+  background-color: #3f51b5;
+  border-radius: 5px;
+  height: 10px;
+  float: left;
+  display: inline-block;
+}
+
+
+/*******************************
+          OrderBy
+*******************************/
+a.orderby {
+  cursor: pointer;
+}
+
+/*******************************
+          column
+*******************************/
+div.col-left {
+  width: 55%;
+  float: left;
+}
+
+div.col-right {
+  width: 40%;
+  float: right;
+}
+
+div.left {
+  float: left;
+}
+
+div.right {
+  float: right;
+}
+
+/*******************************
+          calendar
+*******************************/
+
+label {
+  font-weight: 600;
+}
+
+#calendar-wrapper {
+}
+
+#calendar {
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/*******************************
+        planning poker
+*******************************/
+div.estimate {
+  position: relative;
+  top: 0px;
+  height: 162px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0px 3px 3px #eee;
+  padding-left: 13px;
+}
+
+div.estimate ul {
+  position: relative;
+  display: block;
+}
+
+div.estimate li {
+  display: inline;
+  list-style: none;
+}
+
+div.flipside {
+  height: 140px;
+  width: 108px;
+  border-radius: 4px;
+  border: 1px solid #5677fC;
+  background-color: #5677fC;
+  float: left;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+div.cardUser {
+  position: relative;
+  top: 40px;
+  text-align: center;
+  color: #fafafa;
+  font-size: 14px;
+}
+
+div.cardValue {
+  position: relative;
+  top: 40px;
+  text-align: center;
+  font-size: 34px;
+}
+
+div.activeUser {
+  color: #000000;
+}
+
+div.cards {
+  position: relative;
+  height: 315px;
+  background-color: #fff;
+  box-shadow: 0px 3px 3px #eee;
+  padding-left: 13px;
+}
+
+div.cards ul {
+  position: relative;
+  display: block;
+}
+
+div.cards li {
+  display: inline;
+  list-style: none;
+}
+
+div.card {
+  height: 140px;
+  width: 108px;
+  border-radius: 4px;
+  border: 1px solid #5677fC;
+  background-color: #fff;
+  float: left;
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+div.card.inactive {
+  border: 1px solid #A8A8A8;
+}
+
+div.card.selected {
+  background-color: #E2E8FF;
+}
+
+div.cardNumber {
+  position: relative;
+  top: 40px;
+  text-align: center;
+  color: #5677fC;
+  font-size: 40px;
+}
+
+div.cardNumber.inactive {
+  color: #A8A8A8;
+}
+
+#reset {
+  display: none;
+}
+
+a.pp {
+  display: none;
+}
+
+a.pp:hover {
+  color: #5677fC;
+  cursor: pointer;
+}
+
+#ticketsOverview {
+  display: none;
+}
+
+/*******************************
+          Jumbo
+*******************************/
+div.jumbo {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+div.block {
+  float: left;
+  width: 24.0%;
+  height: 180px;
+  padding-top: 20px;
+  margin-right: 1.3%;
+  text-align: center;
+  color: #fafafa;
+  font-size: 18px;
+}
+
+div.block2 {
+  margin-right: 0;
+}
+
+div.blue {
+  background-color: #5677fC;
+}
+
+div.teal {
+  background-color: #1abc9c;
+}
+
+div.red {
+  background-color: #e74c3c;
+}
+
+div.purple {
+  background-color: #9b59b6;
+}
+
+div.block p {
+  font-size: 80px;
+}
+
+div.block span {
+  font-size: 14px;
+}

@@ -32,33 +32,81 @@ angular.module('phApp', [
       })
 
       .state('project', {
+        url: '/project/:id',
         views: {
           "mainView": {
             templateUrl: '/templates/project.html',
             controller: 'ProjectCtrl'
           },
-          "pageTitle": {template: 'Project / ProjectName'}
-        }
-      })
-
-      .state('project.start', {
-        url: '/project/:id',
-        views: {
-          "projectView": {
-            templateUrl: '/templates/start.html',
+          "projectChatView": {
+            templateUrl: '/templates/projectChat.html',
+            controller: 'ProjectCtrl'
+          },
+          "pageTitle": {
+            template: 'Project / <span id="name"></span>',
             controller: 'ProjectCtrl'
           }
         }
       })
 
+      .state('project.start', {
+        views: {
+          "projectView": {
+            templateUrl: '/templates/start.html',
+            controller: 'ProjectCtrl'
+          },
+          "projectChatView": {
+            templateUrl: '/templates/projectChat.html',
+            controller: 'ProjectCtrl'
+          }
+        }
+      })
+
+      .state('project.backlog', {
+        url: '/backlog',
+        views: {
+          "projectView": {
+            templateUrl: '/templates/backlog.html',
+            controller: 'BacklogCtrl'
+          },
+          "pageTitle": {template: 'Project/ ProjectName / Backlog'}
+        }
+      })
+
       .state('project.kanban', {
-        url: '/project/:id/kanban',
+        url: '/kanban',
         views: {
           "projectView": {
             templateUrl: '/templates/kanban.html',
             controller: 'KanbanCtrl'
           },
           "pageTitle": {template: 'Project/ ProjectName / Kanban'}
+        }
+      })
+
+      .state('project.planningpoker', {
+        url: '/planningpoker',
+        views: {
+          "projectView": {
+            templateUrl: '/templates/poker.html',
+            controller: 'PokerCtrl'
+          },
+          "projectChatView": {
+            templateUrl: '/templates/projectChat.html',
+            controller: 'ProjectCtrl'
+          },
+          "pageTitle": {template: 'Project/ ProjectName / Planning Poker'}
+        }
+      })
+
+      .state('project.files', {
+        url: '/files',
+        views: {
+          "projectView": {
+            templateUrl: '/templates/projectfiles.html',
+            controller: 'FilesCtrl'
+          },
+          "pageTitle": {template: 'Project/ ProjectName / Files'}
         }
       })
 

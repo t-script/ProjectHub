@@ -25,10 +25,14 @@ module.exports.policies = {
   ***************************************************************************/
 
   'user': {
-    '*': false,
+    //'*': false,
     'create': 'isLoggedOut',
     'update': 'isLoggedIn'
   },
+
+  /*'project': {
+    '*': false
+  },*/
 
   /***************************************************************************
   *                                                                          *
@@ -44,5 +48,13 @@ module.exports.policies = {
     'login': 'isLoggedOut',
     'logout': 'isLoggedIn',
     'resetPassword': true
+  },
+
+  ProjectController: {
+    '*': 'isLoggedIn'
+  },
+
+  KanbanController: {
+    '*': 'isLoggedIn'
   }
 };

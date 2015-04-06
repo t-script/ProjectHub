@@ -1,10 +1,68 @@
-<div ng-controller="CalendarCtrl">
-  <div id='calendar'></div>
+<div class="container" ng-controller="CalendarCtrl">
+  <div id="calendar-wrapper" class="wrapper">
+    <div id='calendar'></div>
+  </div>
 </div>
+
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Calendar Event
+  </div>
+  <div class="content">
+    <div class="description">
+      <div id="calendarForm" class="ui form">
+        <div class="field">
+          <label>Title</label>
+          <div class="two fields">
+            <div class="field">
+              <input type="text">
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Start</label>
+          <div class="three fields">
+            <div class="field">
+              <input id="startDatepicker" type="text">
+            </div>
+            <div class="field">
+              <input id="startTimepicker" type="text">
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>End</label>
+          <div class="three fields">
+            <div class="field">
+              <input id="endDatepicker" type="text">
+            </div>
+            <div class="field">
+              <input id="endTimepicker" type="text">
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black button">
+      Nope
+    </div>
+    <div class="ui positive right labeled icon button">
+      Yep, that's me
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+
+
 
 <style>
   #calendar {
-    max-width: 900px;
-    margin: 0 auto;
+    width: 1000px;
   }
 </style>

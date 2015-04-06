@@ -4,7 +4,7 @@ angular.module('phApp').controller('ProjectsCtrl', function($scope, $sails){
   $scope.projects = [];
 
   $scope.getProjects = function () {
-    $sails.get('/project')
+    $sails.get('/ownProject')
       .success(function (data) {
         $scope.projects = data;
       })
@@ -16,16 +16,24 @@ angular.module('phApp').controller('ProjectsCtrl', function($scope, $sails){
   $scope.createProject = function () {
     if ($scope.frmCreateProject.$valid) {
       $('#projectName').val(null);
-      var data = {name: $scope.projectName};
-      $scope.projects.push(data)
-      $sails.post('/project', data)
+      var data = {projectName: $scope.projectName};
+      $sails.post('/createProject', data)
         .success(function (data) {
           console.log('success');
+          $scope.projects = data;
         })
         .error(function (data) {
           console.log(data)
         })
     }
   }
-});
 
+  $scope.setFocus = function () {
+    $('#projectName').focus();
+  }
+
+  $scope.setFocusSearch = function () {
+    $('#search').focus();
+  }
+
+});
